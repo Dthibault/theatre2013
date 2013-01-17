@@ -5,6 +5,7 @@ GestionDMX::GestionDMX(QObject *parent) :
     QObject(parent)
 {
     this->adresseDMX = "/dev/ttyUSB0";
+
 }
 
 GestionDMX::~GestionDMX()
@@ -15,9 +16,19 @@ GestionDMX::~GestionDMX()
 
 bool GestionDMX::seConnecter()
 {
-    qDebug() << "\nLancé";
-    this->interfaceDMX = new EnttecDMXUSB(DMX_USB_PRO, "/dev/ttyUSB0");
-    qDebug() << "Présent: " << this->interfaceDMX->IsAvailable() << "\n";
+    this->interfaceDMX = new EnttecDMXUSB(DMX_USB_PRO, this->adresseDMX.toLocal8Bit().constData());
+
+    if(this->interfaceDMX->IsAvailable())
+    {
+        return true;
+    }
+    else
+    {
+        emit adaptateurNonPresent();
+
+        delete this->interfaceDMX;
+        return false;
+    }
 }
 
 

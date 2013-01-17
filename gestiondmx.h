@@ -7,6 +7,8 @@
 #include <QDebug>
 #include "enttecdmxusb.h"
 
+
+
 class GestionDMX : public QObject
 {
     Q_OBJECT
@@ -14,11 +16,7 @@ class GestionDMX : public QObject
 private:
     EnttecDMXUSB *interfaceDMX;
 
-
     QString adresseDMX;
-
-
-
 
 public:
     explicit GestionDMX(QObject *parent = 0);
@@ -29,6 +27,7 @@ public:
     
 signals:
 
+    void adaptateurNonPresent();
 
 private slots:
 

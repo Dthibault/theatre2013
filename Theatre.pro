@@ -3,7 +3,10 @@ SOURCES += \
     rs232.cpp \
     enttecdmxusb.cpp \
     colorwheel.cpp \
-    gestiondmx.cpp
+    gestiondmx.cpp \
+    fenetreprincipale.cpp \
+    fenetreparametres.cpp \
+    gestionxml.cpp
 
 HEADERS += \
     types.h \
@@ -11,4 +14,11 @@ HEADERS += \
     enttecdmxusb.h \
     colorwheel.h \
     errcode.h \
-    gestiondmx.h
+    gestiondmx.h \
+    fenetreprincipale.h \
+    fenetreparametres.h \
+    gestionxml.h
+
+FORMS += \
+    fenetreprincipale.ui \
+    fenetreparametres.ui

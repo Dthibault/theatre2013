@@ -1,8 +1,7 @@
 #include <QApplication>
 #include <QTranslator>
 #include <QtGui>
-#include "gestiondmx.h"
-//#include "mainwindow.h"
+#include "fenetreprincipale.h"
 
 int main(int argc, char *argv[])
 {
@@ -13,12 +12,8 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
     QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
 
-//    MainWindow fenetre;
-//    fenetre.show();
-
-    GestionDMX *monptR = new GestionDMX;
-
-    monptR->seConnecter();
+    FenetrePrincipale fenetre;
+    fenetre.show();
 
 
     return app.exec();
