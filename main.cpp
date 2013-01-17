@@ -1,6 +1,7 @@
 #include <QApplication>
 #include <QTranslator>
 #include <QtGui>
+#include "gestiondmx.h"
 //#include "mainwindow.h"
 
 int main(int argc, char *argv[])
@@ -14,6 +15,10 @@ int main(int argc, char *argv[])
 
 //    MainWindow fenetre;
 //    fenetre.show();
+
+    GestionDMX *monptR = new GestionDMX;
+
+
 
 
     return app.exec();
