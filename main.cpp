@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 
     GestionDMX *monptR = new GestionDMX;
 
-
+    monptR->seConnecter();
 
 
     return app.exec();

@@ -1,5 +1,5 @@
 #include "enttecdmxusb.h"
-#include <QDebug>
+
 
 EnttecDMXUSB::EnttecDMXUSB(EnttecInterfaces typeInterface/*=DMX_USB_PRO*/, string portInterface/*="/dev/ttyUSB0"*/)
 {
