@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theatre2013>
+  <adaptateur id="1">
+    <adresse>/dev/ttyUSB0</adresse>
+    <UUID>{d63c0443-0708-469a-abe4-0aa5e9f00189}</UUID>
+  </adaptateur>
+</theatre2013>

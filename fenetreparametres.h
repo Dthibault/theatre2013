@@ -26,13 +26,13 @@ private:
 
     GestionDMX *interfaceDMX;
 
-    void verifierPeripheriquesSysteme();
 
 private slots:
     void switchBouton(QString choix);
 
     void recupererInformations();
 
+    void verifierPeripheriquesSysteme();
 
     void enregistrerDonnees();
 };

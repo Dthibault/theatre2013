@@ -7,18 +7,29 @@ FenetreParametres::FenetreParametres(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->boutonInformations->setDisabled(true);
 
-//    QUuid monUuid = QUuid::createUuid ();
-//    qDebug() << "\n\nMon UUID: " << monUuid.toString() << "\n\n";
-
-    this->verifierPeripheriquesSysteme();
 
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(enregistrerDonnees()));
 
 
     connect(ui->comboBoxAdaptateurs, SIGNAL(activated(QString)), this, SLOT(switchBouton(QString)));
     connect(ui->boutonInformations, SIGNAL(clicked()), this, SLOT(recupererInformations()));
+    connect(ui->boutonDetection, SIGNAL(clicked()), this, SLOT(verifierPeripheriquesSysteme()));
+
+
+
+    GestionXML paramAdaptateurs;
+    QString adresse, UUID;
+    if(paramAdaptateurs.lireAdaptateur(&adresse, &UUID))
+    {
+        ui->comboBoxAdaptateurs->addItem(adresse);
+        ui->boutonInformations->setEnabled(true);
+    }
+    else
+    {
+        ui->comboBoxAdaptateurs->addItem("Faire détection");
+        ui->boutonInformations->setDisabled(true);
+    }
 }
 
 FenetreParametres::~FenetreParametres()
@@ -30,6 +41,7 @@ FenetreParametres::~FenetreParametres()
 void FenetreParametres::verifierPeripheriquesSysteme()
 {
     int nombre = 0, boucle = 0;
+    ui->comboBoxAdaptateurs->clear();
 
     QFile *fichier;
 

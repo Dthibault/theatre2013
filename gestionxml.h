@@ -18,6 +18,7 @@ public:
     ~GestionXML();
 
     void ecritureAdaptateur(QString adresse, QString uuid);
+    bool lireAdaptateur(QString *adresseAdaptateur, QString *UUIDAdaptateur);
 
 private:
 
