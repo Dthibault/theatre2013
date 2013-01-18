@@ -4,3 +4,8 @@ GestionXML::GestionXML(QObject *parent) :
     QObject(parent)
 {
 }
+
+GestionXML::~GestionXML()
+{
+
+}

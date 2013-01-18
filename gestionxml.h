@@ -11,6 +11,7 @@ class GestionXML : public QObject
     Q_OBJECT
 public:
     explicit GestionXML(QObject *parent = 0);
+    ~GestionXML();
     
 signals:
     

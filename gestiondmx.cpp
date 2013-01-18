@@ -31,4 +31,27 @@ bool GestionDMX::seConnecter()
     }
 }
 
+void GestionDMX::setAdresse(QString nom)
+{
+    this->adresseDMX = nom;
+}
+
+
+QString GestionDMX::getNomInterface()
+{
+    string recup = this->interfaceDMX->GetNomInterface();
+    return recup.c_str();
+}
+
+QString GestionDMX::getSerialNumber()
+{
+    string recup = this->interfaceDMX->GetSerialNumber();
+    return recup.c_str();
+}
+
+QString GestionDMX::getPort()
+{
+    string recup = this->interfaceDMX->GetPortInterface();
+    return recup.c_str();
+}
 

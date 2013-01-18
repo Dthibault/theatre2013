@@ -5,6 +5,7 @@
 #include <QThread>
 #include <QString>
 #include <QDebug>
+#include <string>
 #include "enttecdmxusb.h"
 
 
@@ -23,6 +24,11 @@ public:
     ~GestionDMX();
 
     bool seConnecter();
+    void setAdresse(QString nom);
+
+    QString getNomInterface();
+    QString getSerialNumber();
+    QString getPort();
 
     
 signals:

@@ -6,6 +6,7 @@
 #include <QUuid>
 #include <QDebug>
 #include <QFile>
+#include "gestiondmx.h"
 
 namespace Ui {
 class FenetreParametres;
@@ -22,7 +23,14 @@ public:
 private:
     Ui::FenetreParametres *ui;
 
+    GestionDMX *interfaceDMX;
+
     void verifierPeripheriquesSysteme();
+
+private slots:
+    void switchBouton(QString choix);
+
+    void recupererInformations();
 };
 
 #endif // FENETREPARAMETRES_H

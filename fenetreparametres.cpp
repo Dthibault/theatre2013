@@ -13,6 +13,9 @@ FenetreParametres::FenetreParametres(QWidget *parent) :
 //    qDebug() << "\n\nMon UUID: " << monUuid.toString() << "\n\n";
 
     this->verifierPeripheriquesSysteme();
+
+    connect(ui->comboBoxAdaptateurs, SIGNAL(activated(QString)), this, SLOT(switchBouton(QString)));
+    connect(ui->boutonInformations, SIGNAL(clicked()), this, SLOT(recupererInformations()));
 }
 
 FenetreParametres::~FenetreParametres()
@@ -52,4 +55,37 @@ void FenetreParametres::verifierPeripheriquesSysteme()
 
     }
     ui->comboBoxAdaptateurs->setCurrentIndex(0);
+}
+
+
+void FenetreParametres::switchBouton(QString choix)
+{
+    if(choix.contains("ttyUSB"))
+    {
+        ui->boutonInformations->setEnabled(true);
+    }
+    else
+    {
+        ui->boutonInformations->setDisabled(true);
+        ui->labelNomResult->clear();
+        ui->labelPortResult->clear();
+        ui->labelSerialResult->clear();
+    }
+}
+
+void FenetreParametres::recupererInformations()
+{
+    this->interfaceDMX = new GestionDMX;
+    this->interfaceDMX->setAdresse(ui->comboBoxAdaptateurs->currentText());
+
+    if(this->interfaceDMX->seConnecter())
+    {
+        ui->labelNomResult->setText(this->interfaceDMX->getNomInterface());
+        ui->labelSerialResult->setText(this->interfaceDMX->getSerialNumber());
+        ui->labelPortResult->setText(this->interfaceDMX->getPort());
+    }
+    else
+    {
+        ui->labelNomResult->setText("Périphérique NON DMX");
+    }
 }
