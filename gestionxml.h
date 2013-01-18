@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QString>
 #include <QDebug>
+#include <QFile>
 #include <QtXml/QtXml>
 
 class GestionXML : public QObject
@@ -12,6 +13,10 @@ class GestionXML : public QObject
 public:
     explicit GestionXML(QObject *parent = 0);
     ~GestionXML();
+
+private:
+    QFile *fichierXML;
+    QDomDocument *documentXML;
     
 signals:
     
