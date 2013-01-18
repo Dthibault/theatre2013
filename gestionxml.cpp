@@ -14,7 +14,7 @@ bool GestionXML::lireAdaptateur(QString *adresseAdaptateur, QString *UUIDAdaptat
 {
 
     QDomDocument documentXML;
-    QFile fichierXML("./configuration/adaptateur.xml");
+    QFile fichierXML(ADAPTATEURXML);
 
     if(!(fichierXML.open(QIODevice::ReadOnly)))
     {
@@ -53,7 +53,7 @@ void GestionXML::ecritureAdaptateur(QString adresse, QString uuid)
 {
 
     QDomDocument documentXML;
-    QFile fichierXML("./configuration/adaptateur.xml");
+    QFile fichierXML(ADAPTATEURXML);
 
     if(!(fichierXML.open(QIODevice::WriteOnly)))
     {
@@ -91,4 +91,73 @@ void GestionXML::ecritureAdaptateur(QString adresse, QString uuid)
 
     fichierXML.close();
 
+}
+
+
+void GestionXML::ecriturePassword(QString password)
+{
+    QDomDocument documentXML;
+    QFile fichierXML(PASSWORDXML);
+
+    if(!(fichierXML.open(QIODevice::WriteOnly)))
+    {
+        QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Password.xml");
+    }
+    else
+    {
+        QDomNode xmlNode = documentXML.createProcessingInstruction("xml","version=\"1.0\" encoding=\"UTF-8\"");
+        documentXML.insertBefore(xmlNode, documentXML.firstChild());
+
+        QDomElement root = documentXML.createElement("theatre2013");
+        documentXML.appendChild(root);
+
+        QDomElement domPassword = documentXML.createElement("password");
+        domPassword.setAttribute("method", "SHA-1");
+        root.appendChild(domPassword);
+
+
+        QDomText nodePassword = documentXML.createTextNode(password);
+        domPassword.appendChild(nodePassword);
+
+
+        QTextStream stream(&fichierXML);
+        documentXML.save(stream, 2);
+
+
+    }
+
+    fichierXML.close();
+}
+
+bool GestionXML::lirePassword(QString *password)
+{
+    QDomDocument documentXML;
+    QFile fichierXML(PASSWORDXML);
+
+    if(!(fichierXML.open(QIODevice::ReadOnly)))
+    {
+        QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Password.xml");
+    }
+    else
+    {
+        documentXML.setContent(&fichierXML, false);
+        QDomElement racine = documentXML.documentElement();
+
+        if(racine.isNull())
+        {
+            qDebug() << "Mais c'est vide";
+            return false;
+        }
+        else
+        {
+            QDomElement unElement = racine.firstChildElement();
+            *password = unElement.text(); // On récupère l'adresse
+
+
+            return true;
+        }
+
+    }
+
+    fichierXML.close();
 }

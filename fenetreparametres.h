@@ -6,6 +6,7 @@
 #include <QUuid>
 #include <QDebug>
 #include <QFile>
+#include <QCryptographicHash>
 #include "gestiondmx.h"
 #include "gestionxml.h"
 
@@ -35,6 +36,8 @@ private slots:
     void verifierPeripheriquesSysteme();
 
     void enregistrerDonnees();
+
+    void modifierPassword();
 };
 
 #endif // FENETREPARAMETRES_H

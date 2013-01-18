@@ -28,6 +28,7 @@
      <string>Fichier</string>
     </property>
     <addaction name="actionParam_tres"/>
+    <addaction name="actionG_rer_appareils"/>
     <addaction name="separator"/>
     <addaction name="actionQuitter"/>
    </widget>
@@ -42,6 +43,11 @@
   <action name="actionQuitter">
    <property name="text">
     <string>Quitter</string>
+   </property>
+  </action>
+  <action name="actionG_rer_appareils">
+   <property name="text">
+    <string>Gérer appareils</string>
    </property>
   </action>
  </widget>

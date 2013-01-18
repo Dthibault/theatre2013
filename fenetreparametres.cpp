@@ -16,6 +16,8 @@ FenetreParametres::FenetreParametres(QWidget *parent) :
     connect(ui->boutonInformations, SIGNAL(clicked()), this, SLOT(recupererInformations()));
     connect(ui->boutonDetection, SIGNAL(clicked()), this, SLOT(verifierPeripheriquesSysteme()));
 
+    connect(ui->boutonModifierMDP, SIGNAL(clicked()), this, SLOT(modifierPassword()));
+
 
 
     GestionXML paramAdaptateurs;
@@ -30,6 +32,13 @@ FenetreParametres::FenetreParametres(QWidget *parent) :
         ui->comboBoxAdaptateurs->addItem("Faire détection");
         ui->boutonInformations->setDisabled(true);
     }
+
+//    qDebug() << QCryptographicHash::hash("data",QCryptographicHash::Sha1).toHex();
+//    paramAdaptateurs.ecriturePassword(QCryptographicHash::hash("data",QCryptographicHash::Sha1).toHex());
+//    QString lol;
+//    paramAdaptateurs.lirePassword(&lol);
+//    qDebug() << lol;
+
 }
 
 FenetreParametres::~FenetreParametres()
@@ -112,5 +121,32 @@ void FenetreParametres::enregistrerDonnees()
 {
     GestionXML paramAdaptateurs;
     QUuid monUuid = QUuid::createUuid ();
-    paramAdaptateurs.ecritureAdaptateur(ui->labelPortResult->text(), monUuid.toString());
+    paramAdaptateurs.ecritureAdaptateur(ui->comboBoxAdaptateurs->currentText(), monUuid.toString());
+}
+
+void FenetreParametres::modifierPassword()
+{
+    GestionXML passwordBDD;
+
+    QString ancienBDD;
+    passwordBDD.lirePassword(&ancienBDD);
+
+    QString cryptAncienLineEdit = QCryptographicHash::hash(ui->lineEditAncienMDP->text().toLocal8Bit().constData(),QCryptographicHash::Sha1).toHex();
+
+    if(cryptAncienLineEdit != ancienBDD)
+    {
+        QMessageBox::warning(this,"Ancien mot de passe","L'ancien mot de passe ne correspond pas à celui enregistré.");
+    }
+    else if(ui->lineEditNouveauMDP->text() != ui->lineEditNouveauMDP2->text())
+    {
+        QMessageBox::warning(this,"Nouveau mot de passe","Les nouveaux mots de passes ne correspondent pas.");
+    }
+    else
+    {
+        QString cryptNouveau = QCryptographicHash::hash(ui->lineEditNouveauMDP->text().toLocal8Bit().constData(),QCryptographicHash::Sha1).toHex();
+        passwordBDD.ecriturePassword(cryptNouveau);
+
+        QMessageBox::information(this, "Mot de passe modifié", "Mot de passe modifié avec succès!");
+    }
+
 }
