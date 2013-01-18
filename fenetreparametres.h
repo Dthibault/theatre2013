@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QFile>
 #include "gestiondmx.h"
+#include "gestionxml.h"
 
 namespace Ui {
 class FenetreParametres;
@@ -31,6 +32,9 @@ private slots:
     void switchBouton(QString choix);
 
     void recupererInformations();
+
+
+    void enregistrerDonnees();
 };
 
 #endif // FENETREPARAMETRES_H

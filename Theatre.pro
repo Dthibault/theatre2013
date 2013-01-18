@@ -1,3 +1,5 @@
+QT += xml
+
 SOURCES += \
     main.cpp \
     rs232.cpp \

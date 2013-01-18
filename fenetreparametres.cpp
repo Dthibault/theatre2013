@@ -14,6 +14,9 @@ FenetreParametres::FenetreParametres(QWidget *parent) :
 
     this->verifierPeripheriquesSysteme();
 
+    connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(enregistrerDonnees()));
+
+
     connect(ui->comboBoxAdaptateurs, SIGNAL(activated(QString)), this, SLOT(switchBouton(QString)));
     connect(ui->boutonInformations, SIGNAL(clicked()), this, SLOT(recupererInformations()));
 }
@@ -88,4 +91,14 @@ void FenetreParametres::recupererInformations()
     {
         ui->labelNomResult->setText("Périphérique NON DMX");
     }
+
+    delete this->interfaceDMX;
+}
+
+
+void FenetreParametres::enregistrerDonnees()
+{
+    GestionXML paramAdaptateurs;
+    QUuid monUuid = QUuid::createUuid ();
+    paramAdaptateurs.ecritureAdaptateur(ui->labelPortResult->text(), monUuid.toString());
 }

@@ -5,7 +5,10 @@
 #include <QString>
 #include <QDebug>
 #include <QFile>
-#include <QtXml/QtXml>
+#include <QMessageBox>
+#include <QtXml/QDomDocument>
+#include <QTextStream>
+
 
 class GestionXML : public QObject
 {
@@ -14,9 +17,10 @@ public:
     explicit GestionXML(QObject *parent = 0);
     ~GestionXML();
 
+    void ecritureAdaptateur(QString adresse, QString uuid);
+
 private:
-    QFile *fichierXML;
-    QDomDocument *documentXML;
+
     
 signals:
     

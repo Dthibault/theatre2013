@@ -22,4 +22,5 @@ void FenetrePrincipale::ouvrirParametres()
 {
     FenetreParametres fenetre;
     fenetre.exec();
+
 }
