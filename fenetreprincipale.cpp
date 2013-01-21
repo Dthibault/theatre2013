@@ -9,7 +9,10 @@ FenetrePrincipale::FenetrePrincipale(QWidget *parent) :
 
 
     connect(ui->actionParam_tres, SIGNAL(triggered()), this, SLOT(ouvrirParametres()));
+    connect(ui->actionG_rer_appareils, SIGNAL(triggered()), this, SLOT(ouvrirGererAppareils()));
     connect(ui->actionQuitter, SIGNAL(triggered()), qApp, SLOT(quit()));
+
+
 }
 
 FenetrePrincipale::~FenetrePrincipale()
@@ -22,5 +25,21 @@ void FenetrePrincipale::ouvrirParametres()
 {
     FenetreParametres fenetre;
     fenetre.exec();
+}
 
+
+void FenetrePrincipale::ouvrirGererAppareils()
+{
+    GestionXML lireApp;
+    QString addrApp, uuidApp;
+
+    if(!(lireApp.lireAdaptateur(&addrApp, &uuidApp)))
+    {
+        QMessageBox::information(this, "Configuration de l'adaptateur", "Vous devez tout d'abord configurer correctement l'adaptateur.");
+    }
+    else
+    {
+        FenetreGererAppareils fenetre;
+        fenetre.exec();
+    }
 }

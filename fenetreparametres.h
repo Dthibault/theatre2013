@@ -38,6 +38,8 @@ private slots:
     void enregistrerDonnees();
 
     void modifierPassword();
+
+    void effacerConfiguration();
 };
 
 #endif // FENETREPARAMETRES_H

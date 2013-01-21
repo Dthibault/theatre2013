@@ -49,6 +49,23 @@ bool GestionXML::lireAdaptateur(QString *adresseAdaptateur, QString *UUIDAdaptat
 
 }
 
+void GestionXML::effacerAdaptateur()
+{
+    QFile fichierXML(ADAPTATEURXML);
+
+    if(!(fichierXML.open(QIODevice::WriteOnly)))
+    {
+        QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Adaptateur.xml");
+    }
+    else
+    {
+        QTextStream stream(&fichierXML);
+        stream << "\n";
+    }
+
+    fichierXML.close();
+}
+
 void GestionXML::ecritureAdaptateur(QString adresse, QString uuid)
 {
 
@@ -153,6 +170,36 @@ bool GestionXML::lirePassword(QString *password)
             QDomElement unElement = racine.firstChildElement();
             *password = unElement.text(); // On récupère l'adresse
 
+
+            return true;
+        }
+
+    }
+
+    fichierXML.close();
+}
+
+QStringList GestionXML::lireListeAppareils()
+{
+    QStringList resultat;
+
+    QDomDocument documentXML;
+    QFile fichierXML(APPAREILXML);
+
+    if(!(fichierXML.open(QIODevice::ReadOnly)))
+    {
+        QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Appareils.xml");
+    }
+    else
+    {
+        documentXML.setContent(&fichierXML, false);
+        QDomElement racine = documentXML.documentElement();
+
+        if(!(racine.isNull()))
+        {
+
+            QDomElement unElement = racine.firstChildElement();
+            resultat << unElement.attribute("nom"); // Le nom du périphérique
 
             return true;
         }

@@ -8,7 +8,8 @@ SOURCES += \
     gestiondmx.cpp \
     fenetreprincipale.cpp \
     fenetreparametres.cpp \
-    gestionxml.cpp
+    gestionxml.cpp \
+    fenetregererappareils.cpp
 
 HEADERS += \
     types.h \
@@ -19,8 +20,10 @@ HEADERS += \
     gestiondmx.h \
     fenetreprincipale.h \
     fenetreparametres.h \
-    gestionxml.h
+    gestionxml.h \
+    fenetregererappareils.h
 
 FORMS += \
     fenetreprincipale.ui \
-    fenetreparametres.ui
+    fenetreparametres.ui \
+    fenetregererappareils.ui

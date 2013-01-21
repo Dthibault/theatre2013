@@ -5,7 +5,9 @@
 #include <QDebug>
 #include <QString>
 #include "fenetreparametres.h"
+#include "fenetregererappareils.h"
 #include "gestiondmx.h"
+#include "gestionxml.h"
 
 namespace Ui {
 class FenetrePrincipale;
@@ -24,6 +26,7 @@ private:
 
 private slots:
     void ouvrirParametres();
+    void ouvrirGererAppareils();
 
 };
 

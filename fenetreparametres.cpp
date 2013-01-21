@@ -17,6 +17,7 @@ FenetreParametres::FenetreParametres(QWidget *parent) :
     connect(ui->boutonDetection, SIGNAL(clicked()), this, SLOT(verifierPeripheriquesSysteme()));
 
     connect(ui->boutonModifierMDP, SIGNAL(clicked()), this, SLOT(modifierPassword()));
+    connect(ui->boutonEffacer, SIGNAL(clicked()), this, SLOT(effacerConfiguration()));
 
 
 
@@ -120,8 +121,17 @@ void FenetreParametres::recupererInformations()
 void FenetreParametres::enregistrerDonnees()
 {
     GestionXML paramAdaptateurs;
-    QUuid monUuid = QUuid::createUuid ();
-    paramAdaptateurs.ecritureAdaptateur(ui->comboBoxAdaptateurs->currentText(), monUuid.toString());
+
+    if(!(ui->comboBoxAdaptateurs->currentText().contains("ttyUSB")))
+    {
+        paramAdaptateurs.effacerAdaptateur();
+    }
+    else
+    {
+
+        QUuid monUuid = QUuid::createUuid ();
+        paramAdaptateurs.ecritureAdaptateur(ui->comboBoxAdaptateurs->currentText(), monUuid.toString());
+    }
 }
 
 void FenetreParametres::modifierPassword()
@@ -149,4 +159,19 @@ void FenetreParametres::modifierPassword()
         QMessageBox::information(this, "Mot de passe modifié", "Mot de passe modifié avec succès!");
     }
 
+}
+
+
+void FenetreParametres::effacerConfiguration()
+{
+    int choix = QMessageBox::question(this, "Confirmation", "Confirmez-vous l'effacement de la configuration?", QMessageBox::Yes | QMessageBox::No);
+
+    if(choix == QMessageBox::Yes)
+    {
+        GestionXML gestXML;
+        gestXML.effacerAdaptateur();
+
+        QMessageBox::information(this, "Configuration effacée", "La configuration a été éffacée.");
+        this->close();
+    }
 }

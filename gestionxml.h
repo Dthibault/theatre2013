@@ -11,6 +11,7 @@
 
 #define ADAPTATEURXML "configuration/adaptateur.xml"
 #define PASSWORDXML "configuration/password.xml"
+#define APPAREILSXML "configuration/appareils.xml"
 
 
 class GestionXML : public QObject
@@ -22,11 +23,15 @@ public:
 
     void ecritureAdaptateur(QString adresse, QString uuid);
     bool lireAdaptateur(QString *adresseAdaptateur, QString *UUIDAdaptateur);
+    void effacerAdaptateur();
 
     void ecriturePassword(QString password);
     bool lirePassword(QString *password);
 
+    QStringList lireListeAppareils();
+
 private:
+
 
     
 signals:
