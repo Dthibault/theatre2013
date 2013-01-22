@@ -179,12 +179,12 @@ bool GestionXML::lirePassword(QString *password)
     fichierXML.close();
 }
 
-QStringList GestionXML::lireListeAppareils()
+void GestionXML::lireListeAppareils(QStringList *nom, QStringList *UUID)
 {
     QStringList resultat;
 
     QDomDocument documentXML;
-    QFile fichierXML(APPAREILXML);
+    QFile fichierXML(APPAREILSXML);
 
     if(!(fichierXML.open(QIODevice::ReadOnly)))
     {
@@ -199,9 +199,11 @@ QStringList GestionXML::lireListeAppareils()
         {
 
             QDomElement unElement = racine.firstChildElement();
-            resultat << unElement.attribute("nom"); // Le nom du périphérique
+            unElement = racine.lastChildElement();
 
-            return true;
+            nom->push_back(unElement.attribute("nom")); // Le nom du périphérique
+
+
         }
 
     }

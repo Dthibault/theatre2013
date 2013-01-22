@@ -28,7 +28,7 @@ public:
     void ecriturePassword(QString password);
     bool lirePassword(QString *password);
 
-    QStringList lireListeAppareils();
+    void lireListeAppareils(QStringList *nom, QStringList *UUID);
 
 private:
 

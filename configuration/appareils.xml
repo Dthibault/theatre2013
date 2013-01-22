@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theatre2013>
+  <peripherique nom="Lyre Haute" uuid="{a2c03dc8-75aa-41cb-a243-23347b3c59d9}" nbCanal="5">
+    <canal id="2">BLUE</canal>
+  </peripherique>
+  <peripherique nom="Lyre Moyen" uuid="{a2c03dc8-75aa-41cb-a243-23347b3c59d9}" nbCanal="5">
+    <canal id="2">BLUE</canal>
+  </peripherique>
+  <peripherique nom="Lyre Basse" uuid="{a2c03dc8-75aa-41cb-a243-23347b3c59d9}" nbCanal="5">
+    <canal id="2">BLUE</canal>
+  </peripherique>
+</theatre2013>
