@@ -6,6 +6,7 @@
 #include <QString>
 #include "fenetreparametres.h"
 #include "fenetregererappareils.h"
+#include "fenetrecontroledistance.h"
 #include "gestiondmx.h"
 #include "gestionxml.h"
 
@@ -27,6 +28,7 @@ private:
 private slots:
     void ouvrirParametres();
     void ouvrirGererAppareils();
+    void ouvrirControleDistance();
 
 };
 

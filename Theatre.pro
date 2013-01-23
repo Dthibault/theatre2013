@@ -1,4 +1,4 @@
-QT += xml
+QT += xml network
 
 SOURCES += \
     main.cpp \
@@ -9,7 +9,9 @@ SOURCES += \
     fenetreprincipale.cpp \
     fenetreparametres.cpp \
     gestionxml.cpp \
-    fenetregererappareils.cpp
+    fenetregererappareils.cpp \
+    gestionconsole.cpp \
+    fenetrecontroledistance.cpp
 
 HEADERS += \
     types.h \
@@ -21,9 +23,12 @@ HEADERS += \
     fenetreprincipale.h \
     fenetreparametres.h \
     gestionxml.h \
-    fenetregererappareils.h
+    fenetregererappareils.h \
+    gestionconsole.h \
+    fenetrecontroledistance.h
 
 FORMS += \
     fenetreprincipale.ui \
     fenetreparametres.ui \
-    fenetregererappareils.ui
+    fenetregererappareils.ui \
+    fenetrecontroledistance.ui

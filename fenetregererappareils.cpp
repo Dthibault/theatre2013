@@ -21,7 +21,9 @@ FenetreGererAppareils::FenetreGererAppareils(QWidget *parent) :
     GestionXML monXML;
     monXML.lireListeAppareils(&nom, &uuid);
 
-    qDebug() << nom;
+
+    this->testConsole = new GestionConsole;
+    this->testConsole->start();
 
 }
 

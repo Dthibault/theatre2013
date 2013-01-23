@@ -10,7 +10,10 @@ FenetrePrincipale::FenetrePrincipale(QWidget *parent) :
 
     connect(ui->actionParam_tres, SIGNAL(triggered()), this, SLOT(ouvrirParametres()));
     connect(ui->actionG_rer_appareils, SIGNAL(triggered()), this, SLOT(ouvrirGererAppareils()));
+    connect(ui->actionCont_le_distant, SIGNAL(triggered()), this, SLOT(ouvrirControleDistance()));
     connect(ui->actionQuitter, SIGNAL(triggered()), qApp, SLOT(quit()));
+
+
 
 
 }
@@ -42,4 +45,10 @@ void FenetrePrincipale::ouvrirGererAppareils()
         FenetreGererAppareils fenetre;
         fenetre.exec();
     }
+}
+
+void FenetrePrincipale::ouvrirControleDistance()
+{
+    FenetreControleDistance fenetre;
+    fenetre.exec();
 }

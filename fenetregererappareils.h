@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QCryptographicHash>
+#include "gestionconsole.h"
 #include "gestiondmx.h"
 #include "gestionxml.h"
 
@@ -24,6 +25,8 @@ public:
     
 private:
     Ui::FenetreGererAppareils *ui;
+
+    GestionConsole *testConsole;
 
 private slots:
 
