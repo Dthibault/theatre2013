@@ -10,7 +10,12 @@
 #define PORT_ENTTEC 3330
 
 #define TAILLE_ENTETE 4
-#define TAILLE_FIRMWARE 1
+#define BIT_STATES 6
+
+
+#define BOUTON_GO 0xFFFFFFEF
+#define BOUTON_BACK 0xFFFFFFDF
+
 
 class GestionConsole : public QObject
 {
@@ -32,6 +37,8 @@ private:
 
 
 signals:
+    void boutonGO();
+    void boutonBACK();
 
 private slots:
     void receptionTrame();

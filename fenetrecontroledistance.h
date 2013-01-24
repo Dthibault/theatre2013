@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QString>
 #include <QDebug>
+#include "gestionxml.h"
 #include "gestionconsole.h"
 
 namespace Ui {
@@ -22,9 +23,17 @@ private:
     Ui::FenetreControleDistance *ui;
 
     GestionConsole *interfaceConsole;
+    GestionDMX *interfaceDMX;
+
+    bool configurerAdaptateur();
+
+    bool etatPriseEnMain;
 
 private slots:
     void fermerFenetre();
+
+    void debutControle();
+    void arretControle();
 };
 
 #endif // FENETRECONTROLEDISTANCE_H

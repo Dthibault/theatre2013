@@ -62,10 +62,8 @@ void GestionConsole::receptionTrame()
 
 void GestionConsole::traitementTrame(QByteArray data)
 {
-    QByteArray entete, firmware;
+    QByteArray entete;
 
-    this->testlol++;
-    qDebug() << "Données " << testlol << ": " << data.data();
 
     for(int i=0;i<TAILLE_ENTETE;i++)
     {
@@ -74,17 +72,26 @@ void GestionConsole::traitementTrame(QByteArray data)
 
     if(entete.contains("WODD"))
     {
-        int lettreD = data[11];
 
-        firmware.setNum(data[11], 16);
-
-        qDebug() << "\nDecimal: " << lettreD << " / Hexa: " << firmware << "/ Resultat:" << QByteArray::fromHex(firmware);
-
-        if(data[6] == 0x7f)
+        switch(data[BIT_STATES])
         {
-            qDebug() << "\nUP";
+            case BOUTON_GO: emit boutonGO(); break;
+            case BOUTON_BACK: emit boutonBACK(); break;
         }
 
+
+
+//QByteArray firmware;
+//        int lettreD = data[6];
+
+//        firmware.setNum(data[6], 16);
+
+//        qDebug() << "\nDecimal: " << lettreD << " / Hexa: " << firmware << "/ Resultat:" << QByteArray::fromHex(firmware);
+
+//        if(data[6] == 0x7f)
+//        {
+//            qDebug() << "\nUP";
+//        }
 
 //        this->interfaceDMX->SetCanalDMX(14, int(data[15]));
 //        this->interfaceDMX->SetCanalDMX(13, int(data[16]));
@@ -92,8 +99,5 @@ void GestionConsole::traitementTrame(QByteArray data)
 //        this->interfaceDMX->SetCanalDMX(12, int(data[18]));
 //        this->interfaceDMX->SendDMX();
     }
-
-
-
 
 }

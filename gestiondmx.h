@@ -17,6 +17,8 @@ class GestionDMX : public QObject
 private:
     EnttecDMXUSB *interfaceDMX;
 
+    bool premiereConnexion;
+
     QString adresseDMX;
 
 public:
@@ -25,10 +27,13 @@ public:
 
     bool seConnecter();
     void setAdresse(QString nom);
+    void seDeconnecter();
 
     QString getNomInterface();
     QString getSerialNumber();
     QString getPort();
+
+    void resetDMX();
 
     
 signals:

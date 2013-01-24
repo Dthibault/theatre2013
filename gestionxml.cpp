@@ -19,6 +19,7 @@ bool GestionXML::lireAdaptateur(QString *adresseAdaptateur, QString *UUIDAdaptat
     if(!(fichierXML.open(QIODevice::ReadOnly)))
     {
         QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Adaptateur.xml");
+        return false;
     }
     else
     {
@@ -154,6 +155,7 @@ bool GestionXML::lirePassword(QString *password)
     if(!(fichierXML.open(QIODevice::ReadOnly)))
     {
         QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Password.xml");
+        return false;
     }
     else
     {
@@ -162,7 +164,6 @@ bool GestionXML::lirePassword(QString *password)
 
         if(racine.isNull())
         {
-            qDebug() << "Mais c'est vide";
             return false;
         }
         else

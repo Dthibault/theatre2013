@@ -4,8 +4,7 @@
 GestionDMX::GestionDMX(QObject *parent) :
     QObject(parent)
 {
-    this->adresseDMX = "/dev/ttyUSB0";
-
+    this->premiereConnexion = false;
 }
 
 GestionDMX::~GestionDMX()
@@ -17,6 +16,7 @@ GestionDMX::~GestionDMX()
 bool GestionDMX::seConnecter()
 {
     this->interfaceDMX = new EnttecDMXUSB(DMX_USB_PRO, this->adresseDMX.toLocal8Bit().constData());
+    this->premiereConnexion = true;
 
     if(this->interfaceDMX->IsAvailable())
     {
@@ -34,6 +34,17 @@ bool GestionDMX::seConnecter()
 void GestionDMX::setAdresse(QString nom)
 {
     this->adresseDMX = nom;
+}
+
+void GestionDMX::seDeconnecter()
+{
+    if(this->premiereConnexion == true)
+    {
+
+        delete this->interfaceDMX;
+        this->interfaceDMX = new EnttecDMXUSB(DMX_USB_PRO, this->adresseDMX.toLocal8Bit().constData());
+    }
+
 }
 
 
@@ -55,3 +66,8 @@ QString GestionDMX::getPort()
     return recup.c_str();
 }
 
+void GestionDMX::resetDMX()
+{
+    this->interfaceDMX->ResetCanauxDMX();
+    this->interfaceDMX->SendDMX();
+}
