@@ -11,7 +11,8 @@ SOURCES += \
     gestionxml.cpp \
     fenetregererappareils.cpp \
     gestionconsole.cpp \
-    fenetrecontroledistance.cpp
+    fenetrecontroledistance.cpp \
+    fenetreajoutlyre.cpp
 
 HEADERS += \
     types.h \
@@ -25,10 +26,12 @@ HEADERS += \
     gestionxml.h \
     fenetregererappareils.h \
     gestionconsole.h \
-    fenetrecontroledistance.h
+    fenetrecontroledistance.h \
+    fenetreajoutlyre.h
 
 FORMS += \
     fenetreprincipale.ui \
     fenetreparametres.ui \
     fenetregererappareils.ui \
-    fenetrecontroledistance.ui
+    fenetrecontroledistance.ui \
+    fenetreajoutlyre.ui
