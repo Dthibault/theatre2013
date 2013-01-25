@@ -12,7 +12,8 @@ SOURCES += \
     fenetregererappareils.cpp \
     gestionconsole.cpp \
     fenetrecontroledistance.cpp \
-    fenetreajoutlyre.cpp
+    fenetreajoutlyre.cpp \
+    widgetcanalsuppl.cpp
 
 HEADERS += \
     types.h \
@@ -27,11 +28,13 @@ HEADERS += \
     fenetregererappareils.h \
     gestionconsole.h \
     fenetrecontroledistance.h \
-    fenetreajoutlyre.h
+    fenetreajoutlyre.h \
+    widgetcanalsuppl.h
 
 FORMS += \
     fenetreprincipale.ui \
     fenetreparametres.ui \
     fenetregererappareils.ui \
     fenetrecontroledistance.ui \
-    fenetreajoutlyre.ui
+    fenetreajoutlyre.ui \
+    widgetcanalsuppl.ui

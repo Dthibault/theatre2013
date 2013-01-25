@@ -9,6 +9,7 @@
 #include <QCryptographicHash>
 #include "gestiondmx.h"
 #include "gestionxml.h"
+#include "fenetreajoutlyre.h"
 
 namespace Ui {
 class FenetreGererAppareils;
@@ -27,8 +28,8 @@ private:
 
     void listerAppareils();
 
-
 private slots:
+    void ouvrirFenetreNouveau();
 
 };
 

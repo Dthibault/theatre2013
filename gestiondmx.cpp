@@ -71,3 +71,14 @@ void GestionDMX::resetDMX()
     this->interfaceDMX->ResetCanauxDMX();
     this->interfaceDMX->SendDMX();
 }
+
+
+void GestionDMX::modifierValeurCanal(int canal, int valeur)
+{
+    this->interfaceDMX->SetCanalDMX(canal, (int)valeur);
+}
+
+void GestionDMX::envoyerDMX()
+{
+    this->interfaceDMX->SendDMX();
+}

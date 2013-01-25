@@ -13,6 +13,8 @@ FenetreGererAppareils::FenetreGererAppareils(QWidget *parent) :
     ui->comboBox->addItem("Lyre");
     ui->comboBox->addItem("Scanner");
 
+    connect(ui->boutonAjouter, SIGNAL(clicked()), this, SLOT(ouvrirFenetreNouveau()));
+
 
     this->listerAppareils();
 
@@ -35,4 +37,14 @@ void FenetreGererAppareils::listerAppareils()
     {
         ui->listWidget->addItem(nom[i]);
     }
+}
+
+void FenetreGererAppareils::ouvrirFenetreNouveau()
+{
+    if(ui->comboBox->currentText().contains("Lyre"))
+    {
+        FenetreAjoutLyre fenetre;
+        fenetre.exec();
+    }
+
 }

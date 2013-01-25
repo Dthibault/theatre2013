@@ -35,6 +35,9 @@ public:
 
     void resetDMX();
 
+    void modifierValeurCanal(int canal, int valeur);
+    void envoyerDMX();
+
     
 signals:
 

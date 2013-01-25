@@ -4,8 +4,11 @@
 #include <QDialog>
 #include <QString>
 #include <QDebug>
+#include <QInputDialog>
+#include <vector>
 #include "gestionxml.h"
 #include "gestionconsole.h"
+#include "widgetcanalsuppl.h"
 
 namespace Ui {
     class FenetreAjoutLyre;
@@ -19,10 +22,23 @@ public:
     explicit FenetreAjoutLyre(QWidget *parent = 0);
     ~FenetreAjoutLyre();
 
+
+
 private:
     Ui::FenetreAjoutLyre *ui;
 
     GestionDMX *interfaceDMX;
+
+    void configurerAdaptateur();
+
+    std::vector<WidgetCanalSuppl*> listeWidgetSuppl;
+
+private slots:
+    void fermer();
+
+    void miseAJourDMX();
+
+    void confirmationAppareil();
 };
 
 #endif // FENETREAJOUTLYRE_H
