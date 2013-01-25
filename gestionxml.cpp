@@ -182,7 +182,6 @@ bool GestionXML::lirePassword(QString *password)
 
 void GestionXML::lireListeAppareils(QStringList *nom, QStringList *UUID)
 {
-    QStringList resultat;
 
     QDomDocument documentXML;
     QFile fichierXML(APPAREILSXML);
@@ -195,19 +194,86 @@ void GestionXML::lireListeAppareils(QStringList *nom, QStringList *UUID)
     {
         documentXML.setContent(&fichierXML, false);
         QDomElement racine = documentXML.documentElement();
+        QDomNode noeud = racine.firstChild();
 
-        if(!(racine.isNull()))
+        QDomElement peripherique;
+
+        while(!(noeud.isNull()))
         {
-
-            QDomElement unElement = racine.firstChildElement();
-            unElement = racine.lastChildElement();
-
-            nom->push_back(unElement.attribute("nom")); // Le nom du périphérique
+            peripherique = noeud.toElement();
+            nom->push_back(peripherique.attribute("nom"));
+            UUID->push_back(peripherique.attribute("uuid"));
 
 
+            noeud = noeud.nextSibling();
         }
 
     }
 
     fichierXML.close();
+}
+
+
+void GestionXML::ajouterAppareil(QString nom, QString uuid, QString nbCanal, QString typeAppareil, QStringList numeroCanal, QStringList actionCanal)
+{
+    QDomDocument documentXML;
+    QFile fichierXML(APPAREILSXML);
+
+    if(!(fichierXML.open(QIODevice::ReadOnly)))
+    {
+        QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Appareils.xml");
+    }
+    else
+    {
+
+        if(!(documentXML.setContent(&fichierXML)))
+        {
+            QDomNode xmlNode = documentXML.createProcessingInstruction("xml","version=\"1.0\" encoding=\"UTF-8\"");
+            documentXML.insertBefore(xmlNode, documentXML.firstChild());
+
+            QDomElement root = documentXML.createElement("theatre2013");
+            documentXML.appendChild(root);
+        }
+
+
+        fichierXML.close();
+        fichierXML.open(QIODevice::WriteOnly);
+
+        QTextStream out;
+        out.setDevice(&fichierXML);
+
+        QDomElement racine = documentXML.documentElement();
+
+        QDomElement peripherique = documentXML.createElement("peripherique");
+
+        racine.appendChild(peripherique);
+
+        peripherique.setAttribute("nom", nom);
+        peripherique.setAttribute("uuid", uuid);
+        peripherique.setAttribute("nbCanal", nbCanal);
+        peripherique.setAttribute("type", typeAppareil);
+
+        QDomElement canal;
+        QDomText action;
+
+        for(int i=0; i<numeroCanal.size(); i++)
+        {
+             canal = documentXML.createElement("canal");
+             canal.setAttribute("id", numeroCanal[i]);
+
+             action = documentXML.createTextNode(actionCanal[i]);
+             canal.appendChild(action);
+
+             peripherique.appendChild(canal);
+        }
+
+        documentXML.save(out, 2);
+        fichierXML.close();
+
+    }
+}
+
+void GestionXML::effacerAppareils()
+{
+
 }

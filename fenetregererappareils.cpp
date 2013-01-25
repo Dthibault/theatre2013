@@ -13,21 +13,26 @@ FenetreGererAppareils::FenetreGererAppareils(QWidget *parent) :
     ui->comboBox->addItem("Lyre");
     ui->comboBox->addItem("Scanner");
 
-    ui->listWidget->addItem("Test 1");
-    ui->listWidget->addItem("Test 2");
 
-    QStringList nom, uuid;
-
-    GestionXML monXML;
-    monXML.lireListeAppareils(&nom, &uuid);
-
-
-    this->testConsole = new GestionConsole;
-    this->testConsole->start();
+    this->listerAppareils();
 
 }
 
 FenetreGererAppareils::~FenetreGererAppareils()
 {
     delete ui;
+}
+
+
+void FenetreGererAppareils::listerAppareils()
+{
+    QStringList nom, uuid;
+
+    GestionXML monXML;
+    monXML.lireListeAppareils(&nom, &uuid);
+
+    for(int i=0; i<nom.size(); i++)
+    {
+        ui->listWidget->addItem(nom[i]);
+    }
 }
