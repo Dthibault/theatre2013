@@ -1,9 +1,9 @@
-#include "fenetreajoutlyre.h"
-#include "ui_fenetreajoutlyre.h"
+#include "fenetrescannerled.h"
+#include "ui_fenetrescannerled.h"
 
-FenetreAjoutLyre::FenetreAjoutLyre(QWidget *parent) :
+FenetreScannerLED::FenetreScannerLED(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::FenetreAjoutLyre)
+    ui(new Ui::FenetreScannerLED)
 {
     ui->setupUi(this);
 
@@ -18,7 +18,6 @@ FenetreAjoutLyre::FenetreAjoutLyre(QWidget *parent) :
 
     connect(ui->verticalSliderPAN, SIGNAL(valueChanged(int)), this, SLOT(miseAJourDMX()));
     connect(ui->verticalSliderTILT, SIGNAL(valueChanged(int)), this, SLOT(miseAJourDMX()));
-    connect(ui->verticalSliderGLOBOS, SIGNAL(valueChanged(int)), this, SLOT(miseAJourDMX()));
     connect(ui->verticalSliderCOULEUR, SIGNAL(valueChanged(int)), this, SLOT(miseAJourDMX()));
 
     connect(ui->spinBoxSuppl, SIGNAL(valueChanged(int)), this, SLOT(modifierNombreWidgetSuppl()));
@@ -26,12 +25,11 @@ FenetreAjoutLyre::FenetreAjoutLyre(QWidget *parent) :
     this->nbAjouts = 0;
 
     this->layoutSuppl = new QVBoxLayout;
-    //ui->conteneurSuppl2->setLayout(this->layoutSuppl);
-    ui->scrollAreaWidgetContents->setLayout(this->layoutSuppl);
 
+    ui->scrollAreaWidgetContents->setLayout(this->layoutSuppl);
 }
 
-FenetreAjoutLyre::~FenetreAjoutLyre()
+FenetreScannerLED::~FenetreScannerLED()
 {
     this->interfaceDMX->seDeconnecter();
 
@@ -39,8 +37,7 @@ FenetreAjoutLyre::~FenetreAjoutLyre()
 }
 
 
-
-void FenetreAjoutLyre::configurerAdaptateur()
+void FenetreScannerLED::configurerAdaptateur()
 {
     GestionXML adaptXML;
     QString adresseAdapt, uuidAdapt;
@@ -51,11 +48,10 @@ void FenetreAjoutLyre::configurerAdaptateur()
 
 }
 
-void FenetreAjoutLyre::miseAJourDMX()
+void FenetreScannerLED::miseAJourDMX()
 {
     this->interfaceDMX->modifierValeurCanal(ui->spinBoxPAN->value(), ui->verticalSliderPAN->value());
     this->interfaceDMX->modifierValeurCanal(ui->spinBoxTILT->value(), ui->verticalSliderTILT->value());
-    this->interfaceDMX->modifierValeurCanal(ui->spinBoxGLOBOS->value(), ui->verticalSliderGLOBOS->value());
     this->interfaceDMX->modifierValeurCanal(ui->spinBoxCOULEUR->value(), ui->verticalSliderCOULEUR->value());
 
     if(this->nbAjouts > 0)
@@ -72,12 +68,12 @@ void FenetreAjoutLyre::miseAJourDMX()
 }
 
 
-void FenetreAjoutLyre::fermer()
+void FenetreScannerLED::fermer()
 {
     this->close();
 }
 
-void FenetreAjoutLyre::confirmationAppareil()
+void FenetreScannerLED::confirmationAppareil()
 {
     bool ok;
     QString nomfichier = QInputDialog::getText(this, "Nom de l'appareil", "Indiquer le nom du nouvel appareil: ", QLineEdit::Normal, QString(), &ok);
@@ -95,7 +91,6 @@ void FenetreAjoutLyre::confirmationAppareil()
 
             nbCanal.push_back(QString::number(ui->spinBoxPAN->value()));
             nbCanal.push_back(QString::number(ui->spinBoxTILT->value()));
-            nbCanal.push_back(QString::number(ui->spinBoxGLOBOS->value()));
             nbCanal.push_back(QString::number(ui->spinBoxCOULEUR->value()));
 
             actionCanal.push_back("PAN");
@@ -118,7 +113,7 @@ void FenetreAjoutLyre::confirmationAppareil()
             }
 
             QUuid monUuid = QUuid::createUuid();
-            int nombreCanals = 4+this->nbAjouts;
+            int nombreCanals = 3+this->nbAjouts;
 
 
             monXML.ajouterAppareil(nomfichier, monUuid.toString(), QString::number(nombreCanals), "LYRE", nbCanal, actionCanal);
@@ -130,7 +125,7 @@ void FenetreAjoutLyre::confirmationAppareil()
     }
 }
 
-void FenetreAjoutLyre::modifierNombreWidgetSuppl()
+void FenetreScannerLED::modifierNombreWidgetSuppl()
 {
     if(ui->spinBoxSuppl->value() >= 0)
     {
@@ -163,3 +158,4 @@ void FenetreAjoutLyre::modifierNombreWidgetSuppl()
         }
     }
 }
+

@@ -65,8 +65,6 @@ void FenetrePrincipale::ouvrirControleDistance()
     this->interfaceDMX->setAdresse(addrApp);
 
 
-    qDebug() << this->interfaceDMX->estDisponible();
-
     if(!(lireApp.lireAdaptateur(&addrApp, &uuidApp)) || !(this->interfaceDMX->estDisponible()))
     {
         QMessageBox::information(this, "Configuration de l'adaptateur", "Vous devez tout d'abord configurer correctement l'adaptateur ou le connecter.");

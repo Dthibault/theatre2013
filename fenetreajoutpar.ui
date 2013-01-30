@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>FenetreAjoutLyre</class>
- <widget class="QDialog" name="FenetreAjoutLyre">
+ <class>FenetreAjoutPar</class>
+ <widget class="QDialog" name="FenetreAjoutPar">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Ajouter une Lyre</string>
+   <string>Dialog</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
@@ -21,7 +21,7 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Droid Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Nouvelle Lyre&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Nouveau Par LED&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -32,7 +32,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QWidget" name="conteneurMultiple" native="true">
      <layout class="QHBoxLayout" name="horizontalLayout_12">
       <item>
-       <widget class="QWidget" name="conteneurPan" native="true">
+       <widget class="QWidget" name="conteneurRED" native="true">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -47,13 +47,13 @@ p, li { white-space: pre-wrap; }
         </property>
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
-          <widget class="QLabel" name="labelPAN">
+          <widget class="QLabel" name="labelRED">
            <property name="text">
             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Droid Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;PAN&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color: red;&quot;&gt;ROUGE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -61,7 +61,7 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item>
-          <widget class="QWidget" name="conteneurSliderPAN" native="true">
+          <widget class="QWidget" name="conteneurSliderRED" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_2">
             <item>
              <spacer name="horizontalSpacer_2">
@@ -77,7 +77,7 @@ p, li { white-space: pre-wrap; }
              </spacer>
             </item>
             <item>
-             <widget class="QSlider" name="verticalSliderPAN">
+             <widget class="QSlider" name="verticalSliderRED">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
                 <horstretch>0</horstretch>
@@ -109,7 +109,7 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item>
-          <widget class="QWidget" name="conteneurSpinBoxPAN" native="true">
+          <widget class="QWidget" name="conteneurSpinBoxRED" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_3">
             <item>
              <spacer name="horizontalSpacer_4">
@@ -125,7 +125,7 @@ p, li { white-space: pre-wrap; }
              </spacer>
             </item>
             <item>
-             <widget class="QSpinBox" name="spinBoxPAN">
+             <widget class="QSpinBox" name="spinBoxRED">
               <property name="minimumSize">
                <size>
                 <width>50</width>
@@ -169,7 +169,7 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="conteneurTILT" native="true">
+       <widget class="QWidget" name="conteneurGREEN" native="true">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -184,13 +184,13 @@ p, li { white-space: pre-wrap; }
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
          <item>
-          <widget class="QLabel" name="labelTILT">
+          <widget class="QLabel" name="labelGREEN">
            <property name="text">
             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Droid Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;TILT&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color: green;&quot;&gt;VERT&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -198,7 +198,7 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item>
-          <widget class="QWidget" name="conteneurSliderTILT" native="true">
+          <widget class="QWidget" name="conteneurSliderGREEN" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
              <spacer name="horizontalSpacer_10">
@@ -214,7 +214,7 @@ p, li { white-space: pre-wrap; }
              </spacer>
             </item>
             <item>
-             <widget class="QSlider" name="verticalSliderTILT">
+             <widget class="QSlider" name="verticalSliderGREEN">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
                 <horstretch>0</horstretch>
@@ -246,7 +246,7 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item>
-          <widget class="QWidget" name="conteneurSpinBoxTILT" native="true">
+          <widget class="QWidget" name="conteneurSpinBoxGREEN" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_7">
             <item>
              <spacer name="horizontalSpacer_12">
@@ -262,7 +262,7 @@ p, li { white-space: pre-wrap; }
              </spacer>
             </item>
             <item>
-             <widget class="QSpinBox" name="spinBoxTILT">
+             <widget class="QSpinBox" name="spinBoxGREEN">
               <property name="minimumSize">
                <size>
                 <width>50</width>
@@ -309,7 +309,7 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="conteneurGLOBOS" native="true">
+       <widget class="QWidget" name="conteneurBLUE" native="true">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -324,13 +324,13 @@ p, li { white-space: pre-wrap; }
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_5">
          <item>
-          <widget class="QLabel" name="labelGLOBOS">
+          <widget class="QLabel" name="labelBLUE">
            <property name="text">
             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Droid Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;GLOBOS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color: blue;&quot;&gt;BLEU&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -338,7 +338,7 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item>
-          <widget class="QWidget" name="conteneurSliderGLOBOS" native="true">
+          <widget class="QWidget" name="conteneurSliderBLUE" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_8">
             <item>
              <spacer name="horizontalSpacer_14">
@@ -354,7 +354,7 @@ p, li { white-space: pre-wrap; }
              </spacer>
             </item>
             <item>
-             <widget class="QSlider" name="verticalSliderGLOBOS">
+             <widget class="QSlider" name="verticalSliderBLUE">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
                 <horstretch>0</horstretch>
@@ -386,7 +386,7 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item>
-          <widget class="QWidget" name="conteneurSpinBoxGLOBOS" native="true">
+          <widget class="QWidget" name="conteneurSpinBoxBLUE" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_9">
             <item>
              <spacer name="horizontalSpacer_16">
@@ -402,7 +402,7 @@ p, li { white-space: pre-wrap; }
              </spacer>
             </item>
             <item>
-             <widget class="QSpinBox" name="spinBoxGLOBOS">
+             <widget class="QSpinBox" name="spinBoxBLUE">
               <property name="minimumSize">
                <size>
                 <width>50</width>
@@ -449,7 +449,7 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="conteneurCOULEUR" native="true">
+       <widget class="QWidget" name="conteneurDIMSTRO" native="true">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -464,13 +464,13 @@ p, li { white-space: pre-wrap; }
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_6">
          <item>
-          <widget class="QLabel" name="labelCOULEUR">
+          <widget class="QLabel" name="labelDIMSTRO">
            <property name="text">
             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Droid Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;COULEUR&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;DIM/STRO&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -478,7 +478,7 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item>
-          <widget class="QWidget" name="conteneurSliderCOULEUR" native="true">
+          <widget class="QWidget" name="conteneurSliderDIMSTRO" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_10">
             <item>
              <spacer name="horizontalSpacer_18">
@@ -494,7 +494,7 @@ p, li { white-space: pre-wrap; }
              </spacer>
             </item>
             <item>
-             <widget class="QSlider" name="verticalSliderCOULEUR">
+             <widget class="QSlider" name="verticalSliderDIMSTRO">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
                 <horstretch>0</horstretch>
@@ -526,7 +526,7 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item>
-          <widget class="QWidget" name="conteneurSpinBoxCOULEUR" native="true">
+          <widget class="QWidget" name="conteneurSpinBoxDIMSTRO" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_11">
             <item>
              <spacer name="horizontalSpacer_20">
@@ -542,7 +542,7 @@ p, li { white-space: pre-wrap; }
              </spacer>
             </item>
             <item>
-             <widget class="QSpinBox" name="spinBoxCOULEUR">
+             <widget class="QSpinBox" name="spinBoxDIMSTRO">
               <property name="minimumSize">
                <size>
                 <width>50</width>

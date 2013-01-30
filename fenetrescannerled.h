@@ -1,5 +1,5 @@
-#ifndef FENETREAJOUTLYRE_H
-#define FENETREAJOUTLYRE_H
+#ifndef FENETRESCANNERLED_H
+#define FENETRESCANNERLED_H
 
 #include <QDialog>
 #include <QString>
@@ -13,21 +13,19 @@
 #include "widgetcanalsuppl.h"
 
 namespace Ui {
-    class FenetreAjoutLyre;
+    class FenetreScannerLED;
 }
 
-class FenetreAjoutLyre : public QDialog
+class FenetreScannerLED : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit FenetreAjoutLyre(QWidget *parent = 0);
-    ~FenetreAjoutLyre();
-
-
+    explicit FenetreScannerLED(QWidget *parent = 0);
+    ~FenetreScannerLED();
 
 private:
-    Ui::FenetreAjoutLyre *ui;
+    Ui::FenetreScannerLED *ui;
 
     GestionDMX *interfaceDMX;
 
@@ -49,4 +47,4 @@ private slots:
     void modifierNombreWidgetSuppl();
 };
 
-#endif // FENETREAJOUTLYRE_H
+#endif // FENETRESCANNERLED_H

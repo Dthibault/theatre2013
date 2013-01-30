@@ -11,7 +11,8 @@ FenetreGererAppareils::FenetreGererAppareils(QWidget *parent) :
 
     ui->comboBox->addItem("PAR LED");
     ui->comboBox->addItem("Lyre");
-    ui->comboBox->addItem("Scanner");
+    ui->comboBox->addItem("Scanner LED");
+    ui->comboBox->addItem("Autre");
 
     connect(ui->boutonAjouter, SIGNAL(clicked()), this, SLOT(ouvrirFenetreNouveau()));
 
@@ -45,6 +46,25 @@ void FenetreGererAppareils::ouvrirFenetreNouveau()
     {
         FenetreAjoutLyre fenetre;
         fenetre.exec();
+
+        ui->listWidget->clear();
+        this->listerAppareils();
+    }
+    else if(ui->comboBox->currentText().contains("PAR LED"))
+    {
+        FenetreAjoutPar fenetre;
+        fenetre.exec();
+
+        ui->listWidget->clear();
+        this->listerAppareils();
+    }
+    else if(ui->comboBox->currentText().contains("Scanner LED"))
+    {
+        FenetreScannerLED fenetre;
+        fenetre.exec();
+
+        ui->listWidget->clear();
+        this->listerAppareils();
     }
 
 }

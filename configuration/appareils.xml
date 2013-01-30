@@ -1,12 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <theatre2013>
-  <peripherique nom="Lyre Haute" uuid="{a2c03dc8-75aa-41cb-a243-23347b3c59d9}" nbCanal="5">
-    <canal id="2">BLUE</canal>
+  <peripherique nom="Lyre 1" nbCanal="5" type="LYRE" uuid="{54ac96b4-bbf2-4347-a526-9804b95789c8}">
+    <canal id="13">PAN</canal>
+    <canal id="14">TILT</canal>
+    <canal id="11">GLOBOS</canal>
+    <canal id="12">COULEUR</canal>
+    <canal id="10">STROBE</canal>
   </peripherique>
-  <peripherique nom="Lyre Moyen" uuid="{a2c03dc8-75aa-41cb-a243-23347b3c59d9}" nbCanal="5">
-    <canal id="2">BLUE</canal>
+  <peripherique nom="PAR Scène 2" nbCanal="4" type="PAR LED" uuid="{2a8635b7-2fd1-4363-bcc6-ccc5b5efbadc}">
+    <canal id="1">RED</canal>
+    <canal id="2">GREEN</canal>
+    <canal id="3">BLUE</canal>
+    <canal id="4">DIMSTRO</canal>
   </peripherique>
-  <peripherique nom="Lyre Basse" uuid="{a2c03dc8-75aa-41cb-a243-23347b3c59d9}" nbCanal="5">
-    <canal id="2">BLUE</canal>
+  <peripherique nom="Scanner 1" nbCanal="3" type="LYRE" uuid="{4f22e463-06db-4751-8515-36977e16f047}">
+    <canal id="32">PAN</canal>
+    <canal id="33">TILT</canal>
+    <canal id="34">GLOBOS</canal>
   </peripherique>
 </theatre2013>

@@ -15,8 +15,24 @@ public:
     explicit WidgetCanalSuppl(QWidget *parent = 0);
     ~WidgetCanalSuppl();
 
+    void setValeur(int valeur);
+    int getNumeroCanal();
+    int getValeurCanal();
+
+
+    QString getNomCanal();
+
 private:
     Ui::WidgetCanalSuppl *ui;
+
+signals:
+    void changementSlider();
+
+private slots:
+
+    void envoyerChangement(int);
+
+
 };
 
 #endif // WIDGETCANALSUPPL_H

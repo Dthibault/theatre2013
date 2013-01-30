@@ -10,6 +10,8 @@
 #include "gestiondmx.h"
 #include "gestionxml.h"
 #include "fenetreajoutlyre.h"
+#include "fenetreajoutpar.h"
+#include "fenetrescannerled.h"
 
 namespace Ui {
 class FenetreGererAppareils;

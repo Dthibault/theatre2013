@@ -1,5 +1,5 @@
-#ifndef FENETREAJOUTLYRE_H
-#define FENETREAJOUTLYRE_H
+#ifndef FENETREAJOUTPAR_H
+#define FENETREAJOUTPAR_H
 
 #include <QDialog>
 #include <QString>
@@ -13,21 +13,19 @@
 #include "widgetcanalsuppl.h"
 
 namespace Ui {
-    class FenetreAjoutLyre;
+    class FenetreAjoutPar;
 }
 
-class FenetreAjoutLyre : public QDialog
+class FenetreAjoutPar : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit FenetreAjoutLyre(QWidget *parent = 0);
-    ~FenetreAjoutLyre();
-
-
+    explicit FenetreAjoutPar(QWidget *parent = 0);
+    ~FenetreAjoutPar();
 
 private:
-    Ui::FenetreAjoutLyre *ui;
+    Ui::FenetreAjoutPar *ui;
 
     GestionDMX *interfaceDMX;
 
@@ -49,4 +47,4 @@ private slots:
     void modifierNombreWidgetSuppl();
 };
 
-#endif // FENETREAJOUTLYRE_H
+#endif // FENETREAJOUTPAR_H
