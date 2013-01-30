@@ -82,3 +82,9 @@ void GestionDMX::envoyerDMX()
 {
     this->interfaceDMX->SendDMX();
 }
+
+bool GestionDMX::estDisponible()
+{
+    this->interfaceDMX = new EnttecDMXUSB(DMX_USB_PRO, this->adresseDMX.toLocal8Bit().constData());
+    return this->interfaceDMX->IsAvailable();
+}

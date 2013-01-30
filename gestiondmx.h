@@ -28,6 +28,7 @@ public:
     bool seConnecter();
     void setAdresse(QString nom);
     void seDeconnecter();
+    bool estDisponible();
 
     QString getNomInterface();
     QString getSerialNumber();

@@ -25,6 +25,8 @@ public:
 private:
     Ui::FenetrePrincipale *ui;
 
+    GestionDMX *interfaceDMX;
+
 private slots:
     void ouvrirParametres();
     void ouvrirGererAppareils();

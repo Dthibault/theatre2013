@@ -36,9 +36,16 @@ void FenetrePrincipale::ouvrirGererAppareils()
     GestionXML lireApp;
     QString addrApp, uuidApp;
 
-    if(!(lireApp.lireAdaptateur(&addrApp, &uuidApp)))
+    lireApp.lireAdaptateur(&addrApp, &uuidApp);
+    this->interfaceDMX = new GestionDMX;
+    this->interfaceDMX->setAdresse(addrApp);
+
+
+    qDebug() << this->interfaceDMX->estDisponible();
+
+    if(!(lireApp.lireAdaptateur(&addrApp, &uuidApp)) || !(this->interfaceDMX->estDisponible()))
     {
-        QMessageBox::information(this, "Configuration de l'adaptateur", "Vous devez tout d'abord configurer correctement l'adaptateur.");
+        QMessageBox::information(this, "Configuration de l'adaptateur", "Vous devez tout d'abord configurer correctement l'adaptateur ou le connecter.");
     }
     else
     {
@@ -49,6 +56,25 @@ void FenetrePrincipale::ouvrirGererAppareils()
 
 void FenetrePrincipale::ouvrirControleDistance()
 {
-    FenetreControleDistance fenetre;
-    fenetre.exec();
+
+    GestionXML lireApp;
+    QString addrApp, uuidApp;
+
+    lireApp.lireAdaptateur(&addrApp, &uuidApp);
+    this->interfaceDMX = new GestionDMX;
+    this->interfaceDMX->setAdresse(addrApp);
+
+
+    qDebug() << this->interfaceDMX->estDisponible();
+
+    if(!(lireApp.lireAdaptateur(&addrApp, &uuidApp)) || !(this->interfaceDMX->estDisponible()))
+    {
+        QMessageBox::information(this, "Configuration de l'adaptateur", "Vous devez tout d'abord configurer correctement l'adaptateur ou le connecter.");
+    }
+    else
+    {
+        FenetreControleDistance fenetre;
+        fenetre.exec();
+    }
+
 }
