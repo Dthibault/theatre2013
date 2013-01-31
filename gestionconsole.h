@@ -11,10 +11,13 @@
 
 #define TAILLE_ENTETE 4
 #define BIT_STATES 6
+#define BIT_SLIDERS 15
 
 
 #define BOUTON_GO 0xFFFFFFEF
 #define BOUTON_BACK 0xFFFFFFDF
+#define BOUTON_PAGEUP 0x7F
+#define BOUTON_PAGEDOWN 0xFFFFFFBF
 
 
 class GestionConsole : public QObject
@@ -27,18 +30,24 @@ public:
     bool start();
     void stop();
 
+    void modifierNumero(int numero);
+
 private:
     QUdpSocket *socket;
 
-    GestionDMX *interfaceDMX;
-
     void traitementTrame(QByteArray data);
-    int testlol;
+
+    int etatSliders[9];
 
 
 signals:
     void boutonGO();
     void boutonBACK();
+
+    void boutonUP();
+    void boutonDOWN();
+
+    void envoieSliders(int*);
 
 private slots:
     void receptionTrame();

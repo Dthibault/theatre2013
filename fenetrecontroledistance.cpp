@@ -22,8 +22,20 @@ FenetreControleDistance::FenetreControleDistance(QWidget *parent) :
 
     connect(this->interfaceConsole, SIGNAL(boutonGO()), this, SLOT(debutControle()));
     connect(this->interfaceConsole, SIGNAL(boutonBACK()), this, SLOT(arretControle()));
+    connect(this->interfaceConsole, SIGNAL(boutonUP()), this, SLOT(augmenterNumero()));
+    connect(this->interfaceConsole, SIGNAL(boutonDOWN()), this, SLOT(baisserNumero()));
+    connect(this->interfaceConsole, SIGNAL(envoieSliders(int*)), this, SLOT(modifierSliders(int*)));
 
+    this->numeroActuel = 0;
+    this->interfaceConsole->modifierNumero(this->numeroActuel);
 
+    ui->labelNumeroActuel->clear();
+    ui->labelNumeroActuel->setText("<b>Appareil sélectionné: </b>"+QString::number(this->numeroActuel));
+
+    connect(ui->listWidget, SIGNAL(currentRowChanged(int)), this, SLOT(afficherNumeroAssignation(int)));
+    connect(ui->spinBox, SIGNAL(valueChanged(int)), this, SLOT(modifierNumeroAssignation(int)));
+
+    this->listerAppareils();
 }
 
 FenetreControleDistance::~FenetreControleDistance()
@@ -62,6 +74,34 @@ void FenetreControleDistance::fermerFenetre()
     this->close();
 }
 
+void FenetreControleDistance::listerAppareils()
+{
+    QStringList nom, uuid;
+
+    GestionXML monXML;
+    monXML.lireListeAppareils(&nom, &uuid);
+
+    for(int i=0; i<nom.size(); i++)
+    {
+        ui->listWidget->addItem(nom[i]);
+        this->listeNumero.push_back(QString::number(i));
+    }
+
+    if(nom.size() > 0)
+    {
+        ui->listWidget->setCurrentRow(0);
+    }
+}
+
+void FenetreControleDistance::afficherNumeroAssignation(int numero)
+{
+    ui->spinBox->setValue(this->listeNumero[numero].toInt());
+}
+
+void FenetreControleDistance::modifierNumeroAssignation(int numero)
+{
+    this->listeNumero[ui->listWidget->currentRow()] = QString::number(numero);
+}
 
 void FenetreControleDistance::debutControle()
 {
@@ -73,6 +113,11 @@ void FenetreControleDistance::debutControle()
 
         this->interfaceDMX->seConnecter();
         this->interfaceDMX->resetDMX();
+
+        this->numeroActuel = 0;
+        this->interfaceConsole->modifierNumero(this->numeroActuel);
+
+        ui->spinBox->setDisabled(true);
     }
 
 }
@@ -83,4 +128,76 @@ void FenetreControleDistance::arretControle()
     ui->labelEtatConnexion->setText("<b><span style=\"color: red;\">CONTROLE NON ACTIF</span></b>");
 
     this->interfaceDMX->seDeconnecter();
+
+    ui->spinBox->setEnabled(true);
+}
+
+void FenetreControleDistance::augmenterNumero()
+{
+    if(this->etatPriseEnMain)
+    {
+
+
+        if(this->numeroActuel < 99)
+        {
+            this->numeroActuel++;
+            this->interfaceConsole->modifierNumero(this->numeroActuel);
+        }
+        else
+        {
+            this->numeroActuel = 0;
+            this->interfaceConsole->modifierNumero(this->numeroActuel);
+        }
+
+        ui->labelNumeroActuel->clear();
+        ui->labelNumeroActuel->setText("<b>Appareil sélectionné: </b>"+QString::number(this->numeroActuel));
+    }
+}
+
+void FenetreControleDistance::baisserNumero()
+{
+    if(this->etatPriseEnMain)
+    {
+        if(this->numeroActuel > 0)
+        {
+            this->numeroActuel--;
+            this->interfaceConsole->modifierNumero(this->numeroActuel);
+        }
+        else
+        {
+            this->numeroActuel = 99;
+            this->interfaceConsole->modifierNumero(this->numeroActuel);
+        }
+
+        ui->labelNumeroActuel->clear();
+        ui->labelNumeroActuel->setText("<b>Appareil sélectionné: </b>"+QString::number(this->numeroActuel));
+    }
+}
+
+void FenetreControleDistance::modifierSliders(int * listeSliders)
+{
+    if(this->etatPriseEnMain)
+    {
+        QStringList nom, uuid;
+
+        GestionXML monXML;
+        monXML.lireListeAppareils(&nom, &uuid);
+
+
+        for(int j=0; j<this->listeNumero.size(); j++)
+        {
+            if(this->numeroActuel == this->listeNumero[j].toInt())
+            {
+                QStringList maListeDeCanaux;
+                monXML.recupererCanaux(&maListeDeCanaux, uuid[j]);
+
+                for(int i=0; i<maListeDeCanaux.size(); i++)
+                {
+                    this->interfaceDMX->modifierValeurCanal(maListeDeCanaux[i].toInt(), listeSliders[i]);
+                    this->interfaceDMX->envoyerDMX();
+                }
+            }
+        }
+
+    }
 }

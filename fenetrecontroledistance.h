@@ -6,6 +6,7 @@
 #include <QDebug>
 #include "gestionxml.h"
 #include "gestionconsole.h"
+#include "gestiondmx.h"
 
 namespace Ui {
     class FenetreControleDistance;
@@ -29,11 +30,25 @@ private:
 
     bool etatPriseEnMain;
 
+    int numeroActuel;
+
+    void listerAppareils();
+
+    QStringList listeNumero;
+
 private slots:
     void fermerFenetre();
 
+    void afficherNumeroAssignation(int numero);
+    void modifierNumeroAssignation(int numero);
+
     void debutControle();
     void arretControle();
+
+    void augmenterNumero();
+    void baisserNumero();
+
+    void modifierSliders(int*);
 };
 
 #endif // FENETRECONTROLEDISTANCE_H

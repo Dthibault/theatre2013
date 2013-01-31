@@ -33,6 +33,8 @@ public:
     void ajouterAppareil(QString nom, QString uuid, QString nbCanal, QString typeAppareil, QStringList numeroCanal, QStringList actionCanal);
     void effacerAppareils(QString uuid);
 
+    void recupererCanaux(QStringList *listeCanaux, QString uuid);
+
 private:
 
 

@@ -327,3 +327,50 @@ void GestionXML::effacerAppareils(QString uuid)
 
 
 }
+
+void GestionXML::recupererCanaux(QStringList *listeCanaux, QString uuid)
+{
+    QDomDocument documentXML;
+    QFile fichierXML(APPAREILSXML);
+
+    if(!(fichierXML.open(QIODevice::ReadOnly)))
+    {
+        QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Appareils.xml");
+    }
+    else
+    {
+        documentXML.setContent(&fichierXML, false);
+        QDomElement racine = documentXML.documentElement();
+        QDomNode noeud = racine.firstChild();
+
+        QDomElement peripherique;
+
+        QDomNode noeudCanaux;
+        QDomElement canauxElement;
+
+        while(!(noeud.isNull()))
+        {
+            peripherique = noeud.toElement();
+
+            if(peripherique.attribute("uuid") == uuid)
+            {
+                noeudCanaux = peripherique.firstChild();
+
+                while(!(noeudCanaux.isNull()))
+                {
+                    canauxElement = noeudCanaux.toElement();
+
+                    listeCanaux->push_back(canauxElement.attribute("id"));
+
+                    noeudCanaux = noeudCanaux.nextSibling();
+                }
+            }
+
+
+            noeud = noeud.nextSibling();
+        }
+
+    }
+
+    fichierXML.close();
+}

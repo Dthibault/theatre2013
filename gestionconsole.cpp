@@ -77,14 +77,22 @@ void GestionConsole::traitementTrame(QByteArray data)
         {
             case BOUTON_GO: emit boutonGO(); break;
             case BOUTON_BACK: emit boutonBACK(); break;
+            case BOUTON_PAGEUP: emit boutonUP(); break;
+            case BOUTON_PAGEDOWN: emit boutonDOWN(); break;
         }
 
+        for(int i=0; i<10; i++)
+        {
+            this->etatSliders[i] = data[BIT_SLIDERS+i];
+        }
+
+        emit(envoieSliders(this->etatSliders));
 
 
-//QByteArray firmware;
-//        int lettreD = data[6];
+//        QByteArray firmware;
+//        int lettreD = data[15];
 
-//        firmware.setNum(data[6], 16);
+//        firmware.setNum(data[15], 16);
 
 //        qDebug() << "\nDecimal: " << lettreD << " / Hexa: " << firmware << "/ Resultat:" << QByteArray::fromHex(firmware);
 
@@ -99,5 +107,21 @@ void GestionConsole::traitementTrame(QByteArray data)
 //        this->interfaceDMX->SetCanalDMX(12, int(data[18]));
 //        this->interfaceDMX->SendDMX();
     }
+
+}
+
+void GestionConsole::modifierNumero(int numero)
+{
+    QByteArray requete = "WIDD1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx7xxxx";
+    requete[4] = 0x01;
+
+    for(int i=5; i<41; i++)
+    {
+        requete[i] = 0x00;
+    }
+
+    requete[37] = numero;
+
+    this->socket->writeDatagram(requete, QHostAddress::Broadcast, 3330);
 
 }
