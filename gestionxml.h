@@ -31,7 +31,7 @@ public:
     void lireListeAppareils(QStringList *nom, QStringList *UUID);
 
     void ajouterAppareil(QString nom, QString uuid, QString nbCanal, QString typeAppareil, QStringList numeroCanal, QStringList actionCanal);
-    void effacerAppareils();
+    void effacerAppareils(QString uuid);
 
 private:
 

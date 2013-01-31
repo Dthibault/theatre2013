@@ -22,6 +22,7 @@ FenetreParametres::FenetreParametres(QWidget *parent) :
 
 
     GestionXML paramAdaptateurs;
+
     QString adresse, UUID;
     if(paramAdaptateurs.lireAdaptateur(&adresse, &UUID))
     {

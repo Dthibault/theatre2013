@@ -33,6 +33,8 @@ private:
 private slots:
     void ouvrirFenetreNouveau();
 
+    void effacerAppareil();
+
 };
 
 #endif // FENETREGERERAPPAREILS_H

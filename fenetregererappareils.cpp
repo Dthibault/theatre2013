@@ -15,6 +15,7 @@ FenetreGererAppareils::FenetreGererAppareils(QWidget *parent) :
     ui->comboBox->addItem("Autre");
 
     connect(ui->boutonAjouter, SIGNAL(clicked()), this, SLOT(ouvrirFenetreNouveau()));
+    connect(ui->boutonEffacer, SIGNAL(clicked()), this, SLOT(effacerAppareil()));
 
 
     this->listerAppareils();
@@ -67,4 +68,25 @@ void FenetreGererAppareils::ouvrirFenetreNouveau()
         this->listerAppareils();
     }
 
+}
+
+void FenetreGererAppareils::effacerAppareil()
+{
+    QStringList nom, uuid;
+
+    GestionXML monXML;
+    monXML.lireListeAppareils(&nom, &uuid);
+
+
+    int choix = QMessageBox::question(this, "Effacer?", "Voulez-vous effacer ce périphérique?", QMessageBox::Yes | QMessageBox::No);
+
+    if(choix == QMessageBox::Yes)
+    {
+        monXML.effacerAppareils(uuid[ui->listWidget->currentRow()]);
+
+        QMessageBox::information(this, "Périphérique effacé", "Le périphérique a été éffacé.");
+
+        ui->listWidget->clear();
+        this->listerAppareils();
+    }
 }
