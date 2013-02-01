@@ -14,7 +14,7 @@ GestionConsole::~GestionConsole()
 
 bool GestionConsole::start()
 {
-    if(this->socket->bind(QHostAddress::Any, 3330))
+    if(this->socket->bind(QHostAddress::Any, 3330, QUdpSocket::ShareAddress))
     {
         connect(this->socket, SIGNAL(readyRead()), this, SLOT(receptionTrame()));
 
