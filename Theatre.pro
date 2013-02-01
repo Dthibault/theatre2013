@@ -15,7 +15,8 @@ SOURCES += \
     fenetreajoutlyre.cpp \
     widgetcanalsuppl.cpp \
     fenetreajoutpar.cpp \
-    fenetrescannerled.cpp
+    fenetrescannerled.cpp \
+    fenetreajoutautre.cpp
 
 HEADERS += \
     types.h \
@@ -33,7 +34,8 @@ HEADERS += \
     fenetreajoutlyre.h \
     widgetcanalsuppl.h \
     fenetreajoutpar.h \
-    fenetrescannerled.h
+    fenetrescannerled.h \
+    fenetreajoutautre.h
 
 FORMS += \
     fenetreprincipale.ui \
@@ -43,4 +45,5 @@ FORMS += \
     fenetreajoutlyre.ui \
     widgetcanalsuppl.ui \
     fenetreajoutpar.ui \
-    fenetrescannerled.ui
+    fenetrescannerled.ui \
+    fenetreajoutautre.ui

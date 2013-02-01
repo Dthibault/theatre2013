@@ -12,6 +12,7 @@
 #include "fenetreajoutlyre.h"
 #include "fenetreajoutpar.h"
 #include "fenetrescannerled.h"
+#include "fenetreajoutautre.h"
 
 namespace Ui {
 class FenetreGererAppareils;

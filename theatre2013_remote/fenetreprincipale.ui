@@ -6,14 +6,29 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>803</width>
-    <height>559</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Console Enttec - Remote</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/new/images/images/background.png);</string>
+   </property>
    <widget class="QPushButton" name="Boutton_9">
     <property name="geometry">
      <rect>
@@ -88,6 +103,9 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
     <property name="text">
      <string>19</string>
     </property>
@@ -114,6 +132,9 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
     <property name="text">
      <string>0</string>
     </property>
@@ -126,6 +147,9 @@
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
     </property>
     <property name="text">
      <string>14</string>
@@ -179,6 +203,9 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
     <property name="text">
      <string>17</string>
     </property>
@@ -218,6 +245,9 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
     <property name="text">
      <string>18</string>
     </property>
@@ -243,6 +273,9 @@
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
     </property>
     <property name="text">
      <string>16</string>
@@ -283,6 +316,9 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
     <property name="text">
      <string>10</string>
     </property>
@@ -322,6 +358,9 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
     <property name="text">
      <string>11</string>
     </property>
@@ -347,6 +386,9 @@
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
     </property>
     <property name="text">
      <string>15</string>
@@ -452,6 +494,9 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
     <property name="text">
      <string>1</string>
     </property>
@@ -504,6 +549,9 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
     <property name="text">
      <string>13</string>
     </property>
@@ -530,6 +578,9 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
     <property name="text">
      <string>12</string>
     </property>
@@ -542,6 +593,15 @@
       <width>111</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="smallDecimalPoint">
+     <bool>false</bool>
+    </property>
+    <property name="numDigits">
+     <number>2</number>
+    </property>
+    <property name="digitCount">
+     <number>2</number>
     </property>
    </widget>
    <widget class="QPushButton" name="PageUp">
@@ -700,7 +760,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="QPushButton" name="boutonBack">
+   <widget class="QPushButton" name="boutonBACK">
     <property name="geometry">
      <rect>
       <x>630</x>
@@ -713,7 +773,7 @@
      <string>BACK</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="BouttonGo">
+   <widget class="QPushButton" name="boutonGO">
     <property name="geometry">
      <rect>
       <x>630</x>
@@ -732,7 +792,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>803</width>
+     <width>800</width>
      <height>27</height>
     </rect>
    </property>

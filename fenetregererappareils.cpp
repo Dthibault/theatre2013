@@ -67,6 +67,14 @@ void FenetreGererAppareils::ouvrirFenetreNouveau()
         ui->listWidget->clear();
         this->listerAppareils();
     }
+    else if(ui->comboBox->currentText().contains("Autre"))
+    {
+        FenetreAjoutAutre fenetre;
+        fenetre.exec();
+
+        ui->listWidget->clear();
+        this->listerAppareils();
+    }
 
 }
 
