@@ -11,11 +11,25 @@ FenetrePrincipale::FenetrePrincipale(QWidget *parent) :
 
     connect(ui->boutonGO, SIGNAL(clicked()), this, SLOT(envoyerTrame()));
     connect(ui->boutonBACK, SIGNAL(clicked()), this, SLOT(envoyerTrame()));
+    connect(ui->PageDown, SIGNAL(clicked()), this, SLOT(envoyerTrame()));
+    connect(ui->PageUp, SIGNAL(clicked()), this, SLOT(envoyerTrame()));
 
 
     this->maConsole = new GestionConsole;
 
     connect(this->maConsole, SIGNAL(modifierNumero(int)), this, SLOT(modifierNumero(int)));
+
+    connect(ui->verticalSlider_1, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+    connect(ui->verticalSlider_2, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+    connect(ui->verticalSlider_3, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+    connect(ui->verticalSlider_4, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+    connect(ui->verticalSlider_5, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+    connect(ui->verticalSlider_6, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+    connect(ui->verticalSlider_7, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+    connect(ui->verticalSlider_8, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+    connect(ui->verticalSlider_9, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+    connect(ui->verticalSlider_10, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+
 }
 
 FenetrePrincipale::~FenetrePrincipale()
@@ -52,19 +66,43 @@ void FenetrePrincipale::envoyerTrame()
     QObject * emetteur = sender();
     QPushButton * emetteurCasted = qobject_cast<QPushButton*>(emetteur);
 
-    if(emetteurCasted->objectName().contains("boutonGO"))
+    if(emetteurCasted)
     {
-        trame[decalage++] = BOUTON_GO;
+        if(emetteurCasted->objectName().contains("boutonGO"))
+        {
+            trame[decalage++] = BOUTON_GO;
+        }
+        else if(emetteurCasted->objectName().contains("boutonBACK"))
+        {
+            trame[decalage++] = BOUTON_BACK;
+        }
+        else if(emetteurCasted->objectName().contains("PageUp"))
+        {
+            trame[decalage++] = BOUTON_PAGEUP;
+        }
+        else if(emetteurCasted->objectName().contains("PageDown"))
+        {
+            trame[decalage++] = BOUTON_PAGEDOWN;
+        }
     }
-    else if(emetteurCasted->objectName().contains("boutonBACK"))
-    {
-        trame[decalage++] = BOUTON_BACK;
-    }
 
 
 
+    decalage = 15;
+
+    trame[decalage++] = ui->verticalSlider_1->value();
+    trame[decalage++] = ui->verticalSlider_2->value();
+    trame[decalage++] = ui->verticalSlider_3->value();
+    trame[decalage++] = ui->verticalSlider_4->value();
+    trame[decalage++] = ui->verticalSlider_5->value();
+    trame[decalage++] = ui->verticalSlider_6->value();
+    trame[decalage++] = ui->verticalSlider_7->value();
+    trame[decalage++] = ui->verticalSlider_8->value();
+    trame[decalage++] = ui->verticalSlider_9->value();
+    trame[decalage++] = ui->verticalSlider_10->value();
 
 
+    qDebug() << trame;
 
     this->maConsole->ecrireSocket(trame);
 
@@ -75,6 +113,5 @@ void FenetrePrincipale::envoyerTrame()
 
 void FenetrePrincipale::modifierNumero(int numero)
 {
-    qDebug() << numero;
     ui->lcdNumber->display(numero);
 }

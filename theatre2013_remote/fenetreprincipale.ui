@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>640</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>800</width>
-    <height>600</height>
+    <height>640</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>800</width>
-    <height>600</height>
+    <height>640</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -32,11 +32,15 @@
    <widget class="QPushButton" name="Boutton_9">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>30</y>
+      <x>580</x>
+      <y>40</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>9</string>
@@ -45,11 +49,15 @@
    <widget class="QPushButton" name="Boutton_38">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>200</y>
+      <x>530</x>
+      <y>210</y>
       <width>41</width>
       <height>43</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string/>
@@ -58,11 +66,15 @@
    <widget class="QPushButton" name="Boutton_6">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>30</y>
+      <x>400</x>
+      <y>40</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>6</string>
@@ -71,11 +83,15 @@
    <widget class="QPushButton" name="Boutton_23">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>130</y>
+      <x>220</x>
+      <y>140</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>23</string>
@@ -84,11 +100,15 @@
    <widget class="QPushButton" name="Boutton_5">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>30</y>
+      <x>340</x>
+      <y>40</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>5</string>
@@ -97,14 +117,15 @@
    <widget class="QPushButton" name="Boutton_19">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>80</y>
+      <x>580</x>
+      <y>90</y>
       <width>41</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: 0;</string>
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>19</string>
@@ -113,11 +134,15 @@
    <widget class="QPushButton" name="Boutton_2">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>30</y>
+      <x>160</x>
+      <y>40</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>2</string>
@@ -126,14 +151,15 @@
    <widget class="QPushButton" name="Boutton_0">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>30</y>
+      <x>40</x>
+      <y>40</y>
       <width>41</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: 0;</string>
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>0</string>
@@ -142,14 +168,15 @@
    <widget class="QPushButton" name="Boutton_14">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>80</y>
+      <x>280</x>
+      <y>90</y>
       <width>41</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: 0;</string>
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>14</string>
@@ -158,11 +185,15 @@
    <widget class="QPushButton" name="Boutton_28">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>130</y>
+      <x>520</x>
+      <y>140</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>28</string>
@@ -171,11 +202,15 @@
    <widget class="QPushButton" name="Boutton_34">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>200</y>
+      <x>290</x>
+      <y>210</y>
       <width>41</width>
       <height>43</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string/>
@@ -184,11 +219,15 @@
    <widget class="QPushButton" name="Boutton_4">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>30</y>
+      <x>280</x>
+      <y>40</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>4</string>
@@ -197,14 +236,15 @@
    <widget class="QPushButton" name="Boutton_17">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>80</y>
+      <x>460</x>
+      <y>90</y>
       <width>41</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: 0;</string>
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>17</string>
@@ -213,11 +253,15 @@
    <widget class="QPushButton" name="Boutton_26">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>130</y>
+      <x>400</x>
+      <y>140</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>26</string>
@@ -226,11 +270,15 @@
    <widget class="QPushButton" name="Boutton_3">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>30</y>
+      <x>220</x>
+      <y>40</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>3</string>
@@ -239,14 +287,15 @@
    <widget class="QPushButton" name="Boutton_18">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>80</y>
+      <x>520</x>
+      <y>90</y>
       <width>41</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: 0;</string>
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>18</string>
@@ -255,11 +304,15 @@
    <widget class="QPushButton" name="Boutton_20">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>130</y>
+      <x>40</x>
+      <y>140</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>20</string>
@@ -268,14 +321,15 @@
    <widget class="QPushButton" name="Boutton_16">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>80</y>
+      <x>400</x>
+      <y>90</y>
       <width>41</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: 0;</string>
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>16</string>
@@ -284,11 +338,15 @@
    <widget class="QPushButton" name="Boutton_22">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>130</y>
+      <x>160</x>
+      <y>140</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>22</string>
@@ -297,11 +355,15 @@
    <widget class="QPushButton" name="Boutton_27">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>130</y>
+      <x>460</x>
+      <y>140</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>27</string>
@@ -310,14 +372,15 @@
    <widget class="QPushButton" name="Boutton_10">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>80</y>
+      <x>40</x>
+      <y>90</y>
       <width>41</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: 0;</string>
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>10</string>
@@ -326,11 +389,15 @@
    <widget class="QPushButton" name="Boutton_39">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>200</y>
+      <x>590</x>
+      <y>210</y>
       <width>41</width>
       <height>43</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string/>
@@ -339,11 +406,15 @@
    <widget class="QPushButton" name="Boutton_21">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>130</y>
+      <x>100</x>
+      <y>140</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>21</string>
@@ -352,14 +423,15 @@
    <widget class="QPushButton" name="Boutton_11">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>80</y>
+      <x>100</x>
+      <y>90</y>
       <width>41</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: 0;</string>
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>11</string>
@@ -368,11 +440,15 @@
    <widget class="QPushButton" name="Boutton_31">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>200</y>
+      <x>110</x>
+      <y>210</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string/>
@@ -381,14 +457,15 @@
    <widget class="QPushButton" name="Boutton_15">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>80</y>
+      <x>340</x>
+      <y>90</y>
       <width>41</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: 0;</string>
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>15</string>
@@ -397,11 +474,15 @@
    <widget class="QPushButton" name="Boutton_7">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>30</y>
+      <x>460</x>
+      <y>40</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>7</string>
@@ -410,11 +491,15 @@
    <widget class="QPushButton" name="Boutton_37">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>200</y>
+      <x>470</x>
+      <y>210</y>
       <width>41</width>
       <height>43</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string/>
@@ -423,11 +508,15 @@
    <widget class="QPushButton" name="Boutton_24">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>130</y>
+      <x>280</x>
+      <y>140</y>
       <width>41</width>
       <height>43</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>24</string>
@@ -436,11 +525,15 @@
    <widget class="QPushButton" name="Boutton_30">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>200</y>
+      <x>50</x>
+      <y>210</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string/>
@@ -449,11 +542,15 @@
    <widget class="QPushButton" name="Boutton_36">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>200</y>
+      <x>410</x>
+      <y>210</y>
       <width>41</width>
       <height>43</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string/>
@@ -462,11 +559,15 @@
    <widget class="QPushButton" name="Boutton_35">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>200</y>
+      <x>350</x>
+      <y>210</y>
       <width>41</width>
       <height>43</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string/>
@@ -475,11 +576,15 @@
    <widget class="QPushButton" name="Boutton_25">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>130</y>
+      <x>340</x>
+      <y>140</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>25</string>
@@ -488,14 +593,15 @@
    <widget class="QPushButton" name="Boutton_1">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>30</y>
+      <x>100</x>
+      <y>40</y>
       <width>41</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: 0;</string>
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>1</string>
@@ -504,11 +610,15 @@
    <widget class="QPushButton" name="Boutton_33">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>200</y>
+      <x>230</x>
+      <y>210</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string/>
@@ -517,11 +627,15 @@
    <widget class="QPushButton" name="Boutton_29">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>130</y>
+      <x>580</x>
+      <y>140</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>29</string>
@@ -530,11 +644,15 @@
    <widget class="QPushButton" name="Boutton_32">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>200</y>
+      <x>170</x>
+      <y>210</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string/>
@@ -543,14 +661,15 @@
    <widget class="QPushButton" name="Boutton_13">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>80</y>
+      <x>220</x>
+      <y>90</y>
       <width>41</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: 0;</string>
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>13</string>
@@ -559,11 +678,15 @@
    <widget class="QPushButton" name="Boutton_8">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>30</y>
+      <x>520</x>
+      <y>40</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>8</string>
@@ -572,14 +695,15 @@
    <widget class="QPushButton" name="Boutton_12">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>80</y>
+      <x>160</x>
+      <y>90</y>
       <width>41</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: 0;</string>
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>12</string>
@@ -588,11 +712,14 @@
    <widget class="QLCDNumber" name="lcdNumber">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>40</y>
-      <width>111</width>
+      <x>650</x>
+      <y>60</y>
+      <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
     </property>
     <property name="smallDecimalPoint">
      <bool>false</bool>
@@ -607,11 +734,15 @@
    <widget class="QPushButton" name="PageUp">
     <property name="geometry">
      <rect>
-      <x>720</x>
-      <y>40</y>
-      <width>61</width>
+      <x>710</x>
+      <y>50</y>
+      <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>Up</string>
@@ -620,170 +751,305 @@
    <widget class="QPushButton" name="PageDown">
     <property name="geometry">
      <rect>
-      <x>720</x>
-      <y>90</y>
-      <width>61</width>
+      <x>710</x>
+      <y>120</y>
+      <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>Down</string>
     </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
    </widget>
-   <widget class="QSlider" name="verticalSlider">
+   <widget class="QSlider" name="verticalSlider_1">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>290</y>
+      <x>50</x>
+      <y>310</y>
       <width>51</width>
       <height>171</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
+    </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksBothSides</enum>
+    </property>
+    <property name="tickInterval">
+     <number>6</number>
     </property>
    </widget>
    <widget class="QSlider" name="verticalSlider_2">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>290</y>
+      <x>110</x>
+      <y>310</y>
       <width>51</width>
       <height>171</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
+    </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksBothSides</enum>
+    </property>
+    <property name="tickInterval">
+     <number>6</number>
     </property>
    </widget>
    <widget class="QSlider" name="verticalSlider_3">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>290</y>
+      <x>170</x>
+      <y>310</y>
       <width>51</width>
       <height>171</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
+    </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksBothSides</enum>
+    </property>
+    <property name="tickInterval">
+     <number>6</number>
     </property>
    </widget>
    <widget class="QSlider" name="verticalSlider_4">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>290</y>
+      <x>230</x>
+      <y>310</y>
       <width>51</width>
       <height>171</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
+    </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksBothSides</enum>
+    </property>
+    <property name="tickInterval">
+     <number>6</number>
     </property>
    </widget>
    <widget class="QSlider" name="verticalSlider_5">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>290</y>
+      <x>290</x>
+      <y>310</y>
       <width>51</width>
       <height>171</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
+    </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksBothSides</enum>
+    </property>
+    <property name="tickInterval">
+     <number>6</number>
     </property>
    </widget>
    <widget class="QSlider" name="verticalSlider_6">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>290</y>
+      <x>350</x>
+      <y>310</y>
       <width>51</width>
       <height>171</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
+    </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksBothSides</enum>
+    </property>
+    <property name="tickInterval">
+     <number>6</number>
     </property>
    </widget>
    <widget class="QSlider" name="verticalSlider_7">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>290</y>
+      <x>410</x>
+      <y>310</y>
       <width>51</width>
       <height>171</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
+    </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksBothSides</enum>
+    </property>
+    <property name="tickInterval">
+     <number>6</number>
     </property>
    </widget>
    <widget class="QSlider" name="verticalSlider_8">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>290</y>
+      <x>470</x>
+      <y>310</y>
       <width>51</width>
       <height>171</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
+    </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksBothSides</enum>
+    </property>
+    <property name="tickInterval">
+     <number>6</number>
     </property>
    </widget>
    <widget class="QSlider" name="verticalSlider_9">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>290</y>
+      <x>530</x>
+      <y>310</y>
       <width>51</width>
       <height>171</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
+    </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksBothSides</enum>
+    </property>
+    <property name="tickInterval">
+     <number>6</number>
     </property>
    </widget>
    <widget class="QSlider" name="verticalSlider_10">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>290</y>
+      <x>590</x>
+      <y>310</y>
       <width>51</width>
       <height>171</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;</string>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
+    </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksBothSides</enum>
+    </property>
+    <property name="tickInterval">
+     <number>6</number>
     </property>
    </widget>
    <widget class="QPushButton" name="boutonBACK">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>310</y>
-      <width>131</width>
+      <x>650</x>
+      <y>350</y>
+      <width>91</width>
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
-     <string>BACK</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="boutonGO">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>360</y>
-      <width>131</width>
+      <x>650</x>
+      <y>400</y>
+      <width>91</width>
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: 0;
+background-color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
-     <string>GO</string>
+     <string/>
     </property>
    </widget>
   </widget>
