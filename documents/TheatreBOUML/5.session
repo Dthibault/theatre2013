@@ -1,0 +1,13 @@
+window_sizes 1914 1002 302 1602 914 0
+diagrams
+  active  classdiagram_ref 128005 // Theatre
+    1584 895 100 4 168 0
+end
+show_stereotypes
+selected class_ref 130053 // FenetreParametres
+open
+  classview_ref 128005 // Theatre_2013
+  classview_ref 128133 // Theatre
+  usecaseview_ref 128005 // Theatre
+end
+end
