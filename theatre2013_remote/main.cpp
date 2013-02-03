@@ -9,6 +9,8 @@ int main(int argc, char *argv[])
 {
 
     QApplication app(argc, argv);
+    app.setApplicationName("Théâtre 2013 - Remote");
+
 
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
     QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
@@ -21,6 +23,7 @@ int main(int argc, char *argv[])
 
     FenetrePrincipale fenetre;
     fenetre.show();
+
 
 
     return app.exec();

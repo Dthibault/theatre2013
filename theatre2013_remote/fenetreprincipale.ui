@@ -1059,7 +1059,7 @@ background-color: rgb(255, 255, 255);</string>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>27</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -1080,6 +1080,12 @@ background-color: rgb(255, 255, 255);</string>
   <action name="actionQuitter">
    <property name="text">
     <string>Quitter</string>
+   </property>
+   <property name="statusTip">
+    <string>Quitter l'application</string>
+   </property>
+   <property name="shortcut">
+    <string>Meta+W</string>
    </property>
   </action>
  </widget>

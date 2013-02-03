@@ -4,7 +4,7 @@ Projet Théâtre 2013
 *****
 **Auteurs:** Thibault Dupuis, Cyril Bertrand, Corentin Dangely
 
-**Langues:** Qt/C++, XML
+**Languages:** Qt/C++, XML
 
-**Protocoles:** DMX512, Ethernet
+**Protocoles:** DMX512, Ethernet, UDP
 *****
