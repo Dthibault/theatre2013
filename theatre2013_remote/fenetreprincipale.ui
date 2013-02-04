@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Console Enttec - Remote</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="ressources.qrc">
+    <normaloff>:/new/images/images/logo.png</normaloff>:/new/images/images/logo.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
     <string notr="true">background-image: url(:/new/images/images/background.png);</string>
@@ -1089,6 +1093,8 @@ background-color: rgb(255, 255, 255);</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="ressources.qrc"/>
+ </resources>
  <connections/>
 </ui>
