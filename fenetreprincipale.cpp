@@ -13,6 +13,31 @@ FenetrePrincipale::FenetrePrincipale(QWidget *parent) :
     connect(ui->actionCont_le_distant, SIGNAL(triggered()), this, SLOT(ouvrirControleDistance()));
     connect(ui->actionQuitter, SIGNAL(triggered()), qApp, SLOT(quit()));
 
+    ui->treeWidget->setDisabled(true);
+    ui->boutonEnregistrer->setDisabled(true);
+    ui->boutonSupprimer->setDisabled(true);
+    ui->tabWidget->setDisabled(true);
+
+    monMenu = new QMenu(this);
+    menuScenario = new QAction(this);
+    menuScene = new QAction(this);
+
+    menuScenario->setText("Nouveau scénario");
+    menuScene->setText("Nouvelle scène");
+
+    monMenu->addAction(menuScenario);
+    monMenu->addAction(menuScene);
+
+    menuScene->setDisabled(true);
+
+    ui->boutonAjouter->setMenu(monMenu);
+
+    connect(monMenu, SIGNAL(triggered(QAction*)), qApp, SLOT(aboutQt()));
+
+//    QTabWidget *tab1 = new QTabWidget(this);
+
+//    ui->tabWidget->addTab(tab1, "Test");
+
 
 //    connect(ui->boutonDimmer, SIGNAL(clicked()), this, SLOT(testDimmer()));
 

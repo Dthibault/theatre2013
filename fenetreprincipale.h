@@ -27,6 +27,10 @@ private:
 
     GestionDMX *interfaceDMX;
 
+    QMenu *monMenu;
+    QAction *menuScenario;
+    QAction *menuScene;
+
 private slots:
     void ouvrirParametres();
     void ouvrirGererAppareils();
