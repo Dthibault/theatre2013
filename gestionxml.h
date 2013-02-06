@@ -35,6 +35,8 @@ public:
 
     void recupererCanaux(QStringList *listeCanaux, QString uuid);
 
+    void recupererDimmer(QStringList *listeCanaux);
+
 private:
 
 

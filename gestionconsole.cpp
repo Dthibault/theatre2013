@@ -23,6 +23,8 @@ bool GestionConsole::start()
 //        this->interfaceDMX->ResetCanauxDMX();
 //        this->interfaceDMX->SendDMX();
 
+
+
         return true;
     }
     else
@@ -112,6 +114,7 @@ void GestionConsole::traitementTrame(QByteArray data)
 
 void GestionConsole::modifierNumero(int numero)
 {
+
     QByteArray requete = "WIDD1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx7xxxx";
     requete[4] = 0x01;
 
@@ -122,6 +125,8 @@ void GestionConsole::modifierNumero(int numero)
 
     requete[37] = numero;
 
-    this->socket->writeDatagram(requete, QHostAddress::Broadcast, 3330);
+
+    //qDebug() << this->socket->writeDatagram(requete, QHostAddress::Broadcast, 3330);
+    qDebug() << this->socket->writeDatagram(requete, QHostAddress("192.168.52.212"), 3330);
 
 }

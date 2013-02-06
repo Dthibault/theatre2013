@@ -8,6 +8,24 @@
 #include <string>
 #include "enttecdmxusb.h"
 
+class GestionDimmer : public QThread
+{
+    Q_OBJECT
+
+public:
+    explicit GestionDimmer(QObject *parent = 0, int canal = 0, int valeur = 255);
+
+private:
+    int valeurActuelle;
+    int canalActuel;
+
+protected:
+    void run();
+
+signals:
+    void nouvelleValeur(int, int);
+};
+
 
 
 class GestionDMX : public QObject
@@ -20,6 +38,8 @@ private:
     bool premiereConnexion;
 
     QString adresseDMX;
+
+    GestionDimmer *monThreadDimmer;
 
 public:
     explicit GestionDMX(QObject *parent = 0);
@@ -37,15 +57,20 @@ public:
     void resetDMX();
 
     void modifierValeurCanal(int canal, int valeur);
+
     void envoyerDMX();
+
+    void faireDimmerCanal(int canal, int valeur = 255);
 
     
 signals:
 
     void adaptateurNonPresent();
 
-private slots:
+public slots:
 
+private slots:
+    void envoyerDimmerCanal(int canal, int valeur);
 
     
 };

@@ -20,7 +20,6 @@ FenetreAjoutPar::FenetreAjoutPar(QWidget *parent) :
     connect(ui->verticalSliderRED, SIGNAL(valueChanged(int)), this, SLOT(miseAJourDMX()));
     connect(ui->verticalSliderGREEN, SIGNAL(valueChanged(int)), this, SLOT(miseAJourDMX()));
     connect(ui->verticalSliderBLUE, SIGNAL(valueChanged(int)), this, SLOT(miseAJourDMX()));
-    connect(ui->verticalSliderDIMSTRO, SIGNAL(valueChanged(int)), this, SLOT(miseAJourDMX()));
 
     connect(ui->spinBoxSuppl, SIGNAL(valueChanged(int)), this, SLOT(modifierNombreWidgetSuppl()));
 
@@ -55,7 +54,6 @@ void FenetreAjoutPar::miseAJourDMX()
     this->interfaceDMX->modifierValeurCanal(ui->spinBoxRED->value(), ui->verticalSliderRED->value());
     this->interfaceDMX->modifierValeurCanal(ui->spinBoxGREEN->value(), ui->verticalSliderGREEN->value());
     this->interfaceDMX->modifierValeurCanal(ui->spinBoxBLUE->value(), ui->verticalSliderBLUE->value());
-    this->interfaceDMX->modifierValeurCanal(ui->spinBoxDIMSTRO->value(), ui->verticalSliderDIMSTRO->value());
 
     if(this->nbAjouts > 0)
     {
@@ -95,12 +93,11 @@ void FenetreAjoutPar::confirmationAppareil()
             nbCanal.push_back(QString::number(ui->spinBoxRED->value()));
             nbCanal.push_back(QString::number(ui->spinBoxGREEN->value()));
             nbCanal.push_back(QString::number(ui->spinBoxBLUE->value()));
-            nbCanal.push_back(QString::number(ui->spinBoxDIMSTRO->value()));
 
             actionCanal.push_back("RED");
             actionCanal.push_back("GREEN");
             actionCanal.push_back("BLUE");
-            actionCanal.push_back("DIMSTRO");
+
 
             for(int i=0; i<this->nbAjouts; i++)
             {
@@ -117,7 +114,7 @@ void FenetreAjoutPar::confirmationAppareil()
             }
 
             QUuid monUuid = QUuid::createUuid();
-            int nombreCanals = 4+this->nbAjouts;
+            int nombreCanals = 3+this->nbAjouts;
 
 
             monXML.ajouterAppareil(nomfichier, monUuid.toString(), QString::number(nombreCanals), "PAR LED", nbCanal, actionCanal);

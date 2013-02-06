@@ -14,7 +14,36 @@ FenetrePrincipale::FenetrePrincipale(QWidget *parent) :
     connect(ui->actionQuitter, SIGNAL(triggered()), qApp, SLOT(quit()));
 
 
+//    connect(ui->boutonDimmer, SIGNAL(clicked()), this, SLOT(testDimmer()));
 
+//    this->interfaceDMX = new GestionDMX(this);
+
+//    GestionXML monXML;
+//    QStringList test1;
+
+//    monXML.recupererCanaux(&test1, "{f163b05a-58bf-46d9-887b-a4e9a0ad8f11}");
+
+//    this->interfaceDMX->setAdresse("/dev/ttyUSB0");
+//    this->interfaceDMX->seConnecter();
+
+
+//    for(int i = 0; i < test1.size(); i++)
+//    {
+//        this->interfaceDMX->modifierValeurCanal(test1[i].toInt(), 255);
+//    }
+
+//    this->interfaceDMX->modifierValeurCanal(4, 128);
+
+//    this->interfaceDMX->modifierValeurCanal(192, 255);
+//    this->interfaceDMX->modifierValeurCanal(193, 255);
+//    this->interfaceDMX->modifierValeurCanal(194, 255);
+
+
+
+//    this->interfaceDMX->modifierValeurCanal(14, 255);
+//    this->interfaceDMX->envoyerDMX();
+
+//    qDebug() << test1;
 
 }
 
@@ -76,3 +105,18 @@ void FenetrePrincipale::ouvrirControleDistance()
     }
 
 }
+
+//void FenetrePrincipale::testDimmer()
+//{
+//    this->interfaceDMX->faireDimmerCanal(3, 255);
+//    this->interfaceDMX->faireDimmerCanal(2, 255);
+//    this->interfaceDMX->faireDimmerCanal(1, 255);
+//    this->interfaceDMX->faireDimmerCanal(4, 128);
+
+//    this->interfaceDMX->faireDimmerCanal(192, 255);
+//    this->interfaceDMX->faireDimmerCanal(193, 255);
+//    this->interfaceDMX->faireDimmerCanal(194, 255);
+
+
+
+//}

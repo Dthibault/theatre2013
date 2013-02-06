@@ -102,8 +102,6 @@ void FenetrePrincipale::envoyerTrame()
     trame[decalage++] = ui->verticalSlider_10->value();
 
 
-    qDebug() << trame;
-
     this->maConsole->ecrireSocket(trame);
 
 

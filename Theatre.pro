@@ -47,3 +47,6 @@ FORMS += \
     fenetreajoutpar.ui \
     fenetrescannerled.ui \
     fenetreajoutautre.ui
+
+RESOURCES += \
+    ressources.qrc

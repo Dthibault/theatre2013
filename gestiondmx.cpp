@@ -88,3 +88,40 @@ bool GestionDMX::estDisponible()
     this->interfaceDMX = new EnttecDMXUSB(DMX_USB_PRO, this->adresseDMX.toLocal8Bit().constData());
     return this->interfaceDMX->IsAvailable();
 }
+
+void GestionDMX::faireDimmerCanal(int canal, int valeur)
+{
+    this->monThreadDimmer = new GestionDimmer(this, canal, valeur);
+
+    connect(this->monThreadDimmer, SIGNAL(nouvelleValeur(int,int)), this, SLOT(envoyerDimmerCanal(int,int)));
+
+    this->monThreadDimmer->start();
+}
+
+void GestionDMX::envoyerDimmerCanal(int canal, int valeur)
+{
+    this->interfaceDMX->SetCanalDMX(canal, (int)valeur);
+    this->envoyerDMX();
+}
+
+
+GestionDimmer::GestionDimmer(QObject *parent, int canal, int valeur)
+{
+    this->valeurActuelle = valeur;
+    this->canalActuel = canal;
+}
+
+
+void GestionDimmer::run()
+{
+    while(this->valeurActuelle > 0)
+    {
+        this->valeurActuelle = this->valeurActuelle - 4;
+
+        if(this->valeurActuelle < 0) this->valeurActuelle = 0;
+
+        emit nouvelleValeur(this->canalActuel, this->valeurActuelle);
+
+        msleep(100);
+    }
+}

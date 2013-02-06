@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Théâtre 2013</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="ressources.qrc">
+    <normaloff>:/new/images/images/logo.png</normaloff>:/new/images/images/logo.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -63,6 +67,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="ressources.qrc"/>
+ </resources>
  <connections/>
 </ui>

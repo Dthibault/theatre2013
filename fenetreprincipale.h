@@ -32,6 +32,8 @@ private slots:
     void ouvrirGererAppareils();
     void ouvrirControleDistance();
 
+
+
 };
 
 #endif // FENETREPRINCIPALE_H
