@@ -13,30 +13,20 @@ FenetrePrincipale::FenetrePrincipale(QWidget *parent) :
     connect(ui->actionCont_le_distant, SIGNAL(triggered()), this, SLOT(ouvrirControleDistance()));
     connect(ui->actionQuitter, SIGNAL(triggered()), qApp, SLOT(quit()));
 
-    ui->treeWidget->setDisabled(true);
-    ui->boutonEnregistrer->setDisabled(true);
-    ui->boutonSupprimer->setDisabled(true);
-    ui->tabWidget->setDisabled(true);
+    this->boutonModeScenes = new QPushButton("Mode Scènes", this);
+    this->boutonModeSequences = new QPushButton("Mode Séquences", this);
+    this->boutonFermerMode = new QPushButton("Fermer", this);
 
-    monMenu = new QMenu(this);
-    menuScenario = new QAction(this);
-    menuScene = new QAction(this);
+    ui->statusbar->addPermanentWidget(this->boutonModeScenes);
+    ui->statusbar->addPermanentWidget(this->boutonModeSequences);
+    ui->statusbar->addPermanentWidget(this->boutonFermerMode);
 
-    menuScenario->setText("Nouveau scénario");
-    menuScene->setText("Nouvelle scène");
+    this->boutonFermerMode->setDisabled(true);
 
-    monMenu->addAction(menuScenario);
-    monMenu->addAction(menuScene);
+    connect(this->boutonModeScenes, SIGNAL(clicked()), this, SLOT(afficherModeScenes()));
+    connect(this->boutonFermerMode, SIGNAL(clicked()), this, SLOT(fermerMode()));
 
-    menuScene->setDisabled(true);
-
-    ui->boutonAjouter->setMenu(monMenu);
-
-    connect(monMenu, SIGNAL(triggered(QAction*)), qApp, SLOT(aboutQt()));
-
-//    QTabWidget *tab1 = new QTabWidget(this);
-
-//    ui->tabWidget->addTab(tab1, "Test");
+    this->typeMode = 0;
 
 
 //    connect(ui->boutonDimmer, SIGNAL(clicked()), this, SLOT(testDimmer()));
@@ -128,6 +118,41 @@ void FenetrePrincipale::ouvrirControleDistance()
         FenetreControleDistance fenetre;
         fenetre.exec();
     }
+
+}
+
+void FenetrePrincipale::afficherModeScenes()
+{
+    ui->horizontalLayout->removeWidget(ui->conteneurGenerale);
+    ui->conteneurGenerale->hide();
+
+    this->gestionScenes = new WidgetGestionScenes;
+    ui->horizontalLayout->addWidget(this->gestionScenes);
+
+    this->boutonModeScenes->setDisabled(true);
+    this->boutonModeSequences->setDisabled(true);
+    this->boutonFermerMode->setEnabled(true);
+
+    this->typeMode = 1;
+
+}
+
+void FenetrePrincipale::fermerMode()
+{
+    if(this->typeMode == 1)
+    {
+        ui->horizontalLayout->removeWidget(this->gestionScenes);
+        delete this->gestionScenes;
+    }
+
+    this->boutonModeScenes->setEnabled(true);
+    this->boutonModeSequences->setEnabled(true);
+    this->boutonFermerMode->setDisabled(true);
+
+    this->typeMode = 0;
+
+    ui->horizontalLayout->addWidget(ui->conteneurGenerale);
+    ui->conteneurGenerale->show();
 
 }
 

@@ -16,7 +16,8 @@ SOURCES += \
     widgetcanalsuppl.cpp \
     fenetreajoutpar.cpp \
     fenetrescannerled.cpp \
-    fenetreajoutautre.cpp
+    fenetreajoutautre.cpp \
+    widgetgestionscenes.cpp
 
 HEADERS += \
     types.h \
@@ -35,7 +36,8 @@ HEADERS += \
     widgetcanalsuppl.h \
     fenetreajoutpar.h \
     fenetrescannerled.h \
-    fenetreajoutautre.h
+    fenetreajoutautre.h \
+    widgetgestionscenes.h
 
 FORMS += \
     fenetreprincipale.ui \
@@ -46,7 +48,8 @@ FORMS += \
     widgetcanalsuppl.ui \
     fenetreajoutpar.ui \
     fenetrescannerled.ui \
-    fenetreajoutautre.ui
+    fenetreajoutautre.ui \
+    widgetgestionscenes.ui
 
 RESOURCES += \
     ressources.qrc

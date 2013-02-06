@@ -9,6 +9,7 @@
 #include "fenetrecontroledistance.h"
 #include "gestiondmx.h"
 #include "gestionxml.h"
+#include "widgetgestionscenes.h"
 
 namespace Ui {
 class FenetrePrincipale;
@@ -27,16 +28,21 @@ private:
 
     GestionDMX *interfaceDMX;
 
-    QMenu *monMenu;
-    QAction *menuScenario;
-    QAction *menuScene;
+    WidgetGestionScenes *gestionScenes;
+
+    QPushButton *boutonModeScenes;
+    QPushButton *boutonModeSequences;
+    QPushButton *boutonFermerMode;
+
+    int typeMode;
 
 private slots:
     void ouvrirParametres();
     void ouvrirGererAppareils();
     void ouvrirControleDistance();
 
-
+    void afficherModeScenes();
+    void fermerMode();
 
 };
 
