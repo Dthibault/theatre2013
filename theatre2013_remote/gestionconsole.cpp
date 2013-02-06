@@ -54,6 +54,7 @@ void GestionConsole::traitementTrame(QByteArray data)
 {
     QByteArray entete;
 
+    qDebug() << data;
 
     for(int i=0;i<TAILLE_ENTETE;i++)
     {

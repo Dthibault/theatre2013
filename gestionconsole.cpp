@@ -126,7 +126,7 @@ void GestionConsole::modifierNumero(int numero)
     requete[37] = numero;
 
 
-    //qDebug() << this->socket->writeDatagram(requete, QHostAddress::Broadcast, 3330);
-    qDebug() << this->socket->writeDatagram(requete, QHostAddress("192.168.52.212"), 3330);
+    this->socket->writeDatagram(requete, QHostAddress::Broadcast, 3330);
+
 
 }

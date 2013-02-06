@@ -111,5 +111,6 @@ void FenetrePrincipale::envoyerTrame()
 
 void FenetrePrincipale::modifierNumero(int numero)
 {
+    qDebug() << "Numéro modifié: " << numero;
     ui->lcdNumber->display(numero);
 }
