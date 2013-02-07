@@ -180,7 +180,7 @@ bool GestionXML::lirePassword(QString *password)
     fichierXML.close();
 }
 
-void GestionXML::lireListeAppareils(QStringList *nom, QStringList *UUID)
+void GestionXML::lireListeAppareils(QStringList *nom, QStringList *UUID, QStringList *typeAppareil)
 {
 
     QDomDocument documentXML;
@@ -203,6 +203,7 @@ void GestionXML::lireListeAppareils(QStringList *nom, QStringList *UUID)
             peripherique = noeud.toElement();
             nom->push_back(peripherique.attribute("nom"));
             UUID->push_back(peripherique.attribute("uuid"));
+            typeAppareil->push_back(peripherique.attribute("type"));
 
 
             noeud = noeud.nextSibling();
@@ -328,7 +329,7 @@ void GestionXML::effacerAppareils(QString uuid)
 
 }
 
-void GestionXML::recupererCanaux(QStringList *listeCanaux, QString uuid)
+void GestionXML::recupererCanaux(QStringList *listeCanaux, QStringList *typeCanal, QString uuid)
 {
     QDomDocument documentXML;
     QFile fichierXML(APPAREILSXML);
@@ -348,6 +349,7 @@ void GestionXML::recupererCanaux(QStringList *listeCanaux, QString uuid)
         QDomNode noeudCanaux;
         QDomElement canauxElement;
 
+
         while(!(noeud.isNull()))
         {
             peripherique = noeud.toElement();
@@ -361,6 +363,7 @@ void GestionXML::recupererCanaux(QStringList *listeCanaux, QString uuid)
                     canauxElement = noeudCanaux.toElement();
 
                     listeCanaux->push_back(canauxElement.attribute("id"));
+                    typeCanal->push_back(canauxElement.text());
 
                     noeudCanaux = noeudCanaux.nextSibling();
                 }
@@ -420,6 +423,120 @@ void GestionXML::recupererDimmer(QStringList *listeCanaux)
             noeud = noeud.nextSibling();
         }
 
+    }
+
+    fichierXML.close();
+}
+
+void GestionXML::recupererListeScenarios(QStringList *listeScenarios, QStringList *listeUUID)
+{
+    QDomDocument documentXML;
+    QFile fichierXML(SCENARIOSXML);
+
+    if(!(fichierXML.open(QIODevice::ReadOnly)))
+    {
+        QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Appareils.xml");
+    }
+    else
+    {
+        documentXML.setContent(&fichierXML, false);
+        QDomElement racine = documentXML.documentElement();
+        QDomNode noeud = racine.firstChild();
+
+        QDomElement scenarios;
+
+        while(!(noeud.isNull()))
+        {
+            scenarios = noeud.toElement();
+            listeScenarios->push_back(scenarios.attribute("nom"));
+            listeUUID->push_back(scenarios.attribute("uuid"));
+
+
+            noeud = noeud.nextSibling();
+        }
+
+    }
+
+    fichierXML.close();
+}
+
+void GestionXML::ajouterScenarios(QString nom, QString uuid)
+{
+    QDomDocument documentXML;
+    QFile fichierXML(SCENARIOSXML);
+
+    if(!(fichierXML.open(QIODevice::ReadOnly)))
+    {
+        QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Appareils.xml");
+    }
+    else
+    {
+
+        if(!(documentXML.setContent(&fichierXML)))
+        {
+            QDomNode xmlNode = documentXML.createProcessingInstruction("xml","version=\"1.0\" encoding=\"UTF-8\"");
+            documentXML.insertBefore(xmlNode, documentXML.firstChild());
+
+            QDomElement root = documentXML.createElement("theatre2013");
+            documentXML.appendChild(root);
+        }
+
+
+        fichierXML.close();
+        fichierXML.open(QIODevice::WriteOnly);
+
+        QTextStream out;
+        out.setDevice(&fichierXML);
+
+        QDomElement racine = documentXML.documentElement();
+
+        QDomElement scenario = documentXML.createElement("scenario");
+
+        racine.appendChild(scenario);
+
+        scenario.setAttribute("nom", nom);
+        scenario.setAttribute("uuid", uuid);
+
+
+        documentXML.save(out, 2);
+        fichierXML.close();
+
+    }
+}
+
+void GestionXML::recupererListeScenes(QStringList *listeScenes, QStringList *listeUUID, QString scenarioUUID)
+{
+    QDomDocument documentXML;
+    QFile fichierXML(SCENESXML);
+
+    if(!(fichierXML.open(QIODevice::ReadOnly)))
+    {
+        QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Appareils.xml");
+    }
+    else
+    {
+        documentXML.setContent(&fichierXML, false);
+        QDomElement racine = documentXML.documentElement();
+        QDomNode noeud = racine.firstChild();
+
+        QDomElement scenario;
+
+
+
+        while(!(noeud.isNull()))
+        {
+            scenario = noeud.toElement();
+
+
+            if(scenario.attribute("scenarioUUID") == scenarioUUID)
+            {
+
+                listeScenes->push_back(scenario.attribute("nom"));
+                listeUUID->push_back(scenario.attribute("uuid"));
+            }
+
+            noeud = noeud.nextSibling();
+        }
     }
 
     fichierXML.close();

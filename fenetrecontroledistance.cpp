@@ -76,10 +76,10 @@ void FenetreControleDistance::fermerFenetre()
 
 void FenetreControleDistance::listerAppareils()
 {
-    QStringList nom, uuid;
+    QStringList nom, uuid, type;
 
     GestionXML monXML;
-    monXML.lireListeAppareils(&nom, &uuid);
+    monXML.lireListeAppareils(&nom, &uuid, &type);
 
     for(int i=0; i<nom.size(); i++)
     {
@@ -178,18 +178,18 @@ void FenetreControleDistance::modifierSliders(int * listeSliders)
 {
     if(this->etatPriseEnMain)
     {
-        QStringList nom, uuid;
+        QStringList nom, uuid, type;
 
         GestionXML monXML;
-        monXML.lireListeAppareils(&nom, &uuid);
+        monXML.lireListeAppareils(&nom, &uuid, &type);
 
 
         for(int j=0; j<this->listeNumero.size(); j++)
         {
             if(this->numeroActuel == this->listeNumero[j].toInt())
             {
-                QStringList maListeDeCanaux;
-                monXML.recupererCanaux(&maListeDeCanaux, uuid[j]);
+                QStringList maListeDeCanaux, typeCanaux;
+                monXML.recupererCanaux(&maListeDeCanaux, &typeCanaux, uuid[j]);
 
                 for(int i=0; i<maListeDeCanaux.size(); i++)
                 {

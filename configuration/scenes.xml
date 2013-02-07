@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theatre2013>
+  <scene nom="Ma scène 1" uuid="{8cf68e2c-ff10-4573-b370-29270dcee0ae}" scenarioUUID="{8cf68e2c-ff10-4573-b370-29270dc200ae}" />
+  <scene nom="Ma scène 2" uuid="{8cf68e2c-ff10-4573-b330-29270dcee0ae}" scenarioUUID="{8cf68e2c-ff10-4573-b370-29270dc200ae}" />
+  <scene nom="Ma scène 3" uuid="{8cf68e2c-ff10-4573-b310-29270dcee0ae}" scenarioUUID="{8cf68e2c-ff10-4573-b370-29270dc200ae}" />
+  <scene nom="Ma scène 1" uuid="{8cf68e2c-ff10-4573-b370-29270dcee0ae}" scenarioUUID="{5930966c-c379-4001-bfff-55a7aa1e0db1}" />
+  <scene nom="Ma scène 2" uuid="{8cf68e2c-ff10-4573-b330-29270dcee0ae}" scenarioUUID="{5930966c-c379-4001-bfff-55a7aa1e0db1}" />
+</theatre2013>

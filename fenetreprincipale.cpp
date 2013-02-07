@@ -123,17 +123,34 @@ void FenetrePrincipale::ouvrirControleDistance()
 
 void FenetrePrincipale::afficherModeScenes()
 {
-    ui->horizontalLayout->removeWidget(ui->conteneurGenerale);
-    ui->conteneurGenerale->hide();
+    GestionXML lireApp;
+    QString addrApp, uuidApp;
 
-    this->gestionScenes = new WidgetGestionScenes;
-    ui->horizontalLayout->addWidget(this->gestionScenes);
+    lireApp.lireAdaptateur(&addrApp, &uuidApp);
+    this->interfaceDMX = new GestionDMX;
+    this->interfaceDMX->setAdresse(addrApp);
 
-    this->boutonModeScenes->setDisabled(true);
-    this->boutonModeSequences->setDisabled(true);
-    this->boutonFermerMode->setEnabled(true);
 
-    this->typeMode = 1;
+    if(!(lireApp.lireAdaptateur(&addrApp, &uuidApp)) || !(this->interfaceDMX->estDisponible()))
+    {
+        QMessageBox::information(this, "Configuration de l'adaptateur", "Vous devez tout d'abord configurer correctement l'adaptateur ou le connecter.");
+    }
+    else
+    {
+        ui->horizontalLayout->removeWidget(ui->conteneurGenerale);
+        ui->conteneurGenerale->hide();
+
+        this->gestionScenes = new WidgetGestionScenes;
+        ui->horizontalLayout->addWidget(this->gestionScenes);
+
+        this->boutonModeScenes->setDisabled(true);
+        this->boutonModeSequences->setDisabled(true);
+        this->boutonFermerMode->setEnabled(true);
+
+        this->typeMode = 1;
+    }
+
+
 
 }
 

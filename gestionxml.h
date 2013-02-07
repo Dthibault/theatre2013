@@ -12,6 +12,8 @@
 #define ADAPTATEURXML "configuration/adaptateur.xml"
 #define PASSWORDXML "configuration/password.xml"
 #define APPAREILSXML "configuration/appareils.xml"
+#define SCENARIOSXML "configuration/scenarios.xml"
+#define SCENESXML "configuration/scenes.xml"
 
 
 class GestionXML : public QObject
@@ -28,14 +30,19 @@ public:
     void ecriturePassword(QString password);
     bool lirePassword(QString *password);
 
-    void lireListeAppareils(QStringList *nom, QStringList *UUID);
+    void lireListeAppareils(QStringList *nom, QStringList *UUID, QStringList *typeAppareil);
 
     void ajouterAppareil(QString nom, QString uuid, QString nbCanal, QString typeAppareil, QStringList numeroCanal, QStringList actionCanal);
     void effacerAppareils(QString uuid);
 
-    void recupererCanaux(QStringList *listeCanaux, QString uuid);
+    void recupererCanaux(QStringList *listeCanaux, QStringList *typeCanal, QString uuid);
 
     void recupererDimmer(QStringList *listeCanaux);
+
+    void recupererListeScenarios(QStringList *listeScenarios, QStringList *listeUUID);
+    void ajouterScenarios(QString nom, QString uuid);
+
+    void recupererListeScenes(QStringList *listeScenes, QStringList *listeUUID, QString scenarioUUID);
 
 private:
 

@@ -5,9 +5,12 @@
 #include <QtGui>
 #include <QString>
 #include <QDebug>
+#include <QUuid>
 #include <vector>
-#include "gestiondmx.h"
 #include "gestionxml.h"
+#include "gestiondmx.h"
+#include "sceneparled.h"
+
 
 
 namespace Ui {
@@ -21,6 +24,12 @@ class WidgetGestionScenes : public QWidget
 public:
     explicit WidgetGestionScenes(QWidget *parent = 0);
     ~WidgetGestionScenes();
+
+    void afficherListeScenariosEtScenes();
+
+    void interfaceAppareils();
+
+    void etatInterface(bool etat);
     
 private:
     Ui::WidgetGestionScenes *ui;
@@ -29,9 +38,19 @@ private:
     QAction *menuScenario;
     QAction *menuScene;
 
-    GestionDMX *interfaceDMX;
 
     std::vector<QTabWidget*> listeTab;
+    std::vector<SceneParLED*> maListeDeParLED;
+
+    GestionDMX *interfaceDMX;
+
+
+private slots:
+    void activerAffichageAppareils();
+
+    void actionDMX(int canal, int valeur);
+
+
 };
 
 #endif // WIDGETGESTIONSCENES_H
