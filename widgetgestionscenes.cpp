@@ -160,7 +160,8 @@ void WidgetGestionScenes::interfaceAppareils()
     GestionXML monXML;
     monXML.lireListeAppareils(&nom, &uuid, &type);
 
-    int decalage = 0;
+    int decalagePar = 0;
+    int decalageLyre = 0;
 
     for (int i = 0; i<nom.size(); i++)
     {
@@ -172,18 +173,31 @@ void WidgetGestionScenes::interfaceAppareils()
             QTreeWidgetItem *recup = ui->treeWidget->currentItem();
             this->maListeDeParLED.push_back(new SceneParLED(recup->text(1), uuid[i]));
 
-            monLayout->addWidget(this->maListeDeParLED[decalage]);
+            monLayout->addWidget(this->maListeDeParLED[decalagePar]);
 
             this->listeTab[i]->setLayout(monLayout);
 
-            connect(this->maListeDeParLED[decalage], SIGNAL(signalDMX(int,int)), this, SLOT(actionDMX(int,int)));
+            connect(this->maListeDeParLED[decalagePar], SIGNAL(signalDMX(int,int)), this, SLOT(actionDMX(int,int)));
 
-            decalage++;
+            decalagePar++;
 
         }
 
 
+        if(type[i].contains("LYRE"))
+        {
+            QVBoxLayout *monLayout = new QVBoxLayout();
+            QTreeWidgetItem *recup = ui->treeWidget->currentItem();
+            this->maListeDeLyre.push_back(new SceneLyre(recup->text(1), uuid[i]));
 
+            monLayout->addWidget(this->maListeDeLyre[decalageLyre]);
+
+            this->listeTab[i]->setLayout(monLayout);
+
+            connect(this->maListeDeLyre[decalageLyre], SIGNAL(signalDMX(int,int)), this, SLOT(actionDMX(int,int)));
+
+            decalageLyre++;
+        }
 
         ui->tabWidget->addTab(this->listeTab[i], nom[i]);
     }
@@ -222,6 +236,7 @@ void WidgetGestionScenes::activerAffichageAppareils()
             {
                 this->listeTab.clear();
                 this->maListeDeParLED.clear();
+                this->maListeDeLyre.clear();
 
                 ui->tabWidget->clear();
             }
@@ -274,6 +289,7 @@ void WidgetGestionScenes::activerAffichageAppareils()
         {
             this->listeTab.clear();
             this->maListeDeParLED.clear();
+            this->maListeDeLyre.clear();
 
             ui->tabWidget->clear();
         }
@@ -320,21 +336,23 @@ void WidgetGestionScenes::recupererToutesLesValeurs()
 
     if(this->maListeDeParLED.size() > 0)
     {
-
-
-
         for(int i = 0; i<this->maListeDeParLED.size(); i++)
         {
             this->maListeDeParLED[i]->recupererValeurs(&canal, &valeur);
         }
+    }
 
+    if(this->maListeDeLyre.size() > 0)
+    {
+        for(int i = 0; i<this->maListeDeLyre.size(); i++)
+        {
+            this->maListeDeLyre[i]->recupererValeurs(&canal, &valeur);
+        }
     }
 
     GestionXML monXML;
 
     QTreeWidgetItem *recup = ui->treeWidget->currentItem();
-
-
     monXML.enregistrerValeursScenes(canal, valeur, recup->text(1));
 }
 

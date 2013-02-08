@@ -53,12 +53,12 @@ SceneParLED::SceneParLED(QString sceneParente, QString uuidPar, QWidget *parent)
         }
     }
 
+
     connect(ui->verticalSliderRED, SIGNAL(valueChanged(int)), this, SLOT(actionDMX()));
     connect(ui->verticalSliderGREEN, SIGNAL(valueChanged(int)), this, SLOT(actionDMX()));
     connect(ui->verticalSliderBLUE, SIGNAL(valueChanged(int)), this, SLOT(actionDMX()));
 
     connect(this->monColorWheel, SIGNAL(colorChange(QColor)), this, SLOT(actionColorWheel(QColor)));
-
 
 
     QStringList listeCanauxEnregistrer, valeurCanauxEnregistrer;
@@ -77,16 +77,13 @@ SceneParLED::SceneParLED(QString sceneParente, QString uuidPar, QWidget *parent)
 
             if(this->sliderSuppl.size() > 0)
             {
-                for(int j = 0; i<this->sliderSuppl.size(); i++)
+                for(int j = 0; j<this->sliderSuppl.size(); j++)
                 {
 
-                    qDebug() << this->spinBoxSuppl[j]->value() << ": " << listeCanauxEnregistrer[i].toInt();
-
-//                    if(this->spinBoxSuppl[j]->value() == listeCanauxEnregistrer[i].toInt())
-//                    {
-//                        qDebug() << "RINGES";
-//                        this->sliderSuppl[j]->setValue(valeurCanauxEnregistrer[i].toInt());;
-//                    }
+                    if(this->spinBoxSuppl[j]->value() == listeCanauxEnregistrer[i].toInt())
+                    {
+                        this->sliderSuppl[j]->setValue(valeurCanauxEnregistrer[i].toInt());;
+                    }
                 }
             }
 

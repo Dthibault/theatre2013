@@ -10,6 +10,7 @@
 #include "gestionxml.h"
 #include "gestiondmx.h"
 #include "sceneparled.h"
+#include "scenelyre.h"
 
 
 
@@ -42,6 +43,7 @@ private:
 
     std::vector<QTabWidget*> listeTab;
     std::vector<SceneParLED*> maListeDeParLED;
+    std::vector<SceneLyre*> maListeDeLyre;
 
     GestionDMX *interfaceDMX;
 
