@@ -1,7 +1,7 @@
 #include "sceneparled.h"
 #include "ui_sceneparled.h"
 
-SceneParLED::SceneParLED(QString uuidPar, QWidget *parent) :
+SceneParLED::SceneParLED(QString sceneParente, QString uuidPar, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SceneParLED)
 {
@@ -16,6 +16,7 @@ SceneParLED::SceneParLED(QString uuidPar, QWidget *parent) :
     GestionXML monXML;
     QStringList listeCanaux, typeCanaux;
     monXML.recupererCanaux(&listeCanaux, &typeCanaux, uuidPar);
+
 
     ui->spinBoxRED->setDisabled(true);
     ui->spinBoxGREEN->setDisabled(true);
@@ -58,6 +59,44 @@ SceneParLED::SceneParLED(QString uuidPar, QWidget *parent) :
 
     connect(this->monColorWheel, SIGNAL(colorChange(QColor)), this, SLOT(actionColorWheel(QColor)));
 
+
+
+    QStringList listeCanauxEnregistrer, valeurCanauxEnregistrer;
+    monXML.recupererValeursScenes(&listeCanauxEnregistrer, &valeurCanauxEnregistrer, sceneParente);
+
+
+
+    if(listeCanauxEnregistrer.size() != 0)
+    {
+
+        for(int i =0; i<listeCanauxEnregistrer.size(); i++)
+        {
+            if(ui->spinBoxRED->value() == listeCanauxEnregistrer[i].toInt()) ui->verticalSliderRED->setValue(valeurCanauxEnregistrer[i].toInt());
+            if(ui->spinBoxGREEN->value() == listeCanauxEnregistrer[i].toInt()) ui->verticalSliderGREEN->setValue(valeurCanauxEnregistrer[i].toInt());
+            if(ui->spinBoxBLUE->value() == listeCanauxEnregistrer[i].toInt()) ui->verticalSliderBLUE->setValue(valeurCanauxEnregistrer[i].toInt());
+
+            if(this->sliderSuppl.size() > 0)
+            {
+                for(int j = 0; i<this->sliderSuppl.size(); i++)
+                {
+
+                    qDebug() << this->spinBoxSuppl[j]->value() << ": " << listeCanauxEnregistrer[i].toInt();
+
+//                    if(this->spinBoxSuppl[j]->value() == listeCanauxEnregistrer[i].toInt())
+//                    {
+//                        qDebug() << "RINGES";
+//                        this->sliderSuppl[j]->setValue(valeurCanauxEnregistrer[i].toInt());;
+//                    }
+                }
+            }
+
+
+        }
+    }
+
+
+
+
 }
 
 SceneParLED::~SceneParLED()
@@ -94,4 +133,31 @@ void SceneParLED::actionColorWheel(QColor mesCouleurs)
     ui->verticalSliderRED->setValue(mesCouleurs.red());
     ui->verticalSliderGREEN->setValue(mesCouleurs.green());
     ui->verticalSliderBLUE->setValue(mesCouleurs.blue());
+}
+
+
+void SceneParLED::recupererValeurs(QStringList *canal, QStringList *valeur)
+{
+    GestionXML monXML;
+    QStringList listeCanaux, typeCanaux;
+    monXML.recupererCanaux(&listeCanaux, &typeCanaux, this->uuidDuPar);
+
+
+    canal->push_back(QString::number(ui->spinBoxRED->value()));
+    canal->push_back(QString::number(ui->spinBoxGREEN->value()));
+    canal->push_back(QString::number(ui->spinBoxBLUE->value()));
+
+    valeur->push_back(QString::number(ui->verticalSliderRED->value()));
+    valeur->push_back(QString::number(ui->verticalSliderGREEN->value()));
+    valeur->push_back(QString::number(ui->verticalSliderBLUE->value()));
+
+
+    if(listeCanaux.size() > 3)
+    {
+        for(int i = 3; i<listeCanaux.size(); i++)
+        {
+            canal->push_back(QString::number(this->spinBoxSuppl[i-3]->value()));
+            valeur->push_back(QString::number(this->sliderSuppl[i-3]->value()));
+        }
+    }
 }

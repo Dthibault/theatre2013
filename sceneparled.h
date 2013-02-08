@@ -18,8 +18,10 @@ class SceneParLED : public QWidget
     Q_OBJECT
 
 public:
-    explicit SceneParLED(QString uuidPar, QWidget *parent = 0);
+    explicit SceneParLED(QString sceneParente, QString uuidPar, QWidget *parent = 0);
     ~SceneParLED();
+
+    void recupererValeurs(QStringList *canal, QStringList *valeur);
 
 private:
     Ui::SceneParLED *ui;

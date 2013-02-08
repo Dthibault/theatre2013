@@ -4,5 +4,6 @@
         <file>images/boutonPlus.png</file>
         <file>images/REC.png</file>
         <file>images/boutonSupprimer.png</file>
+        <file>images/gestiondesappareils.png</file>
     </qresource>
 </RCC>

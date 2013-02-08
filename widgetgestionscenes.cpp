@@ -19,12 +19,17 @@ WidgetGestionScenes::WidgetGestionScenes(QWidget *parent) :
     monMenu->addAction(menuScenario);
     monMenu->addAction(menuScene);
 
+    connect(menuScenario, SIGNAL(triggered()), this, SLOT(nouveauScenario()));
+    connect(menuScene, SIGNAL(triggered()), this, SLOT(nouvelleScene()));
 
 
     ui->boutonAjouter->setMenu(monMenu);
 
 
     this->afficherListeScenariosEtScenes();
+
+    ui->boutonEnregistrer->setDisabled(true);
+    this->menuScene->setDisabled(true);
 
     connect(ui->treeWidget, SIGNAL(clicked(QModelIndex)), this, SLOT(activerAffichageAppareils()));
 
@@ -40,6 +45,7 @@ WidgetGestionScenes::WidgetGestionScenes(QWidget *parent) :
     this->interfaceDMX->seConnecter();
     this->interfaceDMX->resetDMX();
 
+    this->donneesModifier = false;
 
 
 }
@@ -71,6 +77,8 @@ void WidgetGestionScenes::etatInterface(bool etat)
 
 void WidgetGestionScenes::afficherListeScenariosEtScenes()
 {
+    ui->treeWidget->clear();
+
     QStringList nomScenario, uuidScenario;
 
     GestionXML monXML;
@@ -99,6 +107,8 @@ void WidgetGestionScenes::afficherListeScenariosEtScenes()
 
             itemsTreeParent.push_back(new QTreeWidgetItem());
             itemsTreeParent[i]->setText(0, nomScenario[i]);
+            itemsTreeParent[i]->setText(1, uuidScenario[i]);
+            itemsTreeParent[i]->setText(2, uuidScenario[i]);
 
             monXML.recupererListeScenes(&listeScenes, &listeScenesUUID, uuidScenario[i]);
 
@@ -106,6 +116,9 @@ void WidgetGestionScenes::afficherListeScenariosEtScenes()
             {
                 itemsTreeChild.push_back(new QTreeWidgetItem());
                 itemsTreeChild[decalage]->setText(0, "Aucune scènes");
+                itemsTreeChild[decalage]->setText(1, "NULL");
+                itemsTreeChild[decalage]->setText(2, uuidScenario[i]);
+
 
                 itemsTreeParent[i]->addChild(itemsTreeChild[decalage]);
 
@@ -117,6 +130,8 @@ void WidgetGestionScenes::afficherListeScenariosEtScenes()
                 {
                     itemsTreeChild.push_back(new QTreeWidgetItem());
                     itemsTreeChild[decalage]->setText(0, listeScenes[j]);
+                    itemsTreeChild[decalage]->setText(1, listeScenesUUID[j]);
+                    itemsTreeChild[decalage]->setText(2, uuidScenario[i]);
 
                     itemsTreeParent[i]->addChild(itemsTreeChild[decalage]);
 
@@ -132,6 +147,8 @@ void WidgetGestionScenes::afficherListeScenariosEtScenes()
         }
 
         this->etatInterface(true);
+
+        ui->treeWidget->setCurrentItem(itemsTreeParent[0]);
 
     }
 }
@@ -152,7 +169,8 @@ void WidgetGestionScenes::interfaceAppareils()
         if(type[i].contains("PAR"))
         {
             QVBoxLayout *monLayout = new QVBoxLayout();
-            this->maListeDeParLED.push_back(new SceneParLED(uuid[i]));
+            QTreeWidgetItem *recup = ui->treeWidget->currentItem();
+            this->maListeDeParLED.push_back(new SceneParLED(recup->text(1), uuid[i]));
 
             monLayout->addWidget(this->maListeDeParLED[decalage]);
 
@@ -173,18 +191,183 @@ void WidgetGestionScenes::interfaceAppareils()
 
 void WidgetGestionScenes::activerAffichageAppareils()
 {
-    if(this->listeTab.size() != 0)
-    {
-        this->listeTab.clear();
-        this->maListeDeParLED.clear();
 
-        ui->tabWidget->clear();
+    if(this->donneesModifier)
+    {
+        int choix = QMessageBox::warning(this, "Attention", "Voulez-vous passer à une autre scène sans enregistrer la scène actuelle? Les modifications seront perdues.", QMessageBox::Yes | QMessageBox::No);
+
+        if(choix == QMessageBox::Yes)
+        {
+
+            this->donneesModifier = false;
+
+            bool estUnScenario = false;
+
+            QTreeWidgetItem *recup = ui->treeWidget->currentItem();
+
+            QStringList nomScenario, uuidScenario;
+            GestionXML monXML;
+
+            monXML.recupererListeScenarios(&nomScenario, &uuidScenario);
+
+            for(int i = 0; i<uuidScenario.size(); i++)
+            {
+                if(recup->text(1).contains(uuidScenario[i])) estUnScenario = true;
+            }
+
+            if(recup->text(1).contains("NULL")) estUnScenario = true;
+
+
+            if(this->listeTab.size() != 0)
+            {
+                this->listeTab.clear();
+                this->maListeDeParLED.clear();
+
+                ui->tabWidget->clear();
+            }
+
+            if(!estUnScenario)
+            {
+                this->interfaceAppareils();
+                connect(ui->boutonEnregistrer, SIGNAL(clicked()), this, SLOT(recupererToutesLesValeurs()));
+                ui->boutonEnregistrer->setEnabled(true);
+
+
+
+                this->menuScene->setDisabled(true);
+            }
+            else
+            {
+                disconnect(ui->boutonEnregistrer, 0, 0, 0);
+                ui->boutonEnregistrer->setDisabled(true);
+
+                this->menuScene->setEnabled(true);
+            }
+
+        }
+        else
+        {
+            ui->treeWidget->setCurrentItem(this->precedentItem);
+        }
+
     }
-    this->interfaceAppareils();
+    else
+    {
+        bool estUnScenario = false;
+
+        QTreeWidgetItem *recup = ui->treeWidget->currentItem();
+
+        QStringList nomScenario, uuidScenario;
+        GestionXML monXML;
+
+        monXML.recupererListeScenarios(&nomScenario, &uuidScenario);
+
+        for(int i = 0; i<uuidScenario.size(); i++)
+        {
+            if(recup->text(1).contains(uuidScenario[i])) estUnScenario = true;
+        }
+
+        if(recup->text(1).contains("NULL")) estUnScenario = true;
+
+
+        if(this->listeTab.size() != 0)
+        {
+            this->listeTab.clear();
+            this->maListeDeParLED.clear();
+
+            ui->tabWidget->clear();
+        }
+
+        if(!estUnScenario)
+        {
+            this->interfaceAppareils();
+            connect(ui->boutonEnregistrer, SIGNAL(clicked()), this, SLOT(recupererToutesLesValeurs()));
+            ui->boutonEnregistrer->setEnabled(true);
+
+
+
+            this->menuScene->setDisabled(true);
+        }
+        else
+        {
+            disconnect(ui->boutonEnregistrer, 0, 0, 0);
+            ui->boutonEnregistrer->setDisabled(true);
+
+            this->menuScene->setEnabled(true);
+        }
+
+    }
+
+    this->precedentItem = ui->treeWidget->currentItem();
+
+
+
 }
 
 void WidgetGestionScenes::actionDMX(int canal, int valeur)
 {
     this->interfaceDMX->modifierValeurCanal(canal, valeur);
     this->interfaceDMX->envoyerDMX();
+
+    this->donneesModifier = true;
+}
+
+void WidgetGestionScenes::recupererToutesLesValeurs()
+{
+    this->donneesModifier = false;
+
+    QStringList canal, valeur;
+
+    if(this->maListeDeParLED.size() > 0)
+    {
+
+
+
+        for(int i = 0; i<this->maListeDeParLED.size(); i++)
+        {
+            this->maListeDeParLED[i]->recupererValeurs(&canal, &valeur);
+        }
+
+    }
+
+    GestionXML monXML;
+
+    QTreeWidgetItem *recup = ui->treeWidget->currentItem();
+
+
+    monXML.enregistrerValeursScenes(canal, valeur, recup->text(1));
+}
+
+void WidgetGestionScenes::nouveauScenario()
+{
+    QUuid monUUID = QUuid::createUuid();
+
+    bool ok;
+    QString nomScenario = QInputDialog::getText(this, "Nom du scénario", "Indiquer le nom du nouveau scénario: ", QLineEdit::Normal, QString(), &ok);
+
+    if(ok)
+    {
+        GestionXML monXML;
+        monXML.ajouterScenarios(nomScenario, monUUID.toString());
+
+        this->afficherListeScenariosEtScenes();
+    }
+}
+
+void WidgetGestionScenes::nouvelleScene()
+{
+    QUuid monUUID = QUuid::createUuid();
+
+    bool ok;
+    QString nomScenario = QInputDialog::getText(this, "Nom de la scène", "Indiquer le nom de la nouvelle scène: ", QLineEdit::Normal, QString(), &ok);
+
+    if(ok)
+    {
+        QTreeWidgetItem *recup = ui->treeWidget->currentItem();
+
+        GestionXML monXML;
+        monXML.ajouterScenes(nomScenario, monUUID.toString(), recup->text(2));
+
+        this->afficherListeScenariosEtScenes();
+    }
 }

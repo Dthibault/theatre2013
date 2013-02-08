@@ -43,6 +43,10 @@ public:
     void ajouterScenarios(QString nom, QString uuid);
 
     void recupererListeScenes(QStringList *listeScenes, QStringList *listeUUID, QString scenarioUUID);
+    void ajouterScenes(QString nom, QString uuid, QString uuidScenario);
+
+    void enregistrerValeursScenes(QStringList canal, QStringList valeur, QString uuidScene);
+    void recupererValeursScenes(QStringList *canal, QStringList *valeur, QString uuidScene);
 
 private:
 

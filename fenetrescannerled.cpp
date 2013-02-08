@@ -95,7 +95,6 @@ void FenetreScannerLED::confirmationAppareil()
 
             actionCanal.push_back("PAN");
             actionCanal.push_back("TILT");
-            actionCanal.push_back("GLOBOS");
             actionCanal.push_back("COULEUR");
 
             for(int i=0; i<this->nbAjouts; i++)

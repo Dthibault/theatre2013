@@ -1,27 +1,34 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <theatre2013>
-  <peripherique nom="Par LED N°1" nbCanal="4" type="PAR LED" uuid="{a810b448-3289-4f90-91d6-32565b3ad9fb}">
+  <peripherique nom="Par LED Numéro 1" nbCanal="4" type="PAR LED" uuid="{f163b05a-58bf-46d9-887b-a4e9a0ad8f11}">
     <canal id="1">RED</canal>
     <canal id="2">GREEN</canal>
     <canal id="3">BLUE</canal>
     <canal id="4">DIMSTRO</canal>
   </peripherique>
-  <peripherique nom="Par LED N°2" nbCanal="4" type="PAR LED" uuid="{bac70ac9-8672-444b-b353-254aadc5d35a}">
-    <canal id="192">RED</canal>
-    <canal id="193">GREEN</canal>
-    <canal id="194">BLUE</canal>
-    <canal id="196">STROBE</canal>
-  </peripherique>
-  <peripherique nom="Lyre en hauteur" nbCanal="5" type="LYRE" uuid="{d4654b00-2f07-425c-aa1a-2ce29160780b}">
+  <peripherique nom="Lyre Numéro 1" nbCanal="5" type="LYRE" uuid="{acf2ab31-ccf7-4a2e-9ae0-83b0cd953408}">
     <canal id="13">PAN</canal>
     <canal id="14">TILT</canal>
     <canal id="11">GLOBOS</canal>
     <canal id="12">COULEUR</canal>
     <canal id="10">STROBE</canal>
   </peripherique>
-  <peripherique nom="Scanner Numéro 1" nbCanal="3" type="LYRE" uuid="{93dcf3ca-2d64-400a-bb12-dd577ea2cd6f}">
+  <peripherique nom="Scanner Numéro 1" nbCanal="3" type="LYRE" uuid="{83fe644d-acbb-4b31-a9ee-06882b204556}">
     <canal id="32">PAN</canal>
     <canal id="33">TILT</canal>
-    <canal id="34">COULEUR</canal>
+    <canal id="34">GLOBOS</canal>
+  </peripherique>
+  <peripherique nom="Lyre au sol" nbCanal="5" type="LYRE" uuid="{16dc3967-5ea3-42a4-a29d-b16131eb62c4}">
+    <canal id="132">PAN</canal>
+    <canal id="133">TILT</canal>
+    <canal id="129">GLOBOS</canal>
+    <canal id="131">COULEUR</canal>
+    <canal id="128">STROBE</canal>
+  </peripherique>
+  <peripherique nom="Par LED Autre" nbCanal="4" type="PAR LED" uuid="{e42c6edb-3690-4b2c-b579-4e10ab8b41dc}">
+    <canal id="192">RED</canal>
+    <canal id="193">GREEN</canal>
+    <canal id="194">BLUE</canal>
+    <canal id="196">STROBE</canal>
   </peripherique>
 </theatre2013>

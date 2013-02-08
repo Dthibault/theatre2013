@@ -1,8 +1,47 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <theatre2013>
-  <scene nom="Ma scène 1" uuid="{8cf68e2c-ff10-4573-b370-29270dcee0ae}" scenarioUUID="{8cf68e2c-ff10-4573-b370-29270dc200ae}" />
-  <scene nom="Ma scène 2" uuid="{8cf68e2c-ff10-4573-b330-29270dcee0ae}" scenarioUUID="{8cf68e2c-ff10-4573-b370-29270dc200ae}" />
-  <scene nom="Ma scène 3" uuid="{8cf68e2c-ff10-4573-b310-29270dcee0ae}" scenarioUUID="{8cf68e2c-ff10-4573-b370-29270dc200ae}" />
-  <scene nom="Ma scène 1" uuid="{8cf68e2c-ff10-4573-b370-29270dcee0ae}" scenarioUUID="{5930966c-c379-4001-bfff-55a7aa1e0db1}" />
-  <scene nom="Ma scène 2" uuid="{8cf68e2c-ff10-4573-b330-29270dcee0ae}" scenarioUUID="{5930966c-c379-4001-bfff-55a7aa1e0db1}" />
+  <scene scenarioUUID="{5c7dd2e2-1d7a-403f-81da-0c29dab7497b}" nom="La mort du Lion" uuid="{1b94377e-7d69-4125-97ba-b2f560449c67}">
+    <canal valeur="152" id="1"/>
+    <canal valeur="246" id="2"/>
+    <canal valeur="0" id="3"/>
+    <canal valeur="0" id="4"/>
+    <canal valeur="102" id="192"/>
+    <canal valeur="255" id="193"/>
+    <canal valeur="0" id="194"/>
+    <canal valeur="65" id="196"/>
+  </scene>
+  <scene scenarioUUID="{e6a14fa6-1266-46b3-9532-ab7902d0d978}" nom="Dordolo qui envoie un SMS à la MILF" uuid="{55abff36-e3a0-476d-897f-e299387bce88}">
+    <canal valeur="0" id="1"/>
+    <canal valeur="255" id="2"/>
+    <canal valeur="255" id="3"/>
+    <canal valeur="0" id="4"/>
+    <canal valeur="255" id="192"/>
+    <canal valeur="200" id="193"/>
+    <canal valeur="0" id="194"/>
+    <canal valeur="0" id="196"/>
+  </scene>
+  <scene scenarioUUID="{059b5994-8f9f-47d5-9535-c09e6403db44}" nom="Présentation de Juan Carlos" uuid="{82a6ab63-04f4-42dd-a666-9bedb9c27e89}">
+    <canal valeur="0" id="1"/>
+    <canal valeur="132" id="2"/>
+    <canal valeur="255" id="3"/>
+    <canal valeur="128" id="4"/>
+    <canal valeur="255" id="192"/>
+    <canal valeur="0" id="193"/>
+    <canal valeur="55" id="194"/>
+    <canal valeur="0" id="196"/>
+  </scene>
+  <scene scenarioUUID="{059b5994-8f9f-47d5-9535-c09e6403db44}" nom="Le fist en question" uuid="{a377d9d8-c702-4ad5-8a6e-30ea84c8e419}"/>
+  <scene scenarioUUID="{059b5994-8f9f-47d5-9535-c09e6403db44}" nom="Test" uuid="{245b6b11-5a17-43d1-b872-2a4714a4fb5c}"/>
+  <scene scenarioUUID="{21b7c5a1-b54b-49b4-9a42-09ffb7303eb7}" nom="Test scène" uuid="{3714a6f2-3c8b-48d0-8f0b-21be9ee10a9b}">
+    <canal valeur="255" id="1"/>
+    <canal valeur="0" id="2"/>
+    <canal valeur="139" id="3"/>
+    <canal valeur="0" id="4"/>
+    <canal valeur="50" id="192"/>
+    <canal valeur="114" id="193"/>
+    <canal valeur="249" id="194"/>
+    <canal valeur="90" id="196"/>
+  </scene>
+  <scene scenarioUUID="{21b7c5a1-b54b-49b4-9a42-09ffb7303eb7}" nom="Lol" uuid="{78534b87-470d-446d-978c-0b379a4b612e}"/>
+  <scene scenarioUUID="{21b7c5a1-b54b-49b4-9a42-09ffb7303eb7}" nom="Autres scène" uuid="{c1f9579b-3a0e-466d-b346-ea286dcea7db}"/>
 </theatre2013>

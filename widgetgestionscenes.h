@@ -30,6 +30,7 @@ public:
     void interfaceAppareils();
 
     void etatInterface(bool etat);
+
     
 private:
     Ui::WidgetGestionScenes *ui;
@@ -44,11 +45,20 @@ private:
 
     GestionDMX *interfaceDMX;
 
+    bool donneesModifier;
+
+    QTreeWidgetItem *precedentItem;
+
 
 private slots:
     void activerAffichageAppareils();
 
     void actionDMX(int canal, int valeur);
+
+    void recupererToutesLesValeurs();
+
+    void nouveauScenario();
+    void nouvelleScene();
 
 
 };
