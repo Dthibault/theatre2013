@@ -54,6 +54,9 @@ SceneParLED::SceneParLED(QString sceneParente, QString uuidPar, QWidget *parent)
     }
 
 
+
+
+
     connect(ui->verticalSliderRED, SIGNAL(valueChanged(int)), this, SLOT(actionDMX()));
     connect(ui->verticalSliderGREEN, SIGNAL(valueChanged(int)), this, SLOT(actionDMX()));
     connect(ui->verticalSliderBLUE, SIGNAL(valueChanged(int)), this, SLOT(actionDMX()));
@@ -65,7 +68,6 @@ SceneParLED::SceneParLED(QString sceneParente, QString uuidPar, QWidget *parent)
     monXML.recupererValeursScenes(&listeCanauxEnregistrer, &valeurCanauxEnregistrer, sceneParente);
 
 
-
     if(listeCanauxEnregistrer.size() != 0)
     {
 
@@ -74,6 +76,7 @@ SceneParLED::SceneParLED(QString sceneParente, QString uuidPar, QWidget *parent)
             if(ui->spinBoxRED->value() == listeCanauxEnregistrer[i].toInt()) ui->verticalSliderRED->setValue(valeurCanauxEnregistrer[i].toInt());
             if(ui->spinBoxGREEN->value() == listeCanauxEnregistrer[i].toInt()) ui->verticalSliderGREEN->setValue(valeurCanauxEnregistrer[i].toInt());
             if(ui->spinBoxBLUE->value() == listeCanauxEnregistrer[i].toInt()) ui->verticalSliderBLUE->setValue(valeurCanauxEnregistrer[i].toInt());
+
 
             if(this->sliderSuppl.size() > 0)
             {
@@ -90,7 +93,6 @@ SceneParLED::SceneParLED(QString sceneParente, QString uuidPar, QWidget *parent)
 
         }
     }
-
 
 
 

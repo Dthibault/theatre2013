@@ -106,7 +106,7 @@ void FenetreAjoutAutre::confirmationAppareil()
                 int nombreCanals = this->nbAjouts;
 
 
-                monXML.ajouterAppareil(nomfichier, monUuid.toString(), QString::number(nombreCanals), "LYRE", nbCanal, actionCanal);
+                monXML.ajouterAppareil(nomfichier, monUuid.toString(), QString::number(nombreCanals), "AUTRE", nbCanal, actionCanal);
 
                 QMessageBox::information(this, "Succès", "Appareil enregistré avec succès!");
                 this->close();

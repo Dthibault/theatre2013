@@ -13,7 +13,7 @@
     <canal id="12">COULEUR</canal>
     <canal id="10">STROBE</canal>
   </peripherique>
-  <peripherique nom="Scanner Numéro 1" nbCanal="3" type="LYRE" uuid="{83fe644d-acbb-4b31-a9ee-06882b204556}">
+  <peripherique nom="Scanner Numéro 1" nbCanal="3" type="SCANNER" uuid="{83fe644d-acbb-4b31-a9ee-06882b204556}">
     <canal id="32">PAN</canal>
     <canal id="33">TILT</canal>
     <canal id="34">GLOBOS</canal>

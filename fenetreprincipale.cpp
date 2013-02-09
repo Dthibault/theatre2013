@@ -148,6 +148,10 @@ void FenetrePrincipale::afficherModeScenes()
         this->boutonFermerMode->setEnabled(true);
 
         this->typeMode = 1;
+
+        ui->menuConsole->setDisabled(true);
+        ui->actionG_rer_appareils->setDisabled(true);
+        ui->actionParam_tres->setDisabled(true);
     }
 
 
@@ -160,6 +164,10 @@ void FenetrePrincipale::fermerMode()
     {
         ui->horizontalLayout->removeWidget(this->gestionScenes);
         delete this->gestionScenes;
+
+        ui->menuConsole->setEnabled(true);
+        ui->actionG_rer_appareils->setEnabled(true);
+        ui->actionParam_tres->setEnabled(true);
     }
 
     this->boutonModeScenes->setEnabled(true);

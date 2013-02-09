@@ -1,7 +1,4 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <theatre2013>
-  <scenario nom="Le Roi Lion" uuid="{5c7dd2e2-1d7a-403f-81da-0c29dab7497b}"/>
-  <scenario nom="Le Projet qui avance pas" uuid="{e6a14fa6-1266-46b3-9532-ab7902d0d978}"/>
-  <scenario nom="La Fistinière" uuid="{059b5994-8f9f-47d5-9535-c09e6403db44}"/>
-  <scenario nom="Test 2" uuid="{21b7c5a1-b54b-49b4-9a42-09ffb7303eb7}"/>
+  <scenario nom="Que ma joie demeure" uuid="{f77a1eac-fc19-4f55-be0d-884e48811be0}"/>
 </theatre2013>

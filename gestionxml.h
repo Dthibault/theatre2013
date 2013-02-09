@@ -48,6 +48,11 @@ public:
     void enregistrerValeursScenes(QStringList canal, QStringList valeur, QString uuidScene);
     void recupererValeursScenes(QStringList *canal, QStringList *valeur, QString uuidScene);
 
+
+    void supprimerScenario(QString uuid);
+    void supprimerScenesAssociees(QString uuidScenario);
+    void supprimerScene(QString uuid);
+
 private:
 
 

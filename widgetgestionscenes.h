@@ -11,6 +11,8 @@
 #include "gestiondmx.h"
 #include "sceneparled.h"
 #include "scenelyre.h"
+#include "scenescanner.h"
+#include "sceneautres.h"
 
 
 
@@ -44,6 +46,8 @@ private:
     std::vector<QTabWidget*> listeTab;
     std::vector<SceneParLED*> maListeDeParLED;
     std::vector<SceneLyre*> maListeDeLyre;
+    std::vector<SceneScanner*> maListeDeScanner;
+    std::vector<SceneAutres*> maListeAutres;
 
     GestionDMX *interfaceDMX;
 
@@ -61,6 +65,8 @@ private slots:
 
     void nouveauScenario();
     void nouvelleScene();
+
+    void supprimerElement();
 
 
 };

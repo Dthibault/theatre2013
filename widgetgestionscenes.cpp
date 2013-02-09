@@ -22,11 +22,14 @@ WidgetGestionScenes::WidgetGestionScenes(QWidget *parent) :
     connect(menuScenario, SIGNAL(triggered()), this, SLOT(nouveauScenario()));
     connect(menuScene, SIGNAL(triggered()), this, SLOT(nouvelleScene()));
 
+    connect(ui->boutonSupprimer, SIGNAL(clicked()), this, SLOT(supprimerElement()));
+
 
     ui->boutonAjouter->setMenu(monMenu);
 
 
     this->afficherListeScenariosEtScenes();
+
 
     ui->boutonEnregistrer->setDisabled(true);
     this->menuScene->setDisabled(true);
@@ -109,6 +112,8 @@ void WidgetGestionScenes::afficherListeScenariosEtScenes()
             itemsTreeParent[i]->setText(0, nomScenario[i]);
             itemsTreeParent[i]->setText(1, uuidScenario[i]);
             itemsTreeParent[i]->setText(2, uuidScenario[i]);
+            itemsTreeParent[i]->setTextColor(0, QColor(Qt::red));
+
 
             monXML.recupererListeScenes(&listeScenes, &listeScenesUUID, uuidScenario[i]);
 
@@ -139,6 +144,9 @@ void WidgetGestionScenes::afficherListeScenariosEtScenes()
                 }
 
 
+                this->menuScene->setEnabled(true);
+
+
             }
 
 
@@ -162,6 +170,8 @@ void WidgetGestionScenes::interfaceAppareils()
 
     int decalagePar = 0;
     int decalageLyre = 0;
+    int decalageScanner = 0;
+    int decalageAutres = 0;
 
     for (int i = 0; i<nom.size(); i++)
     {
@@ -186,6 +196,7 @@ void WidgetGestionScenes::interfaceAppareils()
 
         if(type[i].contains("LYRE"))
         {
+
             QVBoxLayout *monLayout = new QVBoxLayout();
             QTreeWidgetItem *recup = ui->treeWidget->currentItem();
             this->maListeDeLyre.push_back(new SceneLyre(recup->text(1), uuid[i]));
@@ -197,6 +208,38 @@ void WidgetGestionScenes::interfaceAppareils()
             connect(this->maListeDeLyre[decalageLyre], SIGNAL(signalDMX(int,int)), this, SLOT(actionDMX(int,int)));
 
             decalageLyre++;
+        }
+
+        if(type[i].contains("SCANNER"))
+        {
+
+            QVBoxLayout *monLayout = new QVBoxLayout();
+            QTreeWidgetItem *recup = ui->treeWidget->currentItem();
+            this->maListeDeScanner.push_back(new SceneScanner(recup->text(1), uuid[i]));
+
+            monLayout->addWidget(this->maListeDeScanner[decalageScanner]);
+
+            this->listeTab[i]->setLayout(monLayout);
+
+            connect(this->maListeDeScanner[decalageScanner], SIGNAL(signalDMX(int,int)), this, SLOT(actionDMX(int,int)));
+
+            decalageScanner++;
+        }
+
+        if(type[i].contains("AUTRE"))
+        {
+
+            QVBoxLayout *monLayout = new QVBoxLayout();
+            QTreeWidgetItem *recup = ui->treeWidget->currentItem();
+            this->maListeAutres.push_back(new SceneAutres(recup->text(1), uuid[i]));
+
+            monLayout->addWidget(this->maListeAutres[decalageAutres]);
+
+            this->listeTab[i]->setLayout(monLayout);
+
+            connect(this->maListeAutres[decalageAutres], SIGNAL(signalDMX(int,int)), this, SLOT(actionDMX(int,int)));
+
+            decalageAutres++;
         }
 
         ui->tabWidget->addTab(this->listeTab[i], nom[i]);
@@ -237,6 +280,8 @@ void WidgetGestionScenes::activerAffichageAppareils()
                 this->listeTab.clear();
                 this->maListeDeParLED.clear();
                 this->maListeDeLyre.clear();
+                this->maListeDeScanner.clear();
+                this->maListeAutres.clear();
 
                 ui->tabWidget->clear();
             }
@@ -290,6 +335,8 @@ void WidgetGestionScenes::activerAffichageAppareils()
             this->listeTab.clear();
             this->maListeDeParLED.clear();
             this->maListeDeLyre.clear();
+            this->maListeDeScanner.clear();
+            this->maListeAutres.clear();
 
             ui->tabWidget->clear();
         }
@@ -350,6 +397,22 @@ void WidgetGestionScenes::recupererToutesLesValeurs()
         }
     }
 
+    if(this->maListeDeScanner.size() > 0)
+    {
+        for(int i = 0; i<this->maListeDeScanner.size(); i++)
+        {
+            this->maListeDeScanner[i]->recupererValeurs(&canal, &valeur);
+        }
+    }
+
+    if(this->maListeAutres.size() > 0)
+    {
+        for(int i = 0; i<this->maListeAutres.size(); i++)
+        {
+            this->maListeAutres[i]->recupererValeurs(&canal, &valeur);
+        }
+    }
+
     GestionXML monXML;
 
     QTreeWidgetItem *recup = ui->treeWidget->currentItem();
@@ -387,5 +450,49 @@ void WidgetGestionScenes::nouvelleScene()
         monXML.ajouterScenes(nomScenario, monUUID.toString(), recup->text(2));
 
         this->afficherListeScenariosEtScenes();
+
+    }
+}
+
+void WidgetGestionScenes::supprimerElement()
+{
+    bool estUnScenario = false;
+
+    QTreeWidgetItem *recup = ui->treeWidget->currentItem();
+
+    QStringList nomScenario, uuidScenario;
+    GestionXML monXML;
+
+    monXML.recupererListeScenarios(&nomScenario, &uuidScenario);
+
+    for(int i = 0; i<uuidScenario.size(); i++)
+    {
+        if(recup->text(1).contains(uuidScenario[i])) estUnScenario = true;
+    }
+
+    if(recup->text(1).contains("NULL")) estUnScenario = true;
+
+
+    if(estUnScenario)
+    {
+        int choix = QMessageBox::warning(this, "Attention", "Vous allez supprimer un scénario ainsi que les scènes associées. Confirmez-vous cette action?", QMessageBox::Yes | QMessageBox::No);
+
+        if(choix == QMessageBox::Yes)
+        {
+            monXML.supprimerScenario(recup->text(1));
+            this->afficherListeScenariosEtScenes();
+        }
+    }
+    else
+    {
+        int choix = QMessageBox::warning(this, "Attention", "Vous allez supprimer une scène. Confirmez-vous cette action?", QMessageBox::Yes | QMessageBox::No);
+
+        if(choix == QMessageBox::Yes)
+        {
+            monXML.supprimerScene(recup->text(1));
+            this->afficherListeScenariosEtScenes();
+            this->activerAffichageAppareils();
+        }
+
     }
 }

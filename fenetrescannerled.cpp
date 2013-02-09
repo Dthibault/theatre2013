@@ -115,7 +115,7 @@ void FenetreScannerLED::confirmationAppareil()
             int nombreCanals = 3+this->nbAjouts;
 
 
-            monXML.ajouterAppareil(nomfichier, monUuid.toString(), QString::number(nombreCanals), "LYRE", nbCanal, actionCanal);
+            monXML.ajouterAppareil(nomfichier, monUuid.toString(), QString::number(nombreCanals), "SCANNER", nbCanal, actionCanal);
 
             QMessageBox::information(this, "Succès", "Appareil enregistré avec succès!");
             this->close();
