@@ -6,6 +6,7 @@
 #include <QString>
 #include <QDebug>
 #include <QUuid>
+#include <QTimer>
 #include <vector>
 #include "gestionxml.h"
 #include "gestiondmx.h"
@@ -25,6 +26,18 @@ public:
 private:
     Ui::WidgetGestionSequences *ui;
 
+    int tempsTotal;
+    int tempsDecompteTotal;
+    int tempsTemporaire;
+
+    bool etatPause;
+    bool etatDemarrageSequence;
+
+    bool switchMessage;
+
+    int sceneActuel;
+
+    QTimer *timerPrincipal;
 
     GestionDMX *interfaceDMX;
 
@@ -37,18 +50,29 @@ private:
 
     QStringList listeUUID;
     QStringList listeUUIDsequence;
+    QStringList listeTempo;
 
     void etatInterface(bool etat);
 
+
+
+    void actualiserTempsTotal(int temps);
+
 private slots:
-    void changementOnglets(int onglet);
+
 
     void ajouterSequence();
     void supprimerSequence();
 
     void changementIndex();
 
+    void ajouterScene();
     void supprimerScene();
+
+    void demarrerTimer();
+    void stopTimer();
+
+    void declenchementSequence();
 
 };
 

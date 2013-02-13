@@ -62,6 +62,9 @@ public:
 
     void recupererContenueSequence(QString uuidSequence, QStringList *temporisation, QStringList *listeUUIDscene, QStringList *listeUUID);
     QString recupererNomScene(QString uuid);
+    void ajouterSceneDeSequence(QString uuidSequence, QString uuidScene, QString nouvelUUID, QString temporisation);
+    void supprimerSceneDeSequence(QString uuidSequence, QString uuidScene);
+    void supprimerSceneDeSequenceExterne(QString uuidScene);
 
 private:
 

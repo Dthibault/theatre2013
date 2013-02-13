@@ -491,6 +491,14 @@ void WidgetGestionScenes::supprimerElement()
 
         if(choix == QMessageBox::Yes)
         {
+            QStringList listeScenes, listeUUID;
+            monXML.recupererListeScenes(&listeScenes, &listeUUID, recup->text(1));
+
+            for(int j = 0; j<listeScenes.size(); j++)
+            {
+                monXML.supprimerSceneDeSequenceExterne(listeUUID[j]);
+            }
+
             monXML.supprimerScenario(recup->text(1));
             this->afficherListeScenariosEtScenes();
         }
@@ -502,6 +510,7 @@ void WidgetGestionScenes::supprimerElement()
         if(choix == QMessageBox::Yes)
         {
             monXML.supprimerScene(recup->text(1));
+            monXML.supprimerSceneDeSequenceExterne(recup->text(1));
             this->afficherListeScenariosEtScenes();
             this->activerAffichageAppareils();
         }
