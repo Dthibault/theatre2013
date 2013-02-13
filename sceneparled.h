@@ -37,8 +37,11 @@ signals:
 
     void signalDMX(int, int);
 
-private slots:
+public slots:
     void actionDMX();
+
+private slots:
+
 
     void actionColorWheel(QColor);
 

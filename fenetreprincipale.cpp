@@ -24,6 +24,7 @@ FenetrePrincipale::FenetrePrincipale(QWidget *parent) :
     this->boutonFermerMode->setDisabled(true);
 
     connect(this->boutonModeScenes, SIGNAL(clicked()), this, SLOT(afficherModeScenes()));
+    connect(this->boutonModeSequences, SIGNAL(clicked()), this, SLOT(afficherModeSequences()));
     connect(this->boutonFermerMode, SIGNAL(clicked()), this, SLOT(fermerMode()));
 
     this->typeMode = 0;
@@ -158,12 +159,56 @@ void FenetrePrincipale::afficherModeScenes()
 
 }
 
+void FenetrePrincipale::afficherModeSequences()
+{
+    GestionXML lireApp;
+    QString addrApp, uuidApp;
+
+    lireApp.lireAdaptateur(&addrApp, &uuidApp);
+    this->interfaceDMX = new GestionDMX;
+    this->interfaceDMX->setAdresse(addrApp);
+
+
+    if(!(lireApp.lireAdaptateur(&addrApp, &uuidApp)) || !(this->interfaceDMX->estDisponible()))
+    {
+        QMessageBox::information(this, "Configuration de l'adaptateur", "Vous devez tout d'abord configurer correctement l'adaptateur ou le connecter.");
+    }
+    else
+    {
+        ui->horizontalLayout->removeWidget(ui->conteneurGenerale);
+        ui->conteneurGenerale->hide();
+
+        this->gestionSequences = new WidgetGestionSequences;
+        ui->horizontalLayout->addWidget(this->gestionSequences);
+
+        this->boutonModeScenes->setDisabled(true);
+        this->boutonModeSequences->setDisabled(true);
+        this->boutonFermerMode->setEnabled(true);
+
+        this->typeMode = 2;
+
+        ui->menuConsole->setDisabled(true);
+        ui->actionG_rer_appareils->setDisabled(true);
+        ui->actionParam_tres->setDisabled(true);
+    }
+
+}
+
 void FenetrePrincipale::fermerMode()
 {
     if(this->typeMode == 1)
     {
         ui->horizontalLayout->removeWidget(this->gestionScenes);
         delete this->gestionScenes;
+
+        ui->menuConsole->setEnabled(true);
+        ui->actionG_rer_appareils->setEnabled(true);
+        ui->actionParam_tres->setEnabled(true);
+    }
+    else if(this->typeMode == 2)
+    {
+        ui->horizontalLayout->removeWidget(this->gestionSequences);
+        delete this->gestionSequences;
 
         ui->menuConsole->setEnabled(true);
         ui->actionG_rer_appareils->setEnabled(true);

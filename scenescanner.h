@@ -36,7 +36,9 @@ signals:
 
     void signalDMX(int, int);
 
-private slots:
+
+
+public slots:
     void actionDMX();
 
 };

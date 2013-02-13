@@ -21,7 +21,8 @@ SOURCES += \
     sceneparled.cpp \
     scenelyre.cpp \
     scenescanner.cpp \
-    sceneautres.cpp
+    sceneautres.cpp \
+    widgetgestionsequences.cpp
 
 HEADERS += \
     types.h \
@@ -45,7 +46,8 @@ HEADERS += \
     sceneparled.h \
     scenelyre.h \
     scenescanner.h \
-    sceneautres.h
+    sceneautres.h \
+    widgetgestionsequences.h
 
 FORMS += \
     fenetreprincipale.ui \
@@ -61,7 +63,8 @@ FORMS += \
     sceneparled.ui \
     scenelyre.ui \
     scenescanner.ui \
-    sceneautres.ui
+    sceneautres.ui \
+    widgetgestionsequences.ui
 
 RESOURCES += \
     ressources.qrc

@@ -94,7 +94,7 @@ SceneParLED::SceneParLED(QString sceneParente, QString uuidPar, QWidget *parent)
         }
     }
 
-
+this->actionDMX();
 
 }
 

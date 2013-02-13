@@ -64,6 +64,7 @@ SceneAutres::SceneAutres(QString sceneParente, QString uuidAutre, QWidget *paren
 
         }
     }
+    this->actionDMX();
 }
 
 SceneAutres::~SceneAutres()

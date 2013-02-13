@@ -189,6 +189,9 @@ void WidgetGestionScenes::interfaceAppareils()
 
             connect(this->maListeDeParLED[decalagePar], SIGNAL(signalDMX(int,int)), this, SLOT(actionDMX(int,int)));
 
+            this->maListeDeParLED[decalagePar]->actionDMX();
+            this->donneesModifier = false;
+
             decalagePar++;
 
         }
@@ -207,6 +210,9 @@ void WidgetGestionScenes::interfaceAppareils()
 
             connect(this->maListeDeLyre[decalageLyre], SIGNAL(signalDMX(int,int)), this, SLOT(actionDMX(int,int)));
 
+            this->maListeDeLyre[decalageLyre]->actionDMX();
+            this->donneesModifier = false;
+
             decalageLyre++;
         }
 
@@ -223,6 +229,9 @@ void WidgetGestionScenes::interfaceAppareils()
 
             connect(this->maListeDeScanner[decalageScanner], SIGNAL(signalDMX(int,int)), this, SLOT(actionDMX(int,int)));
 
+            this->maListeDeScanner[decalageScanner]->actionDMX();
+            this->donneesModifier = false;
+
             decalageScanner++;
         }
 
@@ -238,6 +247,9 @@ void WidgetGestionScenes::interfaceAppareils()
             this->listeTab[i]->setLayout(monLayout);
 
             connect(this->maListeAutres[decalageAutres], SIGNAL(signalDMX(int,int)), this, SLOT(actionDMX(int,int)));
+
+            this->maListeAutres[decalageAutres]->actionDMX();
+            this->donneesModifier = false;
 
             decalageAutres++;
         }

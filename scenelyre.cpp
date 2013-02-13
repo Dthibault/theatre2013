@@ -86,7 +86,7 @@ SceneLyre::SceneLyre(QString sceneParente, QString uuidLyre, QWidget *parent) :
         }
     }
 
-
+this->actionDMX();
 
 
 }

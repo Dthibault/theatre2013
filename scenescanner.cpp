@@ -87,6 +87,7 @@ SceneScanner::SceneScanner(QString sceneParente, QString uuidScanner, QWidget *p
 
         }
     }
+    this->actionDMX();
 
 }
 
