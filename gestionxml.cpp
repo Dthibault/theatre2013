@@ -868,3 +868,258 @@ void GestionXML::supprimerScene(QString uuid)
 
     }
 }
+
+void GestionXML::recupererSequences(QStringList *listeSequences, QStringList *listeUUID)
+{
+    QDomDocument documentXML;
+    QFile fichierXML(SEQUENCESXML);
+
+    if(!(fichierXML.open(QIODevice::ReadOnly)))
+    {
+        QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Sequences.xml");
+    }
+    else
+    {
+        documentXML.setContent(&fichierXML, false);
+        QDomElement racine = documentXML.documentElement();
+        QDomNode noeud = racine.firstChild();
+
+        QDomElement scenario;
+
+
+
+        while(!(noeud.isNull()))
+        {
+            scenario = noeud.toElement();
+
+            listeSequences->push_back(scenario.attribute("nom"));
+            listeUUID->push_back(scenario.attribute("uuid"));
+
+            noeud = noeud.nextSibling();
+        }
+    }
+
+    fichierXML.close();
+}
+
+void GestionXML::ajouterSequence(QString nom, QString uuid)
+{
+    QDomDocument documentXML;
+    QFile fichierXML(SEQUENCESXML);
+
+    if(!(fichierXML.open(QIODevice::ReadOnly)))
+    {
+        QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Sequences.xml");
+    }
+    else
+    {
+
+        if(!(documentXML.setContent(&fichierXML)))
+        {
+            QDomNode xmlNode = documentXML.createProcessingInstruction("xml","version=\"1.0\" encoding=\"UTF-8\"");
+            documentXML.insertBefore(xmlNode, documentXML.firstChild());
+
+            QDomElement root = documentXML.createElement("theatre2013");
+            documentXML.appendChild(root);
+        }
+
+
+        fichierXML.close();
+        fichierXML.open(QIODevice::WriteOnly);
+
+        QTextStream out;
+        out.setDevice(&fichierXML);
+
+        QDomElement racine = documentXML.documentElement();
+
+        QDomElement scenario = documentXML.createElement("sequence");
+
+        racine.appendChild(scenario);
+
+        scenario.setAttribute("nom", nom);
+        scenario.setAttribute("uuid", uuid);
+
+
+        documentXML.save(out, 2);
+        fichierXML.close();
+
+    }
+}
+
+void GestionXML::supprimerSequence(QString uuid)
+{
+    QDomDocument documentXML;
+    QFile fichierXML(SEQUENCESXML);
+
+    if(!(fichierXML.open(QIODevice::ReadOnly)))
+    {
+        QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Sequences.xml");
+    }
+    else
+    {
+
+        if(!(documentXML.setContent(&fichierXML)))
+        {
+            QDomNode xmlNode = documentXML.createProcessingInstruction("xml","version=\"1.0\" encoding=\"UTF-8\"");
+            documentXML.insertBefore(xmlNode, documentXML.firstChild());
+
+            QDomElement root = documentXML.createElement("theatre2013");
+            documentXML.appendChild(root);
+        }
+
+
+        fichierXML.close();
+        fichierXML.open(QIODevice::WriteOnly);
+
+        QTextStream out;
+        out.setDevice(&fichierXML);
+
+        QDomElement racine = documentXML.documentElement();
+        QDomNode noeud = racine.firstChild();
+
+        QDomElement scenario;
+
+        while(!(noeud.isNull()))
+        {
+            scenario = noeud.toElement();
+
+            if(scenario.attribute("uuid") == uuid)
+            {
+
+                racine.removeChild(scenario);
+            }
+
+            noeud = noeud.nextSibling();
+        }
+
+        documentXML.save(out, 2);
+        fichierXML.close();
+
+    }
+}
+
+void GestionXML::afficherListeScenes(QStringList *listeScenes, QStringList *listeUUIDscene, QStringList *listeUUID)
+{
+    QDomDocument documentXML;
+    QFile fichierXML(SCENESXML);
+
+    if(!(fichierXML.open(QIODevice::ReadOnly)))
+    {
+        QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Scenes.xml");
+    }
+    else
+    {
+        documentXML.setContent(&fichierXML, false);
+        QDomElement racine = documentXML.documentElement();
+        QDomNode noeud = racine.firstChild();
+
+        QDomElement scenario;
+
+
+
+        while(!(noeud.isNull()))
+        {
+            scenario = noeud.toElement();
+
+            listeScenes->push_back(scenario.attribute("nom"));
+            listeUUIDscene->push_back(scenario.attribute("uuidScene"));
+            listeUUID->push_back(scenario.attribute("uuid"));
+
+
+
+            noeud = noeud.nextSibling();
+        }
+    }
+
+    fichierXML.close();
+}
+
+void GestionXML::recupererContenueSequence(QString uuidSequence, QStringList *temporisation, QStringList *listeUUIDscene, QStringList *listeUUID)
+{
+    QDomDocument documentXML;
+    QFile fichierXML(SEQUENCESXML);
+
+    if(!(fichierXML.open(QIODevice::ReadOnly)))
+    {
+        QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Sequences.xml");
+    }
+    else
+    {
+        documentXML.setContent(&fichierXML, false);
+
+
+        QDomElement racine = documentXML.documentElement();
+
+        QDomNode noeud = racine.firstChild();
+        QDomElement scene;
+
+        QDomNode noeudCanal;
+        QDomElement sceneCanal;
+
+        while(!(noeud.isNull()))
+        {
+            scene = noeud.toElement();
+
+            if(scene.attribute("uuid") == uuidSequence)
+            {
+
+                noeudCanal = scene.firstChild();
+
+                while(!(noeudCanal.isNull()))
+                {
+                    sceneCanal = noeudCanal.toElement();
+
+                    listeUUIDscene->push_back(sceneCanal.attribute("uuidScene"));
+                    listeUUID->push_back(sceneCanal.attribute("uuid"));
+                    temporisation->push_back(sceneCanal.attribute("temporisation"));
+
+                    noeudCanal = noeudCanal.nextSibling();
+
+                }
+
+            }
+
+            noeud = noeud.nextSibling();
+        }
+    }
+}
+
+QString GestionXML::recupererNomScene(QString uuid)
+{
+    QDomDocument documentXML;
+    QFile fichierXML(SCENESXML);
+
+    if(!(fichierXML.open(QIODevice::ReadOnly)))
+    {
+        QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Scenes.xml");
+    }
+    else
+    {
+        documentXML.setContent(&fichierXML, false);
+
+
+        QDomElement racine = documentXML.documentElement();
+
+        QDomNode noeud = racine.firstChild();
+        QDomElement scene;
+
+        QDomNode noeudCanal;
+        QDomElement sceneCanal;
+
+        while(!(noeud.isNull()))
+        {
+            scene = noeud.toElement();
+
+            if(scene.attribute("uuid") == uuid)
+            {
+
+                noeudCanal = scene.firstChild();
+
+                return scene.attribute("nom");
+
+            }
+
+            noeud = noeud.nextSibling();
+        }
+    }
+}

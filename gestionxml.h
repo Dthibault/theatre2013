@@ -14,6 +14,7 @@
 #define APPAREILSXML "configuration/appareils.xml"
 #define SCENARIOSXML "configuration/scenarios.xml"
 #define SCENESXML "configuration/scenes.xml"
+#define SEQUENCESXML "configuration/sequences.xml"
 
 
 class GestionXML : public QObject
@@ -52,6 +53,15 @@ public:
     void supprimerScenario(QString uuid);
     void supprimerScenesAssociees(QString uuidScenario);
     void supprimerScene(QString uuid);
+
+    void recupererSequences(QStringList *listeSequences, QStringList *listeUUID);
+    void ajouterSequence(QString nom, QString uuid);
+    void supprimerSequence(QString uuid);
+
+    void afficherListeScenes(QStringList *listeScenes, QStringList *listeUUIDscene, QStringList *listeUUID);
+
+    void recupererContenueSequence(QString uuidSequence, QStringList *temporisation, QStringList *listeUUIDscene, QStringList *listeUUID);
+    QString recupererNomScene(QString uuid);
 
 private:
 

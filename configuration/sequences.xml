@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <theatre2013>
-  <sequence nom="Que ma joie demeure" uuid="{8b08e06c-e528-4a6f-81f8-a2a66583d877}">
+  <sequence nom="Que ma joie demeure" uuid="{3b08e06c-e528-4a6f-81f8-a2a66583d877}">
     <scene uuid="{8b08e06c-e528-4a6f-81f8-a2a66583d877}" temporisation="20"/>
     <scene uuid="{775154e0-0cea-45ac-8b64-f66236fff154}" temporisation="20"/>
   </sequence>

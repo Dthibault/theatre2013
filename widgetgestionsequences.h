@@ -32,8 +32,24 @@ private:
 
     QTreeWidgetItem *precedentItem;
 
+    void afficherListeSequences();
+    void afficherListeScenes();
+
+    QStringList listeUUID;
+    QStringList listeUUIDsequence;
+
+    void etatInterface(bool etat);
+
 private slots:
     void changementOnglets(int onglet);
+
+    void ajouterSequence();
+    void supprimerSequence();
+
+    void changementIndex();
+
+    void supprimerScene();
+
 };
 
 #endif // WIDGETGESTIONSEQUENCES_H
