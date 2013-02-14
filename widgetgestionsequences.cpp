@@ -35,10 +35,28 @@ WidgetGestionSequences::WidgetGestionSequences(QWidget *parent) :
 
     connect(ui->boutonAjouterScene, SIGNAL(clicked()), this, SLOT(ajouterScene()));
 
+    ui->labelSceneActuel->setText("Aucune");
+
 }
 
 WidgetGestionSequences::~WidgetGestionSequences()
 {
+    QString addrApp, uuidApp;
+
+    GestionXML lireApp;
+    lireApp.lireAdaptateur(&addrApp, &uuidApp);
+
+
+    this->interfaceDMX = new GestionDMX;
+    this->interfaceDMX->setAdresse(addrApp);
+
+    this->interfaceDMX->seConnecter();
+    this->interfaceDMX->resetDMX();
+
+    this->interfaceDMX->seDeconnecter();
+
+    delete(this->interfaceDMX);
+
     delete ui;
 }
 
@@ -334,7 +352,8 @@ void WidgetGestionSequences::stopTimer()
 
     ui->boutonPlayPause->setText("Play");
 
-    ui->labelEtatSequence->setText("<h3> </h3>");
+    ui->labelEtatSequence->setText("<h3>Séquence terminée!</h3>");
+    ui->labelEtatSequence->setStyleSheet("color: green;");
 
 
 
