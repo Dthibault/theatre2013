@@ -30,6 +30,8 @@ FenetrePrincipale::FenetrePrincipale(QWidget *parent) :
     this->typeMode = 0;
 
 
+    // Modification de l'emplacement des données personnelles
+    QDir::setCurrent(QDir::homePath());
 
 
 }

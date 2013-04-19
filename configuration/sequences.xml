@@ -1,2 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<theatre2013/>
+<theatre2013>
+  <sequence nom="Spectacle Astier" uuid="{d8829d9b-919f-4af6-818d-56e8a4b2ade5}">
+    <scene uuidScene="{1a384a30-1928-4a50-81c6-7ba66fcf79ce}" temporisation="4" uuid="{6a54920f-6d95-41a8-919a-60ed09dc0653}"/>
+    <scene uuidScene="{bbf274c8-e7ad-44a1-a54f-e39211a9ae61}" temporisation="5" uuid="{db0bdfa8-2345-4c95-8619-abaa5620d4c9}"/>
+    <scene uuidScene="{7cd54c50-3ac4-42bd-a972-cb68f09fbd56}" temporisation="3" uuid="{04384d59-31e3-430e-86f0-751f0d9be06b}"/>
+    <scene uuidScene="{82cdce48-3f3a-42cb-a66b-7286babf1114}" temporisation="4" uuid="{f32913e2-9092-4d37-924e-fa7987df848c}"/>
+  </sequence>
+</theatre2013>

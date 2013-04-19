@@ -1,28 +1,95 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <theatre2013>
-  <scene scenarioUUID="{f77a1eac-fc19-4f55-be0d-884e48811be0}" nom="Entrée d'Alexandre Astier" uuid="{8b08e06c-e528-4a6f-81f8-a2a66583d877}">
-    <canal valeur="0" id="1"/>
-    <canal valeur="0" id="2"/>
+  <scene scenarioUUID="{cd623144-2ef5-4767-a824-39487693f6e4}" nom="Entrée d'Alexandre Astier" uuid="{1a384a30-1928-4a50-81c6-7ba66fcf79ce}">
+    <canal valeur="243" id="1"/>
+    <canal valeur="199" id="2"/>
     <canal valeur="0" id="3"/>
-    <canal valeur="0" id="4"/>
-    <canal valeur="0" id="192"/>
-    <canal valeur="0" id="193"/>
-    <canal valeur="0" id="194"/>
+    <canal valeur="92" id="4"/>
+    <canal valeur="248" id="192"/>
+    <canal valeur="7" id="193"/>
+    <canal valeur="212" id="194"/>
     <canal valeur="0" id="196"/>
-    <canal valeur="0" id="13"/>
-    <canal valeur="0" id="14"/>
-    <canal valeur="0" id="11"/>
+    <canal valeur="166" id="13"/>
+    <canal valeur="97" id="14"/>
+    <canal valeur="20" id="11"/>
     <canal valeur="0" id="12"/>
+    <canal valeur="7" id="10"/>
+    <canal valeur="132" id="132"/>
+    <canal valeur="120" id="133"/>
+    <canal valeur="152" id="129"/>
+    <canal valeur="221" id="131"/>
+    <canal valeur="60" id="128"/>
+    <canal valeur="132" id="32"/>
+    <canal valeur="0" id="33"/>
+    <canal valeur="0" id="34"/>
+  </scene>
+  <scene scenarioUUID="{cd623144-2ef5-4767-a824-39487693f6e4}" nom="Présentation des cours" uuid="{bbf274c8-e7ad-44a1-a54f-e39211a9ae61}">
+    <canal valeur="8" id="1"/>
+    <canal valeur="56" id="2"/>
+    <canal valeur="248" id="3"/>
+    <canal valeur="27" id="4"/>
+    <canal valeur="98" id="192"/>
+    <canal valeur="167" id="193"/>
+    <canal valeur="112" id="194"/>
+    <canal valeur="0" id="196"/>
+    <canal valeur="178" id="13"/>
+    <canal valeur="92" id="14"/>
+    <canal valeur="23" id="11"/>
+    <canal valeur="143" id="12"/>
     <canal valeur="0" id="10"/>
     <canal valeur="0" id="132"/>
     <canal valeur="0" id="133"/>
     <canal valeur="0" id="129"/>
     <canal valeur="0" id="131"/>
     <canal valeur="0" id="128"/>
-    <canal valeur="99" id="32"/>
-    <canal valeur="233" id="33"/>
-    <canal valeur="64" id="34"/>
+    <canal valeur="0" id="32"/>
+    <canal valeur="0" id="33"/>
+    <canal valeur="0" id="34"/>
   </scene>
-  <scene scenarioUUID="{f77a1eac-fc19-4f55-be0d-884e48811be0}" nom="Présentation des cours" uuid="{775154e0-0cea-45ac-8b64-f66236fff154}"/>
-  <scene scenarioUUID="{f77a1eac-fc19-4f55-be0d-884e48811be0}" nom="Premier cours de musique" uuid="{6b43d416-1c86-470a-8149-5f7f3932cb33}"/>
+  <scene scenarioUUID="{cd623144-2ef5-4767-a824-39487693f6e4}" nom="Publicité de la taverne" uuid="{7cd54c50-3ac4-42bd-a972-cb68f09fbd56}">
+    <canal valeur="13" id="1"/>
+    <canal valeur="248" id="2"/>
+    <canal valeur="174" id="3"/>
+    <canal valeur="50" id="4"/>
+    <canal valeur="0" id="192"/>
+    <canal valeur="0" id="193"/>
+    <canal valeur="0" id="194"/>
+    <canal valeur="0" id="196"/>
+    <canal valeur="123" id="13"/>
+    <canal valeur="210" id="14"/>
+    <canal valeur="46" id="11"/>
+    <canal valeur="0" id="12"/>
+    <canal valeur="44" id="10"/>
+    <canal valeur="0" id="132"/>
+    <canal valeur="0" id="133"/>
+    <canal valeur="0" id="129"/>
+    <canal valeur="0" id="131"/>
+    <canal valeur="0" id="128"/>
+    <canal valeur="0" id="32"/>
+    <canal valeur="0" id="33"/>
+    <canal valeur="0" id="34"/>
+  </scene>
+  <scene scenarioUUID="{cd623144-2ef5-4767-a824-39487693f6e4}" nom="Scène de l'orgue" uuid="{82cdce48-3f3a-42cb-a66b-7286babf1114}">
+    <canal valeur="230" id="1"/>
+    <canal valeur="155" id="2"/>
+    <canal valeur="16" id="3"/>
+    <canal valeur="50" id="4"/>
+    <canal valeur="0" id="192"/>
+    <canal valeur="0" id="193"/>
+    <canal valeur="0" id="194"/>
+    <canal valeur="0" id="196"/>
+    <canal valeur="138" id="13"/>
+    <canal valeur="143" id="14"/>
+    <canal valeur="0" id="11"/>
+    <canal valeur="0" id="12"/>
+    <canal valeur="31" id="10"/>
+    <canal valeur="0" id="132"/>
+    <canal valeur="0" id="133"/>
+    <canal valeur="0" id="129"/>
+    <canal valeur="0" id="131"/>
+    <canal valeur="0" id="128"/>
+    <canal valeur="0" id="32"/>
+    <canal valeur="0" id="33"/>
+    <canal valeur="0" id="34"/>
+  </scene>
 </theatre2013>

@@ -9,12 +9,12 @@
 #include <QtXml/QDomDocument>
 #include <QTextStream>
 
-#define ADAPTATEURXML "configuration/adaptateur.xml"
-#define PASSWORDXML "configuration/password.xml"
-#define APPAREILSXML "configuration/appareils.xml"
-#define SCENARIOSXML "configuration/scenarios.xml"
-#define SCENESXML "configuration/scenes.xml"
-#define SEQUENCESXML "configuration/sequences.xml"
+#define ADAPTATEURXML "configuration_dmx/adaptateur.xml"
+#define PASSWORDXML "configuration_dmx/password.xml"
+#define APPAREILSXML "configuration_dmx/appareils.xml"
+#define SCENARIOSXML "configuration_dmx/scenarios.xml"
+#define SCENESXML "configuration_dmx/scenes.xml"
+#define SEQUENCESXML "configuration_dmx/sequences.xml"
 
 
 class GestionXML : public QObject
