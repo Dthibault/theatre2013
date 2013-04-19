@@ -7,11 +7,13 @@ FenetreScannerLED::FenetreScannerLED(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    this->interfaceDMX = new GestionDMX;
+    GestionDMX *interfaceDMX;
+    interfaceDMX = GestionDMX::getInstance();
+
     this->configurerAdaptateur();
 
-    this->interfaceDMX->seConnecter();
-    this->interfaceDMX->resetDMX();
+    interfaceDMX->seConnecter();
+    interfaceDMX->resetDMX();
 
     connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(fermer()));
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(confirmationAppareil()));
@@ -31,7 +33,11 @@ FenetreScannerLED::FenetreScannerLED(QWidget *parent) :
 
 FenetreScannerLED::~FenetreScannerLED()
 {
-    this->interfaceDMX->seDeconnecter();
+    GestionDMX *interfaceDMX;
+    interfaceDMX = GestionDMX::getInstance();
+
+    interfaceDMX->seDeconnecter();
+    interfaceDMX->kill();
 
     delete ui;
 }
@@ -44,25 +50,30 @@ void FenetreScannerLED::configurerAdaptateur()
 
     adaptXML.lireAdaptateur(&adresseAdapt, &uuidAdapt);
 
-    this->interfaceDMX->setAdresse(adresseAdapt);
+    GestionDMX *interfaceDMX;
+    interfaceDMX = GestionDMX::getInstance();
+    interfaceDMX->setAdresse(adresseAdapt);
 
 }
 
 void FenetreScannerLED::miseAJourDMX()
 {
-    this->interfaceDMX->modifierValeurCanal(ui->spinBoxPAN->value(), ui->verticalSliderPAN->value());
-    this->interfaceDMX->modifierValeurCanal(ui->spinBoxTILT->value(), ui->verticalSliderTILT->value());
-    this->interfaceDMX->modifierValeurCanal(ui->spinBoxCOULEUR->value(), ui->verticalSliderCOULEUR->value());
+    GestionDMX *interfaceDMX;
+    interfaceDMX = GestionDMX::getInstance();
+
+    interfaceDMX->modifierValeurCanal(ui->spinBoxPAN->value(), ui->verticalSliderPAN->value());
+    interfaceDMX->modifierValeurCanal(ui->spinBoxTILT->value(), ui->verticalSliderTILT->value());
+    interfaceDMX->modifierValeurCanal(ui->spinBoxCOULEUR->value(), ui->verticalSliderCOULEUR->value());
 
     if(this->nbAjouts > 0)
     {
         for(int i=0; i<this->nbAjouts; i++)
         {
-            this->interfaceDMX->modifierValeurCanal(this->listeWidgetSuppl[i]->getNumeroCanal(), this->listeWidgetSuppl[i]->getValeurCanal());
+            interfaceDMX->modifierValeurCanal(this->listeWidgetSuppl[i]->getNumeroCanal(), this->listeWidgetSuppl[i]->getValeurCanal());
         }
     }
 
-    this->interfaceDMX->envoyerDMX();
+    interfaceDMX->envoyerDMX();
 
 
 }

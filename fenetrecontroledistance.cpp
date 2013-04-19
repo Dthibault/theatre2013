@@ -11,7 +11,9 @@ FenetreControleDistance::FenetreControleDistance(QWidget *parent) :
     connect(this, SIGNAL(finished(int)), this, SLOT(fermerFenetre()));
 
 
-    this->interfaceDMX = new GestionDMX;
+    GestionDMX *interfaceDMX;
+    interfaceDMX = GestionDMX::getInstance();
+
 
     this->interfaceConsole = new GestionConsole;
     this->interfaceConsole->start();
@@ -45,7 +47,11 @@ FenetreControleDistance::~FenetreControleDistance()
 
     if(this->etatPriseEnMain)
     {
-        this->interfaceDMX->seDeconnecter();
+        GestionDMX *interfaceDMX;
+        interfaceDMX = GestionDMX::getInstance();
+
+        interfaceDMX->seDeconnecter();
+        interfaceDMX->kill();
     }
 
     delete ui;
@@ -64,7 +70,10 @@ bool FenetreControleDistance::configurerAdaptateur()
     }
     else
     {
-        this->interfaceDMX->setAdresse(adresseAdapt);
+        GestionDMX *interfaceDMX;
+        interfaceDMX = GestionDMX::getInstance();
+        interfaceDMX->setAdresse(adresseAdapt);
+
         return true;
     }
 }
@@ -105,14 +114,17 @@ void FenetreControleDistance::modifierNumeroAssignation(int numero)
 
 void FenetreControleDistance::debutControle()
 {
+    GestionDMX *interfaceDMX;
+    interfaceDMX = GestionDMX::getInstance();
+
 
     if(this->configurerAdaptateur())
     {
         this->etatPriseEnMain = true;
         ui->labelEtatConnexion->setText("<b><span style=\"color: green;\">CONTROLE ACTIF</span></b>");
 
-        this->interfaceDMX->seConnecter();
-        this->interfaceDMX->resetDMX();
+        interfaceDMX->seConnecter();
+        interfaceDMX->resetDMX();
 
         this->numeroActuel = 0;
         this->interfaceConsole->modifierNumero(this->numeroActuel);
@@ -127,7 +139,11 @@ void FenetreControleDistance::arretControle()
     this->etatPriseEnMain = false;
     ui->labelEtatConnexion->setText("<b><span style=\"color: red;\">CONTROLE NON ACTIF</span></b>");
 
-    this->interfaceDMX->seDeconnecter();
+    GestionDMX *interfaceDMX;
+    interfaceDMX = GestionDMX::getInstance();
+
+
+    interfaceDMX->seDeconnecter();
 
     ui->spinBox->setEnabled(true);
 }
@@ -176,6 +192,9 @@ void FenetreControleDistance::baisserNumero()
 
 void FenetreControleDistance::modifierSliders(int * listeSliders)
 {
+    GestionDMX *interfaceDMX;
+    interfaceDMX = GestionDMX::getInstance();
+
     if(this->etatPriseEnMain)
     {
         QStringList nom, uuid, type;
@@ -193,8 +212,8 @@ void FenetreControleDistance::modifierSliders(int * listeSliders)
 
                 for(int i=0; i<maListeDeCanaux.size(); i++)
                 {
-                    this->interfaceDMX->modifierValeurCanal(maListeDeCanaux[i].toInt(), listeSliders[i]);
-                    this->interfaceDMX->envoyerDMX();
+                    interfaceDMX->modifierValeurCanal(maListeDeCanaux[i].toInt(), listeSliders[i]);
+                    interfaceDMX->envoyerDMX();
                 }
             }
         }

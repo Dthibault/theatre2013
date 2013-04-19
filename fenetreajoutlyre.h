@@ -29,7 +29,6 @@ public:
 private:
     Ui::FenetreAjoutLyre *ui;
 
-    GestionDMX *interfaceDMX;
 
     void configurerAdaptateur();
 

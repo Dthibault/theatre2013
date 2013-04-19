@@ -25,7 +25,7 @@ public:
 private:
     Ui::FenetreParametres *ui;
 
-    GestionDMX *interfaceDMX;
+    //GestionDMX *interfaceDMX;
 
 
 private slots:

@@ -49,7 +49,6 @@ private:
     std::vector<SceneScanner*> maListeDeScanner;
     std::vector<SceneAutres*> maListeAutres;
 
-    GestionDMX *interfaceDMX;
 
     bool donneesModifier;
 

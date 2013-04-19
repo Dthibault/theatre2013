@@ -27,8 +27,6 @@ public:
 private:
     Ui::FenetrePrincipale *ui;
 
-    GestionDMX *interfaceDMX;
-
     WidgetGestionScenes *gestionScenes;
     WidgetGestionSequences *gestionSequences;
 

@@ -27,7 +27,6 @@ public:
 private:
     Ui::FenetreScannerLED *ui;
 
-    GestionDMX *interfaceDMX;
 
     void configurerAdaptateur();
 

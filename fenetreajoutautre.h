@@ -27,7 +27,6 @@ public:
 private:
     Ui::FenetreAjoutAutre *ui;
 
-    GestionDMX *interfaceDMX;
 
     void configurerAdaptateur();
 

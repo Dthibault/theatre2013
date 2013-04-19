@@ -42,11 +42,12 @@ WidgetGestionScenes::WidgetGestionScenes(QWidget *parent) :
 
     lireApp.lireAdaptateur(&addrApp, &uuidApp);
 
-    this->interfaceDMX = new GestionDMX;
-    this->interfaceDMX->setAdresse(addrApp);
+    GestionDMX *interfaceDMX;
+    interfaceDMX = GestionDMX::getInstance();
+    interfaceDMX->setAdresse(addrApp);
 
-    this->interfaceDMX->seConnecter();
-    this->interfaceDMX->resetDMX();
+    interfaceDMX->seConnecter();
+    interfaceDMX->resetDMX();
 
     this->donneesModifier = false;
 
@@ -55,7 +56,11 @@ WidgetGestionScenes::WidgetGestionScenes(QWidget *parent) :
 
 WidgetGestionScenes::~WidgetGestionScenes()
 {
-    this->interfaceDMX->seDeconnecter();
+    GestionDMX *interfaceDMX;
+    interfaceDMX = GestionDMX::getInstance();
+
+    interfaceDMX->seDeconnecter();
+    interfaceDMX->kill();
 
     delete ui;
 }
@@ -381,8 +386,11 @@ void WidgetGestionScenes::activerAffichageAppareils()
 
 void WidgetGestionScenes::actionDMX(int canal, int valeur)
 {
-    this->interfaceDMX->modifierValeurCanal(canal, valeur);
-    this->interfaceDMX->envoyerDMX();
+    GestionDMX *interfaceDMX;
+    interfaceDMX = GestionDMX::getInstance();
+
+    interfaceDMX->modifierValeurCanal(canal, valeur);
+    interfaceDMX->envoyerDMX();
 
     this->donneesModifier = true;
 }

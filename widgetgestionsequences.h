@@ -39,7 +39,7 @@ private:
 
     QTimer *timerPrincipal;
 
-    GestionDMX *interfaceDMX;
+
 
     bool donneesModifier;
 

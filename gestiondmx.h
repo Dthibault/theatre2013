@@ -27,9 +27,41 @@ signals:
 };
 
 
-
-class GestionDMX : public QObject
+template <typename T>
+class Singleton
 {
+protected:
+    Singleton(){};
+    ~Singleton(){};
+
+public:
+
+    static T *getInstance()
+    {
+        if(NULL == _singleton) _singleton = new T;
+
+        return (static_cast<T*> (_singleton));
+    }
+
+    static void kill()
+    {
+        if (NULL != _singleton)
+        {
+            delete _singleton;
+            _singleton = NULL;
+        }
+    }
+
+private:
+    static T *_singleton;
+
+};
+
+
+class GestionDMX : public QObject, public Singleton<GestionDMX>
+{
+    friend class Singleton<GestionDMX>;
+
     Q_OBJECT
 
 private:
@@ -40,6 +72,8 @@ private:
     QString adresseDMX;
 
     GestionDimmer *monThreadDimmer;
+
+
 
 public:
     explicit GestionDMX(QObject *parent = 0);

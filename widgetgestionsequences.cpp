@@ -46,16 +46,16 @@ WidgetGestionSequences::~WidgetGestionSequences()
     GestionXML lireApp;
     lireApp.lireAdaptateur(&addrApp, &uuidApp);
 
+    GestionDMX *interfaceDMX;
+    interfaceDMX = GestionDMX::getInstance();
+    interfaceDMX->setAdresse(addrApp);
 
-    this->interfaceDMX = new GestionDMX;
-    this->interfaceDMX->setAdresse(addrApp);
+    interfaceDMX->seConnecter();
+    interfaceDMX->resetDMX();
 
-    this->interfaceDMX->seConnecter();
-    this->interfaceDMX->resetDMX();
+    interfaceDMX->seDeconnecter();
 
-    this->interfaceDMX->seDeconnecter();
-
-    delete(this->interfaceDMX);
+    interfaceDMX->kill();
 
     delete ui;
 }
@@ -315,11 +315,12 @@ void WidgetGestionSequences::demarrerTimer()
         GestionXML lireApp;
         lireApp.lireAdaptateur(&addrApp, &uuidApp);
 
-        this->interfaceDMX = new GestionDMX;
-        this->interfaceDMX->setAdresse(addrApp);
+        GestionDMX *interfaceDMX;
+        interfaceDMX = GestionDMX::getInstance();
+        interfaceDMX->setAdresse(addrApp);
 
-        this->interfaceDMX->seConnecter();
-        this->interfaceDMX->resetDMX();
+        interfaceDMX->seConnecter();
+        interfaceDMX->resetDMX();
 
         this->switchMessage = false;
 
@@ -331,6 +332,9 @@ void WidgetGestionSequences::demarrerTimer()
 
 void WidgetGestionSequences::stopTimer()
 {
+    GestionDMX *interfaceDMX;
+    interfaceDMX = GestionDMX::getInstance();
+
     this->timerPrincipal->stop();
 
     ui->tabEdition->setEnabled(true);
@@ -341,8 +345,8 @@ void WidgetGestionSequences::stopTimer()
     if(this->etatDemarrageSequence)
     {
         //this->interfaceDMX->seDeconnecter();
-        this->interfaceDMX->resetDMX();
-        delete(this->interfaceDMX);
+        interfaceDMX->resetDMX();
+        interfaceDMX->kill();
     }
 
 
@@ -400,12 +404,15 @@ void WidgetGestionSequences::declenchementSequence()
         QStringList listeCanaux, listeValeurs;
         monXML.recupererValeursScenes(&listeCanaux, &listeValeurs, listeUUIDScenes[this->sceneActuel]);
 
+        GestionDMX *interfaceDMX;
+        interfaceDMX = GestionDMX::getInstance();
+
         for(int i = 0; i<listeValeurs.size(); i++)
         {
-            this->interfaceDMX->modifierValeurCanal(listeCanaux[i].toInt(), listeValeurs[i].toInt());
+            interfaceDMX->modifierValeurCanal(listeCanaux[i].toInt(), listeValeurs[i].toInt());
         }
 
-        this->interfaceDMX->envoyerDMX();
+        interfaceDMX->envoyerDMX();
 
         ui->progressBar->setValue(this->tempsDecompteTotal);
         this->tempsDecompteTotal++;

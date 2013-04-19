@@ -1,6 +1,8 @@
 #include "fenetreparametres.h"
 #include "ui_fenetreparametres.h"
 
+
+
 FenetreParametres::FenetreParametres(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::FenetreParametres)
@@ -101,21 +103,23 @@ void FenetreParametres::switchBouton(QString choix)
 
 void FenetreParametres::recupererInformations()
 {
-    this->interfaceDMX = new GestionDMX;
-    this->interfaceDMX->setAdresse(ui->comboBoxAdaptateurs->currentText());
+    GestionDMX *interfaceDMX;
+    interfaceDMX = GestionDMX::getInstance();
+    interfaceDMX->setAdresse(ui->comboBoxAdaptateurs->currentText());
 
-    if(this->interfaceDMX->seConnecter())
+
+    if(interfaceDMX->seConnecter())
     {
-        ui->labelNomResult->setText(this->interfaceDMX->getNomInterface());
-        ui->labelSerialResult->setText(this->interfaceDMX->getSerialNumber());
-        ui->labelPortResult->setText(this->interfaceDMX->getPort());
+        ui->labelNomResult->setText(interfaceDMX->getNomInterface());
+        ui->labelSerialResult->setText(interfaceDMX->getSerialNumber());
+        ui->labelPortResult->setText(interfaceDMX->getPort());
     }
     else
     {
         ui->labelNomResult->setText("Périphérique NON DMX");
     }
 
-    delete this->interfaceDMX;
+    interfaceDMX->kill();
 }
 
 

@@ -1,5 +1,8 @@
 #include "gestiondmx.h"
 
+template <typename T>
+T *Singleton<T>::_singleton = NULL;
+
 
 GestionDMX::GestionDMX(QObject *parent) :
     QObject(parent)
@@ -103,6 +106,9 @@ void GestionDMX::envoyerDimmerCanal(int canal, int valeur)
     this->interfaceDMX->SetCanalDMX(canal, (int)valeur);
     this->envoyerDMX();
 }
+
+template <>
+GestionDMX* Singleton<GestionDMX>::_singleton = NULL;
 
 
 GestionDimmer::GestionDimmer(QObject *parent, int canal, int valeur)

@@ -24,7 +24,7 @@ private:
     Ui::FenetreControleDistance *ui;
 
     GestionConsole *interfaceConsole;
-    GestionDMX *interfaceDMX;
+
 
     bool configurerAdaptateur();
 
