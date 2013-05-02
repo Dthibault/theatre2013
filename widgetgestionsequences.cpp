@@ -22,7 +22,7 @@ WidgetGestionSequences::WidgetGestionSequences(QWidget *parent) :
 
     connect(ui->treeWidget, SIGNAL(clicked(QModelIndex)), this, SLOT(changementIndex()));
 
-    ui->tabWidget->setDisabled(true);
+
 
     ui->tableWidget->setHorizontalHeaderItem(0, new QTableWidgetItem("Nom de la scène"));
     ui->tableWidget->setHorizontalHeaderItem(1, new QTableWidgetItem("Temporisation"));
@@ -36,6 +36,8 @@ WidgetGestionSequences::WidgetGestionSequences(QWidget *parent) :
     connect(ui->boutonAjouterScene, SIGNAL(clicked()), this, SLOT(ajouterScene()));
 
     ui->labelSceneActuel->setText("Aucune");
+
+    ui->conteneurDroite->setDisabled(true);
 
 }
 
@@ -68,13 +70,11 @@ void WidgetGestionSequences::etatInterface(bool etat)
 {
     if(etat)
     {
-        ui->tabWidget->setEnabled(true);
 
         ui->boutonSupprimer->setEnabled(true);
     }
     else
     {
-        ui->tabWidget->setDisabled(true);
 
         ui->boutonSupprimer->setDisabled(true);
     }
@@ -124,7 +124,6 @@ void WidgetGestionSequences::afficherListeSequences()
 
     if(listeSequences.size() == 0)
     {
-        ui->tabWidget->setDisabled(true);
         ui->tableWidget->clear();
         ui->tableWidget->setRowCount(0);
 
@@ -175,7 +174,6 @@ void WidgetGestionSequences::afficherListeScenes()
 
 void WidgetGestionSequences::changementIndex()
 {
-    ui->tabWidget->setEnabled(true);
 
     this->afficherListeScenes();
 
@@ -303,7 +301,6 @@ void WidgetGestionSequences::demarrerTimer()
         this->tempsTemporaire = 0;
         this->timerPrincipal->start(1000);
         this->etatDemarrageSequence = true;
-        ui->tabEdition->setDisabled(true);
         ui->treeWidget->setDisabled(true);
 
         ui->boutonPlayPause->setText("Pause");
@@ -337,7 +334,6 @@ void WidgetGestionSequences::stopTimer()
 
     this->timerPrincipal->stop();
 
-    ui->tabEdition->setEnabled(true);
     ui->treeWidget->setEnabled(true);
     this->tempsTemporaire = 0;
     this->tempsDecompteTotal = 0;
