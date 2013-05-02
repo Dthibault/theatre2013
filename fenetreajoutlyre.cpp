@@ -48,10 +48,10 @@ FenetreAjoutLyre::~FenetreAjoutLyre()
 
 void FenetreAjoutLyre::configurerAdaptateur()
 {
-    GestionXML adaptXML;
+
     QString adresseAdapt, uuidAdapt;
 
-    adaptXML.lireAdaptateur(&adresseAdapt, &uuidAdapt);
+    GestionXML::lireAdaptateur(&adresseAdapt, &uuidAdapt);
 
     GestionDMX *interfaceDMX;
     interfaceDMX = GestionDMX::getInstance();
@@ -102,7 +102,7 @@ void FenetreAjoutLyre::confirmationAppareil()
         }
         else
         {
-            GestionXML monXML;
+
             QStringList nbCanal, actionCanal;
 
             nbCanal.push_back(QString::number(ui->spinBoxPAN->value()));
@@ -133,7 +133,7 @@ void FenetreAjoutLyre::confirmationAppareil()
             int nombreCanals = 4+this->nbAjouts;
 
 
-            monXML.ajouterAppareil(nomfichier, monUuid.toString(), QString::number(nombreCanals), "LYRE", nbCanal, actionCanal);
+            GestionXML::ajouterAppareil(nomfichier, monUuid.toString(), QString::number(nombreCanals), "LYRE", nbCanal, actionCanal);
 
             QMessageBox::information(this, "Succès", "Appareil enregistré avec succès!");
             this->close();

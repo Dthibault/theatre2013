@@ -43,8 +43,8 @@ WidgetGestionSequences::~WidgetGestionSequences()
 {
     QString addrApp, uuidApp;
 
-    GestionXML lireApp;
-    lireApp.lireAdaptateur(&addrApp, &uuidApp);
+
+    GestionXML::lireAdaptateur(&addrApp, &uuidApp);
 
     GestionDMX *interfaceDMX;
     interfaceDMX = GestionDMX::getInstance();
@@ -89,8 +89,8 @@ void WidgetGestionSequences::ajouterSequence()
 
     if(ok)
     {
-        GestionXML monXML;
-        monXML.ajouterSequence(nomSequence, monUUID.toString());
+
+        GestionXML::ajouterSequence(nomSequence, monUUID.toString());
 
         this->afficherListeSequences();
 
@@ -99,14 +99,14 @@ void WidgetGestionSequences::ajouterSequence()
 
 void WidgetGestionSequences::supprimerSequence()
 {
-    GestionXML monXML;
+
     QTreeWidgetItem *recup = ui->treeWidget->currentItem();
 
     int choix = QMessageBox::warning(this, "Attention", "Vous allez supprimer une séquence. Confirmez-vous cette action?", QMessageBox::Yes | QMessageBox::No);
 
     if(choix == QMessageBox::Yes)
     {
-        monXML.supprimerSequence(recup->text(1));
+        GestionXML::supprimerSequence(recup->text(1));
         this->afficherListeSequences();
 
     }
@@ -114,9 +114,9 @@ void WidgetGestionSequences::supprimerSequence()
 
 void WidgetGestionSequences::afficherListeSequences()
 {
-    GestionXML monXML;
+
     QStringList listeSequences, listeUUID;
-    monXML.recupererSequences(&listeSequences, &listeUUID);
+    GestionXML::recupererSequences(&listeSequences, &listeUUID);
 
     std::vector<QTreeWidgetItem *> itemsTreeParent;
 
@@ -159,9 +159,9 @@ void WidgetGestionSequences::afficherListeScenes()
 
     ui->comboBox->clear();
 
-    GestionXML monXML;
+
     QStringList listeScenes, listeUUIDscene, listeUUID;
-    monXML.afficherListeScenes(&listeScenes, &listeUUIDscene, &listeUUID);
+    GestionXML::afficherListeScenes(&listeScenes, &listeUUIDscene, &listeUUID);
 
 
 
@@ -184,9 +184,9 @@ void WidgetGestionSequences::changementIndex()
 
     QTreeWidgetItem *recup = ui->treeWidget->currentItem();
 
-    GestionXML monXML;
+
     QStringList listeUUID, listeTempo, listeUUIDscene;
-    monXML.recupererContenueSequence(recup->text(1), &listeTempo, &listeUUIDscene, &listeUUID);
+    GestionXML::recupererContenueSequence(recup->text(1), &listeTempo, &listeUUIDscene, &listeUUID);
 
     int temps = 0;
 
@@ -195,7 +195,7 @@ void WidgetGestionSequences::changementIndex()
 
     for(int i = 0; i<listeUUID.size(); i++)
     {
-        QTableWidgetItem *newItem = new QTableWidgetItem(monXML.recupererNomScene(listeUUIDscene[i]));
+        QTableWidgetItem *newItem = new QTableWidgetItem(GestionXML::recupererNomScene(listeUUIDscene[i]));
         QTableWidgetItem *newItem2 = new QTableWidgetItem(listeTempo[i]);
         QPushButton *boutonSupprimer = new QPushButton("Supprimer", ui->tableWidget);
 //        boutonSupprimer->setMaximumWidth(50);
@@ -236,11 +236,11 @@ void WidgetGestionSequences::supprimerScene()
     if(emetteurCasted)
     {
 
-        GestionXML monXML;
+
 
         QTreeWidgetItem *recup = ui->treeWidget->currentItem();
 
-        monXML.supprimerSceneDeSequence(recup->text(1), this->listeUUIDsequence[emetteurCasted->objectName().toInt()]);
+        GestionXML::supprimerSceneDeSequence(recup->text(1), this->listeUUIDsequence[emetteurCasted->objectName().toInt()]);
 
 
 
@@ -256,14 +256,14 @@ void WidgetGestionSequences::ajouterScene()
     }
     else
     {
-        GestionXML monXML;
+
         QUuid monUUID = QUuid::createUuid();
 
         QTreeWidgetItem *recup = ui->treeWidget->currentItem();
 
 
 
-        monXML.ajouterSceneDeSequence(recup->text(1), this->listeUUID[ui->comboBox->currentIndex()], monUUID.toString(), QString::number(ui->spinBox->value()));
+        GestionXML::ajouterSceneDeSequence(recup->text(1), this->listeUUID[ui->comboBox->currentIndex()], monUUID.toString(), QString::number(ui->spinBox->value()));
 
         this->changementIndex();
     }
@@ -312,8 +312,8 @@ void WidgetGestionSequences::demarrerTimer()
 
         QString addrApp, uuidApp;
 
-        GestionXML lireApp;
-        lireApp.lireAdaptateur(&addrApp, &uuidApp);
+
+        GestionXML::lireAdaptateur(&addrApp, &uuidApp);
 
         GestionDMX *interfaceDMX;
         interfaceDMX = GestionDMX::getInstance();
@@ -388,10 +388,10 @@ void WidgetGestionSequences::declenchementSequence()
     else
     {
         QTreeWidgetItem *recup = ui->treeWidget->currentItem();
-        GestionXML monXML;
+
 
         QStringList listeUUIDScenes, listeUUID, temporisation;
-        monXML.recupererContenueSequence(recup->text(1), &temporisation, &listeUUIDScenes, &listeUUID);
+        GestionXML::recupererContenueSequence(recup->text(1), &temporisation, &listeUUIDScenes, &listeUUID);
 
         if(this->tempsTemporaire >= temporisation[this->sceneActuel].toInt())
         {
@@ -399,10 +399,10 @@ void WidgetGestionSequences::declenchementSequence()
             this->sceneActuel++;
         }
 
-        ui->labelSceneActuel->setText(monXML.recupererNomScene(listeUUIDScenes[this->sceneActuel]));
+        ui->labelSceneActuel->setText(GestionXML::recupererNomScene(listeUUIDScenes[this->sceneActuel]));
 
         QStringList listeCanaux, listeValeurs;
-        monXML.recupererValeursScenes(&listeCanaux, &listeValeurs, listeUUIDScenes[this->sceneActuel]);
+        GestionXML::recupererValeursScenes(&listeCanaux, &listeValeurs, listeUUIDScenes[this->sceneActuel]);
 
         GestionDMX *interfaceDMX;
         interfaceDMX = GestionDMX::getInstance();

@@ -11,9 +11,9 @@ SceneLyre::SceneLyre(QString sceneParente, QString uuidLyre, QWidget *parent) :
     this->uuidDuLyre = uuidLyre;
 
 
-    GestionXML monXML;
+
     QStringList listeCanaux, typeCanaux;
-    monXML.recupererCanaux(&listeCanaux, &typeCanaux, uuidLyre);
+    GestionXML::recupererCanaux(&listeCanaux, &typeCanaux, uuidLyre);
 
     ui->spinBoxPAN->setDisabled(true);
     ui->spinBoxTILT->setDisabled(true);
@@ -57,7 +57,7 @@ SceneLyre::SceneLyre(QString sceneParente, QString uuidLyre, QWidget *parent) :
     connect(ui->verticalSliderCOULEUR, SIGNAL(valueChanged(int)), this, SLOT(actionDMX()));
 
     QStringList listeCanauxEnregistrer, valeurCanauxEnregistrer;
-    monXML.recupererValeursScenes(&listeCanauxEnregistrer, &valeurCanauxEnregistrer, sceneParente);
+    GestionXML::recupererValeursScenes(&listeCanauxEnregistrer, &valeurCanauxEnregistrer, sceneParente);
 
 
     if(listeCanauxEnregistrer.size() != 0)
@@ -99,9 +99,9 @@ SceneLyre::~SceneLyre()
 
 void SceneLyre::actionDMX()
 {
-    GestionXML monXML;
+
     QStringList listeCanaux, typeCanaux;
-    monXML.recupererCanaux(&listeCanaux, &typeCanaux, this->uuidDuLyre);
+    GestionXML::recupererCanaux(&listeCanaux, &typeCanaux, this->uuidDuLyre);
 
     emit signalDMX(listeCanaux[0].toInt(), ui->verticalSliderPAN->value());
     emit signalDMX(listeCanaux[1].toInt(), ui->verticalSliderTILT->value());
@@ -122,9 +122,9 @@ void SceneLyre::actionDMX()
 
 void SceneLyre::recupererValeurs(QStringList *canal, QStringList *valeur)
 {
-    GestionXML monXML;
+
     QStringList listeCanaux, typeCanaux;
-    monXML.recupererCanaux(&listeCanaux, &typeCanaux, this->uuidDuLyre);
+    GestionXML::recupererCanaux(&listeCanaux, &typeCanaux, this->uuidDuLyre);
 
 
     canal->push_back(QString::number(ui->spinBoxPAN->value()));

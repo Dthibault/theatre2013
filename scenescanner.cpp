@@ -9,9 +9,9 @@ SceneScanner::SceneScanner(QString sceneParente, QString uuidScanner, QWidget *p
 
     this->uuidDuScanner = uuidScanner;
 
-    GestionXML monXML;
+
     QStringList listeCanaux, typeCanaux;
-    monXML.recupererCanaux(&listeCanaux, &typeCanaux, uuidScanner);
+    GestionXML::recupererCanaux(&listeCanaux, &typeCanaux, uuidScanner);
 
 
     ui->spinBoxPAN->setDisabled(true);
@@ -59,7 +59,7 @@ SceneScanner::SceneScanner(QString sceneParente, QString uuidScanner, QWidget *p
 
 
     QStringList listeCanauxEnregistrer, valeurCanauxEnregistrer;
-    monXML.recupererValeursScenes(&listeCanauxEnregistrer, &valeurCanauxEnregistrer, sceneParente);
+    GestionXML::recupererValeursScenes(&listeCanauxEnregistrer, &valeurCanauxEnregistrer, sceneParente);
 
 
     if(listeCanauxEnregistrer.size() != 0)
@@ -99,9 +99,9 @@ SceneScanner::~SceneScanner()
 
 void SceneScanner::actionDMX()
 {
-    GestionXML monXML;
+
     QStringList listeCanaux, typeCanaux;
-    monXML.recupererCanaux(&listeCanaux, &typeCanaux, this->uuidDuScanner);
+    GestionXML::recupererCanaux(&listeCanaux, &typeCanaux, this->uuidDuScanner);
 
     emit signalDMX(listeCanaux[0].toInt(), ui->verticalSliderPAN->value());
     emit signalDMX(listeCanaux[1].toInt(), ui->verticalSliderTILT->value());
@@ -121,9 +121,9 @@ void SceneScanner::actionDMX()
 
 void SceneScanner::recupererValeurs(QStringList *canal, QStringList *valeur)
 {
-    GestionXML monXML;
+
     QStringList listeCanaux, typeCanaux;
-    monXML.recupererCanaux(&listeCanaux, &typeCanaux, this->uuidDuScanner);
+    GestionXML::recupererCanaux(&listeCanaux, &typeCanaux, this->uuidDuScanner);
 
 
     canal->push_back(QString::number(ui->spinBoxPAN->value()));

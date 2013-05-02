@@ -24,47 +24,47 @@ public:
     explicit GestionXML(QObject *parent = 0);
     ~GestionXML();
 
-    void ecritureAdaptateur(QString adresse, QString uuid);
-    bool lireAdaptateur(QString *adresseAdaptateur, QString *UUIDAdaptateur);
-    void effacerAdaptateur();
+    static void ecritureAdaptateur(QString adresse, QString uuid);
+    static bool lireAdaptateur(QString *adresseAdaptateur, QString *UUIDAdaptateur);
+    static void effacerAdaptateur();
 
-    void ecriturePassword(QString password);
-    bool lirePassword(QString *password);
+    static void ecriturePassword(QString password);
+    static bool lirePassword(QString *password);
 
-    void lireListeAppareils(QStringList *nom, QStringList *UUID, QStringList *typeAppareil);
+    static void lireListeAppareils(QStringList *nom, QStringList *UUID, QStringList *typeAppareil);
 
-    void ajouterAppareil(QString nom, QString uuid, QString nbCanal, QString typeAppareil, QStringList numeroCanal, QStringList actionCanal);
-    void effacerAppareils(QString uuid);
+    static void ajouterAppareil(QString nom, QString uuid, QString nbCanal, QString typeAppareil, QStringList numeroCanal, QStringList actionCanal);
+    static void effacerAppareils(QString uuid);
 
-    void recupererCanaux(QStringList *listeCanaux, QStringList *typeCanal, QString uuid);
+    static void recupererCanaux(QStringList *listeCanaux, QStringList *typeCanal, QString uuid);
 
-    void recupererDimmer(QStringList *listeCanaux);
+    static void recupererDimmer(QStringList *listeCanaux);
 
-    void recupererListeScenarios(QStringList *listeScenarios, QStringList *listeUUID);
-    void ajouterScenarios(QString nom, QString uuid);
+    static void recupererListeScenarios(QStringList *listeScenarios, QStringList *listeUUID);
+    static void ajouterScenarios(QString nom, QString uuid);
 
-    void recupererListeScenes(QStringList *listeScenes, QStringList *listeUUID, QString scenarioUUID);
-    void ajouterScenes(QString nom, QString uuid, QString uuidScenario);
+    static void recupererListeScenes(QStringList *listeScenes, QStringList *listeUUID, QString scenarioUUID);
+    static void ajouterScenes(QString nom, QString uuid, QString uuidScenario);
 
-    void enregistrerValeursScenes(QStringList canal, QStringList valeur, QString uuidScene);
-    void recupererValeursScenes(QStringList *canal, QStringList *valeur, QString uuidScene);
+    static void enregistrerValeursScenes(QStringList canal, QStringList valeur, QString uuidScene);
+    static void recupererValeursScenes(QStringList *canal, QStringList *valeur, QString uuidScene);
 
 
-    void supprimerScenario(QString uuid);
-    void supprimerScenesAssociees(QString uuidScenario);
-    void supprimerScene(QString uuid);
+    static void supprimerScenario(QString uuid);
+    static void supprimerScenesAssociees(QString uuidScenario);
+    static void supprimerScene(QString uuid);
 
-    void recupererSequences(QStringList *listeSequences, QStringList *listeUUID);
-    void ajouterSequence(QString nom, QString uuid);
-    void supprimerSequence(QString uuid);
+    static void recupererSequences(QStringList *listeSequences, QStringList *listeUUID);
+    static void ajouterSequence(QString nom, QString uuid);
+    static void supprimerSequence(QString uuid);
 
-    void afficherListeScenes(QStringList *listeScenes, QStringList *listeUUIDscene, QStringList *listeUUID);
+    static void afficherListeScenes(QStringList *listeScenes, QStringList *listeUUIDscene, QStringList *listeUUID);
 
-    void recupererContenueSequence(QString uuidSequence, QStringList *temporisation, QStringList *listeUUIDscene, QStringList *listeUUID);
-    QString recupererNomScene(QString uuid);
-    void ajouterSceneDeSequence(QString uuidSequence, QString uuidScene, QString nouvelUUID, QString temporisation);
-    void supprimerSceneDeSequence(QString uuidSequence, QString uuidScene);
-    void supprimerSceneDeSequenceExterne(QString uuidScene);
+    static void recupererContenueSequence(QString uuidSequence, QStringList *temporisation, QStringList *listeUUIDscene, QStringList *listeUUID);
+    static QString recupererNomScene(QString uuid);
+    static void ajouterSceneDeSequence(QString uuidSequence, QString uuidScene, QString nouvelUUID, QString temporisation);
+    static void supprimerSceneDeSequence(QString uuidSequence, QString uuidScene);
+    static void supprimerSceneDeSequenceExterne(QString uuidScene);
 
 private:
 

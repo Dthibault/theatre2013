@@ -23,10 +23,9 @@ FenetreParametres::FenetreParametres(QWidget *parent) :
 
 
 
-    GestionXML paramAdaptateurs;
 
     QString adresse, UUID;
-    if(paramAdaptateurs.lireAdaptateur(&adresse, &UUID))
+    if(GestionXML::lireAdaptateur(&adresse, &UUID))
     {
         ui->comboBoxAdaptateurs->addItem(adresse);
         ui->boutonInformations->setEnabled(true);
@@ -125,26 +124,26 @@ void FenetreParametres::recupererInformations()
 
 void FenetreParametres::enregistrerDonnees()
 {
-    GestionXML paramAdaptateurs;
+
 
     if(!(ui->comboBoxAdaptateurs->currentText().contains("ttyUSB")))
     {
-        paramAdaptateurs.effacerAdaptateur();
+        GestionXML::effacerAdaptateur();
     }
     else
     {
 
         QUuid monUuid = QUuid::createUuid ();
-        paramAdaptateurs.ecritureAdaptateur(ui->comboBoxAdaptateurs->currentText(), monUuid.toString());
+        GestionXML::ecritureAdaptateur(ui->comboBoxAdaptateurs->currentText(), monUuid.toString());
     }
 }
 
 void FenetreParametres::modifierPassword()
 {
-    GestionXML passwordBDD;
+
 
     QString ancienBDD;
-    passwordBDD.lirePassword(&ancienBDD);
+    GestionXML::lirePassword(&ancienBDD);
 
     QString cryptAncienLineEdit = QCryptographicHash::hash(ui->lineEditAncienMDP->text().toLocal8Bit().constData(),QCryptographicHash::Sha1).toHex();
 
@@ -159,7 +158,7 @@ void FenetreParametres::modifierPassword()
     else
     {
         QString cryptNouveau = QCryptographicHash::hash(ui->lineEditNouveauMDP->text().toLocal8Bit().constData(),QCryptographicHash::Sha1).toHex();
-        passwordBDD.ecriturePassword(cryptNouveau);
+        GestionXML::ecriturePassword(cryptNouveau);
 
         QMessageBox::information(this, "Mot de passe modifié", "Mot de passe modifié avec succès!");
     }
@@ -173,8 +172,8 @@ void FenetreParametres::effacerConfiguration()
 
     if(choix == QMessageBox::Yes)
     {
-        GestionXML gestXML;
-        gestXML.effacerAdaptateur();
+
+        GestionXML::effacerAdaptateur();
 
         QMessageBox::information(this, "Configuration effacée", "La configuration a été éffacée.");
         this->close();

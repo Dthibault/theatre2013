@@ -46,10 +46,10 @@ FenetreAjoutPar::~FenetreAjoutPar()
 
 void FenetreAjoutPar::configurerAdaptateur()
 {
-    GestionXML adaptXML;
+
     QString adresseAdapt, uuidAdapt;
 
-    adaptXML.lireAdaptateur(&adresseAdapt, &uuidAdapt);
+    GestionXML::lireAdaptateur(&adresseAdapt, &uuidAdapt);
 
     GestionDMX *interfaceDMX;
     interfaceDMX = GestionDMX::getInstance();
@@ -100,7 +100,7 @@ void FenetreAjoutPar::confirmationAppareil()
         }
         else
         {
-            GestionXML monXML;
+
             QStringList nbCanal, actionCanal;
 
             nbCanal.push_back(QString::number(ui->spinBoxRED->value()));
@@ -130,7 +130,7 @@ void FenetreAjoutPar::confirmationAppareil()
             int nombreCanals = 3+this->nbAjouts;
 
 
-            monXML.ajouterAppareil(nomfichier, monUuid.toString(), QString::number(nombreCanals), "PAR LED", nbCanal, actionCanal);
+            GestionXML::ajouterAppareil(nomfichier, monUuid.toString(), QString::number(nombreCanals), "PAR LED", nbCanal, actionCanal);
 
             QMessageBox::information(this, "Succès", "Appareil enregistré avec succès!");
             this->close();

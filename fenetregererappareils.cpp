@@ -32,8 +32,8 @@ void FenetreGererAppareils::listerAppareils()
 {
     QStringList nom, uuid, type;
 
-    GestionXML monXML;
-    monXML.lireListeAppareils(&nom, &uuid, &type);
+
+    GestionXML::lireListeAppareils(&nom, &uuid, &type);
 
     for(int i=0; i<nom.size(); i++)
     {
@@ -82,15 +82,15 @@ void FenetreGererAppareils::effacerAppareil()
 {
     QStringList nom, uuid, type;
 
-    GestionXML monXML;
-    monXML.lireListeAppareils(&nom, &uuid, &type);
+
+    GestionXML::lireListeAppareils(&nom, &uuid, &type);
 
 
     int choix = QMessageBox::question(this, "Effacer?", "Voulez-vous effacer ce périphérique?", QMessageBox::Yes | QMessageBox::No);
 
     if(choix == QMessageBox::Yes)
     {
-        monXML.effacerAppareils(uuid[ui->listWidget->currentRow()]);
+        GestionXML::effacerAppareils(uuid[ui->listWidget->currentRow()]);
 
         QMessageBox::information(this, "Périphérique effacé", "Le périphérique a été éffacé.");
 

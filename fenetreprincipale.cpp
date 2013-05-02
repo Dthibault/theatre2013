@@ -51,10 +51,10 @@ void FenetrePrincipale::ouvrirParametres()
 
 void FenetrePrincipale::ouvrirGererAppareils()
 {
-    GestionXML lireApp;
+
     QString addrApp, uuidApp;
 
-    lireApp.lireAdaptateur(&addrApp, &uuidApp);
+    GestionXML::lireAdaptateur(&addrApp, &uuidApp);
 
     GestionDMX *interfaceDMX;
     interfaceDMX = GestionDMX::getInstance();
@@ -63,7 +63,7 @@ void FenetrePrincipale::ouvrirGererAppareils()
 
 
 
-    if(!(lireApp.lireAdaptateur(&addrApp, &uuidApp)) || !(interfaceDMX->estDisponible()))
+    if(!(GestionXML::lireAdaptateur(&addrApp, &uuidApp)) || !(interfaceDMX->estDisponible()))
     {
         QMessageBox::information(this, "Configuration de l'adaptateur", "Vous devez tout d'abord configurer correctement l'adaptateur ou le connecter.");
     }
@@ -77,16 +77,16 @@ void FenetrePrincipale::ouvrirGererAppareils()
 void FenetrePrincipale::ouvrirControleDistance()
 {
 
-    GestionXML lireApp;
+
     QString addrApp, uuidApp;
 
-    lireApp.lireAdaptateur(&addrApp, &uuidApp);
+    GestionXML::lireAdaptateur(&addrApp, &uuidApp);
     GestionDMX *interfaceDMX;
     interfaceDMX = GestionDMX::getInstance();
     interfaceDMX->setAdresse(addrApp);
 
 
-    if(!(lireApp.lireAdaptateur(&addrApp, &uuidApp)) || !(interfaceDMX->estDisponible()))
+    if(!(GestionXML::lireAdaptateur(&addrApp, &uuidApp)) || !(interfaceDMX->estDisponible()))
     {
         QMessageBox::information(this, "Configuration de l'adaptateur", "Vous devez tout d'abord configurer correctement l'adaptateur ou le connecter.");
     }
@@ -100,17 +100,17 @@ void FenetrePrincipale::ouvrirControleDistance()
 
 void FenetrePrincipale::afficherModeScenes()
 {
-    GestionXML lireApp;
+
     QString addrApp, uuidApp;
 
-    lireApp.lireAdaptateur(&addrApp, &uuidApp);
+    GestionXML::lireAdaptateur(&addrApp, &uuidApp);
 
     GestionDMX *interfaceDMX;
     interfaceDMX = GestionDMX::getInstance();
     interfaceDMX->setAdresse(addrApp);
 
 
-    if(!(lireApp.lireAdaptateur(&addrApp, &uuidApp)) || !(interfaceDMX->estDisponible()))
+    if(!(GestionXML::lireAdaptateur(&addrApp, &uuidApp)) || !(interfaceDMX->estDisponible()))
     {
         QMessageBox::information(this, "Configuration de l'adaptateur", "Vous devez tout d'abord configurer correctement l'adaptateur ou le connecter.");
     }
@@ -139,17 +139,17 @@ void FenetrePrincipale::afficherModeScenes()
 
 void FenetrePrincipale::afficherModeSequences()
 {
-    GestionXML lireApp;
+
     QString addrApp, uuidApp;
 
-    lireApp.lireAdaptateur(&addrApp, &uuidApp);
+    GestionXML::lireAdaptateur(&addrApp, &uuidApp);
 
     GestionDMX *interfaceDMX;
     interfaceDMX = GestionDMX::getInstance();
     interfaceDMX->setAdresse(addrApp);
 
 
-    if(!(lireApp.lireAdaptateur(&addrApp, &uuidApp)) || !(interfaceDMX->estDisponible()))
+    if(!(GestionXML::lireAdaptateur(&addrApp, &uuidApp)) || !(interfaceDMX->estDisponible()))
     {
         QMessageBox::information(this, "Configuration de l'adaptateur", "Vous devez tout d'abord configurer correctement l'adaptateur ou le connecter.");
     }

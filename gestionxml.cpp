@@ -752,7 +752,7 @@ void GestionXML::supprimerScenario(QString uuid)
 
     }
 
-    this->supprimerScenesAssociees(uuid);
+    GestionXML::supprimerScenesAssociees(uuid);
 
 }
 
