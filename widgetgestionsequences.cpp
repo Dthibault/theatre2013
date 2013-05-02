@@ -175,6 +175,8 @@ void WidgetGestionSequences::afficherListeScenes()
 void WidgetGestionSequences::changementIndex()
 {
 
+    ui->conteneurDroite->setDisabled(false);
+
     this->afficherListeScenes();
 
     ui->tableWidget->clear();
@@ -196,6 +198,7 @@ void WidgetGestionSequences::changementIndex()
         QTableWidgetItem *newItem = new QTableWidgetItem(GestionXML::recupererNomScene(listeUUIDscene[i]));
         QTableWidgetItem *newItem2 = new QTableWidgetItem(listeTempo[i]);
         QPushButton *boutonSupprimer = new QPushButton("Supprimer", ui->tableWidget);
+
 //        boutonSupprimer->setMaximumWidth(50);
 //        boutonSupprimer->setMinimumWidth(50);
         boutonSupprimer->setIcon(QIcon(":/new/images/images/boutonSupprimer.png"));
@@ -323,7 +326,16 @@ void WidgetGestionSequences::demarrerTimer()
 
     }
 
+    ui->conteneurScenes->setDisabled(true);
 
+
+    for(int i = 0; i<ui->tableWidget->rowCount(); i++)
+    {
+        QWidget *monBouton = ui->tableWidget->cellWidget(i,2);
+        monBouton->setDisabled(true);
+    }
+
+    ui->tableWidget->setCurrentCell(0,0);
 }
 
 
@@ -340,12 +352,13 @@ void WidgetGestionSequences::stopTimer()
 
     if(this->etatDemarrageSequence)
     {
-        //this->interfaceDMX->seDeconnecter();
+
         interfaceDMX->resetDMX();
         interfaceDMX->kill();
     }
 
-
+    ui->conteneurScenes->setDisabled(false);
+    ui->tableWidget->setDisabled(false);
 
     this->etatPause = false;
     this->etatDemarrageSequence = false;
@@ -355,7 +368,11 @@ void WidgetGestionSequences::stopTimer()
     ui->labelEtatSequence->setText("<h3>Séquence terminée!</h3>");
     ui->labelEtatSequence->setStyleSheet("color: green;");
 
-
+    for(int i = 0; i<ui->tableWidget->rowCount(); i++)
+    {
+        QWidget *monBouton = ui->tableWidget->cellWidget(i,2);
+        monBouton->setDisabled(false);
+    }
 
 }
 
@@ -415,4 +432,5 @@ void WidgetGestionSequences::declenchementSequence()
         this->tempsTemporaire++;
     }
 
+    ui->tableWidget->setCurrentCell(this->sceneActuel,0);
 }
