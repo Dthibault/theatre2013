@@ -93,7 +93,7 @@ void FenetreControleDistance::listerAppareils()
     for(int i=0; i<nom.size(); i++)
     {
         ui->listWidget->addItem(nom[i]);
-        this->listeNumero.push_back(QString::number(i));
+        this->listeNumero.push_back(QString::number(i+1));
     }
 
     if(nom.size() > 0)
