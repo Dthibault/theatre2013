@@ -60,10 +60,10 @@ FenetreControleDistance::~FenetreControleDistance()
 
 bool FenetreControleDistance::configurerAdaptateur()
 {
-    GestionXML adaptXML;
+
     QString adresseAdapt, uuidAdapt;
 
-    if(!(adaptXML.lireAdaptateur(&adresseAdapt, &uuidAdapt)))
+    if(!(GestionXML::lireAdaptateur(&adresseAdapt, &uuidAdapt)))
     {
         QMessageBox::information(this, "Aucun adaptateur", "L'adaptateur n'a pas été configuré.");
         return false;
@@ -87,8 +87,8 @@ void FenetreControleDistance::listerAppareils()
 {
     QStringList nom, uuid, type;
 
-    GestionXML monXML;
-    monXML.lireListeAppareils(&nom, &uuid, &type);
+
+    GestionXML::lireListeAppareils(&nom, &uuid, &type);
 
     for(int i=0; i<nom.size(); i++)
     {
@@ -199,8 +199,8 @@ void FenetreControleDistance::modifierSliders(int * listeSliders)
     {
         QStringList nom, uuid, type;
 
-        GestionXML monXML;
-        monXML.lireListeAppareils(&nom, &uuid, &type);
+
+        GestionXML::lireListeAppareils(&nom, &uuid, &type);
 
 
         for(int j=0; j<this->listeNumero.size(); j++)
@@ -208,7 +208,7 @@ void FenetreControleDistance::modifierSliders(int * listeSliders)
             if(this->numeroActuel == this->listeNumero[j].toInt())
             {
                 QStringList maListeDeCanaux, typeCanaux;
-                monXML.recupererCanaux(&maListeDeCanaux, &typeCanaux, uuid[j]);
+                GestionXML::recupererCanaux(&maListeDeCanaux, &typeCanaux, uuid[j]);
 
                 for(int i=0; i<maListeDeCanaux.size(); i++)
                 {

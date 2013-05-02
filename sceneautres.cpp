@@ -10,9 +10,9 @@ SceneAutres::SceneAutres(QString sceneParente, QString uuidAutre, QWidget *paren
     this->uuidAutre = uuidAutre;
 
 
-    GestionXML monXML;
+
     QStringList listeCanaux, typeCanaux;
-    monXML.recupererCanaux(&listeCanaux, &typeCanaux, uuidAutre);
+    GestionXML::recupererCanaux(&listeCanaux, &typeCanaux, uuidAutre);
 
     if(listeCanaux.size() > 0)
     {
@@ -40,7 +40,7 @@ SceneAutres::SceneAutres(QString sceneParente, QString uuidAutre, QWidget *paren
     }
 
     QStringList listeCanauxEnregistrer, valeurCanauxEnregistrer;
-    monXML.recupererValeursScenes(&listeCanauxEnregistrer, &valeurCanauxEnregistrer, sceneParente);
+    GestionXML::recupererValeursScenes(&listeCanauxEnregistrer, &valeurCanauxEnregistrer, sceneParente);
 
 
     if(listeCanauxEnregistrer.size() != 0)
@@ -75,9 +75,9 @@ SceneAutres::~SceneAutres()
 
 void SceneAutres::actionDMX()
 {
-    GestionXML monXML;
+
     QStringList listeCanaux, typeCanaux;
-    monXML.recupererCanaux(&listeCanaux, &typeCanaux, this->uuidAutre);
+    GestionXML::recupererCanaux(&listeCanaux, &typeCanaux, this->uuidAutre);
 
     if(listeCanaux.size() > 0)
     {
@@ -93,9 +93,9 @@ void SceneAutres::actionDMX()
 
 void SceneAutres::recupererValeurs(QStringList *canal, QStringList *valeur)
 {
-    GestionXML monXML;
+
     QStringList listeCanaux, typeCanaux;
-    monXML.recupererCanaux(&listeCanaux, &typeCanaux, this->uuidAutre);
+    GestionXML::recupererCanaux(&listeCanaux, &typeCanaux, this->uuidAutre);
 
 
     if(listeCanaux.size() > 0)

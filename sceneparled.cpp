@@ -13,9 +13,9 @@ SceneParLED::SceneParLED(QString sceneParente, QString uuidPar, QWidget *parent)
 
     ui->horizontalLayout_12->addWidget(this->monColorWheel);
 
-    GestionXML monXML;
+
     QStringList listeCanaux, typeCanaux;
-    monXML.recupererCanaux(&listeCanaux, &typeCanaux, uuidPar);
+    GestionXML::recupererCanaux(&listeCanaux, &typeCanaux, uuidPar);
 
 
     ui->spinBoxRED->setDisabled(true);
@@ -65,7 +65,7 @@ SceneParLED::SceneParLED(QString sceneParente, QString uuidPar, QWidget *parent)
 
 
     QStringList listeCanauxEnregistrer, valeurCanauxEnregistrer;
-    monXML.recupererValeursScenes(&listeCanauxEnregistrer, &valeurCanauxEnregistrer, sceneParente);
+    GestionXML::recupererValeursScenes(&listeCanauxEnregistrer, &valeurCanauxEnregistrer, sceneParente);
 
 
     if(listeCanauxEnregistrer.size() != 0)
@@ -105,9 +105,9 @@ SceneParLED::~SceneParLED()
 
 void SceneParLED::actionDMX()
 {
-    GestionXML monXML;
+
     QStringList listeCanaux, typeCanaux;
-    monXML.recupererCanaux(&listeCanaux, &typeCanaux, this->uuidDuPar);
+    GestionXML::recupererCanaux(&listeCanaux, &typeCanaux, this->uuidDuPar);
 
     emit signalDMX(listeCanaux[0].toInt(), ui->verticalSliderRED->value());
     emit signalDMX(listeCanaux[1].toInt(), ui->verticalSliderGREEN->value());
@@ -137,9 +137,9 @@ void SceneParLED::actionColorWheel(QColor mesCouleurs)
 
 void SceneParLED::recupererValeurs(QStringList *canal, QStringList *valeur)
 {
-    GestionXML monXML;
+
     QStringList listeCanaux, typeCanaux;
-    monXML.recupererCanaux(&listeCanaux, &typeCanaux, this->uuidDuPar);
+    GestionXML::recupererCanaux(&listeCanaux, &typeCanaux, this->uuidDuPar);
 
 
     canal->push_back(QString::number(ui->spinBoxRED->value()));

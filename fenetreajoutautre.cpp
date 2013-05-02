@@ -41,10 +41,10 @@ FenetreAjoutAutre::~FenetreAjoutAutre()
 
 void FenetreAjoutAutre::configurerAdaptateur()
 {
-    GestionXML adaptXML;
+
     QString adresseAdapt, uuidAdapt;
 
-    adaptXML.lireAdaptateur(&adresseAdapt, &uuidAdapt);
+    GestionXML::lireAdaptateur(&adresseAdapt, &uuidAdapt);
 
     GestionDMX *interfaceDMX;
     interfaceDMX = GestionDMX::getInstance();
@@ -98,7 +98,7 @@ void FenetreAjoutAutre::confirmationAppareil()
             }
             else
             {
-                GestionXML monXML;
+
                 QStringList nbCanal, actionCanal;
 
                 for(int i=0; i<this->nbAjouts; i++)
@@ -119,7 +119,7 @@ void FenetreAjoutAutre::confirmationAppareil()
                 int nombreCanals = this->nbAjouts;
 
 
-                monXML.ajouterAppareil(nomfichier, monUuid.toString(), QString::number(nombreCanals), "AUTRE", nbCanal, actionCanal);
+                GestionXML::ajouterAppareil(nomfichier, monUuid.toString(), QString::number(nombreCanals), "AUTRE", nbCanal, actionCanal);
 
                 QMessageBox::information(this, "Succès", "Appareil enregistré avec succès!");
                 this->close();

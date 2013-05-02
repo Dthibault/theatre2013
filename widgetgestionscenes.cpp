@@ -37,10 +37,10 @@ WidgetGestionScenes::WidgetGestionScenes(QWidget *parent) :
     connect(ui->treeWidget, SIGNAL(clicked(QModelIndex)), this, SLOT(activerAffichageAppareils()));
 
 
-    GestionXML lireApp;
+
     QString addrApp, uuidApp;
 
-    lireApp.lireAdaptateur(&addrApp, &uuidApp);
+    GestionXML::lireAdaptateur(&addrApp, &uuidApp);
 
     GestionDMX *interfaceDMX;
     interfaceDMX = GestionDMX::getInstance();
@@ -89,9 +89,9 @@ void WidgetGestionScenes::afficherListeScenariosEtScenes()
 
     QStringList nomScenario, uuidScenario;
 
-    GestionXML monXML;
 
-    monXML.recupererListeScenarios(&nomScenario, &uuidScenario);
+
+    GestionXML::recupererListeScenarios(&nomScenario, &uuidScenario);
 
     if(nomScenario.size() == 0)
     {
@@ -120,7 +120,7 @@ void WidgetGestionScenes::afficherListeScenariosEtScenes()
             itemsTreeParent[i]->setTextColor(0, QColor(Qt::red));
 
 
-            monXML.recupererListeScenes(&listeScenes, &listeScenesUUID, uuidScenario[i]);
+            GestionXML::recupererListeScenes(&listeScenes, &listeScenesUUID, uuidScenario[i]);
 
             if(listeScenes.size() == 0)
             {
@@ -170,8 +170,8 @@ void WidgetGestionScenes::interfaceAppareils()
 {
     QStringList nom, uuid, type;
 
-    GestionXML monXML;
-    monXML.lireListeAppareils(&nom, &uuid, &type);
+
+    GestionXML::lireListeAppareils(&nom, &uuid, &type);
 
     int decalagePar = 0;
     int decalageLyre = 0;
@@ -280,9 +280,9 @@ void WidgetGestionScenes::activerAffichageAppareils()
             QTreeWidgetItem *recup = ui->treeWidget->currentItem();
 
             QStringList nomScenario, uuidScenario;
-            GestionXML monXML;
 
-            monXML.recupererListeScenarios(&nomScenario, &uuidScenario);
+
+            GestionXML::recupererListeScenarios(&nomScenario, &uuidScenario);
 
             for(int i = 0; i<uuidScenario.size(); i++)
             {
@@ -335,9 +335,9 @@ void WidgetGestionScenes::activerAffichageAppareils()
         QTreeWidgetItem *recup = ui->treeWidget->currentItem();
 
         QStringList nomScenario, uuidScenario;
-        GestionXML monXML;
 
-        monXML.recupererListeScenarios(&nomScenario, &uuidScenario);
+
+        GestionXML::recupererListeScenarios(&nomScenario, &uuidScenario);
 
         for(int i = 0; i<uuidScenario.size(); i++)
         {
@@ -433,10 +433,10 @@ void WidgetGestionScenes::recupererToutesLesValeurs()
         }
     }
 
-    GestionXML monXML;
+
 
     QTreeWidgetItem *recup = ui->treeWidget->currentItem();
-    monXML.enregistrerValeursScenes(canal, valeur, recup->text(1));
+    GestionXML::enregistrerValeursScenes(canal, valeur, recup->text(1));
 }
 
 void WidgetGestionScenes::nouveauScenario()
@@ -448,8 +448,8 @@ void WidgetGestionScenes::nouveauScenario()
 
     if(ok)
     {
-        GestionXML monXML;
-        monXML.ajouterScenarios(nomScenario, monUUID.toString());
+
+        GestionXML::ajouterScenarios(nomScenario, monUUID.toString());
 
         this->afficherListeScenariosEtScenes();
     }
@@ -466,8 +466,8 @@ void WidgetGestionScenes::nouvelleScene()
     {
         QTreeWidgetItem *recup = ui->treeWidget->currentItem();
 
-        GestionXML monXML;
-        monXML.ajouterScenes(nomScenario, monUUID.toString(), recup->text(2));
+
+        GestionXML::ajouterScenes(nomScenario, monUUID.toString(), recup->text(2));
 
         this->afficherListeScenariosEtScenes();
 
@@ -481,9 +481,9 @@ void WidgetGestionScenes::supprimerElement()
     QTreeWidgetItem *recup = ui->treeWidget->currentItem();
 
     QStringList nomScenario, uuidScenario;
-    GestionXML monXML;
 
-    monXML.recupererListeScenarios(&nomScenario, &uuidScenario);
+
+    GestionXML::recupererListeScenarios(&nomScenario, &uuidScenario);
 
     for(int i = 0; i<uuidScenario.size(); i++)
     {
@@ -500,14 +500,14 @@ void WidgetGestionScenes::supprimerElement()
         if(choix == QMessageBox::Yes)
         {
             QStringList listeScenes, listeUUID;
-            monXML.recupererListeScenes(&listeScenes, &listeUUID, recup->text(1));
+            GestionXML::recupererListeScenes(&listeScenes, &listeUUID, recup->text(1));
 
             for(int j = 0; j<listeScenes.size(); j++)
             {
-                monXML.supprimerSceneDeSequenceExterne(listeUUID[j]);
+                GestionXML::supprimerSceneDeSequenceExterne(listeUUID[j]);
             }
 
-            monXML.supprimerScenario(recup->text(1));
+            GestionXML::supprimerScenario(recup->text(1));
             this->afficherListeScenariosEtScenes();
         }
     }
@@ -517,8 +517,8 @@ void WidgetGestionScenes::supprimerElement()
 
         if(choix == QMessageBox::Yes)
         {
-            monXML.supprimerScene(recup->text(1));
-            monXML.supprimerSceneDeSequenceExterne(recup->text(1));
+            GestionXML::supprimerScene(recup->text(1));
+            GestionXML::supprimerSceneDeSequenceExterne(recup->text(1));
             this->afficherListeScenariosEtScenes();
             this->activerAffichageAppareils();
         }
