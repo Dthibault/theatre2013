@@ -1,0 +1,51 @@
+format 75
+
+deploymentnodecanvas 128005 deploymentnode_ref 134533 // PC Serveur
+  xyzwh 267 127 2000 569 347
+end
+deploymentnodecanvas 128133 deploymentnode_ref 134661 // InterfaceDMX
+  xyzwh 63 282 2000 102 32
+end
+deploymentnodecanvas 128261 deploymentnode_ref 134789 // PC Portable
+  xyzwh 186 532 1990 159 93
+end
+deploymentnodecanvas 128389 deploymentnode_ref 134917 // Console professionelle
+  xyzwh 731 542 2000 153 32
+end
+artifactcanvas 128517 artifact_ref 135941 // fenetreprincipale
+  xyz 279 177 2005
+end
+artifactcanvas 128645 artifact_ref 137477 // widgetgestionscenes
+  xyz 276 288 2005
+end
+artifactcanvas 128773 artifact_ref 137605 // widgetgestionsequences
+  xyz 475 180 2010
+end
+artifactcanvas 128901 artifact_ref 135557 // fenetrecontroledistance
+  xyz 469 291 2015
+end
+artifactcanvas 129029 artifact_ref 136197 // gestionconsole
+  xyz 478 404 2010
+end
+artifactcanvas 129157 artifact_ref 136453 // gestionxml
+  xyz 659 241 2015
+end
+artifactcanvas 129285 artifact_ref 136197 // gestionconsole
+  xyz 192 566 1995
+end
+line 129413 ----
+  from ref 128133 z 2001 label "Bus DMX" xyz 187 281 2001 to ref 128005
+line 129541 ----
+  from ref 128261 z 2001 label "<<TCP/IP>>" xyz 358 492 2001 to ref 128005
+line 129669 ----
+  from ref 128389 z 2001 label "<<TCP/IP>>" xyz 659 497 2001 to ref 128005
+simplerelationcanvas 129797 simplerelation_ref 134533
+  from ref 128517 z 2006 to ref 128645
+end
+simplerelationcanvas 129925 simplerelation_ref 134661
+  from ref 128517 z 2011 to ref 128773
+end
+simplerelationcanvas 130181 simplerelation_ref 134917
+  from ref 128901 z 2016 to ref 129029
+end
+end

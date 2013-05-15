@@ -1,0 +1,15 @@
+class GestionDimmer
+!!!143493.cpp!!!	GestionDimmer(inout parent : QObject = 0, in canal : int = 0, in valeur : int = 255)
+    this->valeurActuelle = valeur;
+    this->canalActuel = canal;
+!!!143621.cpp!!!	run() : void
+    while(this->valeurActuelle > 0)
+    {
+        this->valeurActuelle = this->valeurActuelle - 4;
+
+        if(this->valeurActuelle < 0) this->valeurActuelle = 0;
+
+        emit nouvelleValeur(this->canalActuel, this->valeurActuelle);
+
+        msleep(100);
+    }

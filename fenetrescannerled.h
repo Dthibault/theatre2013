@@ -3,7 +3,6 @@
 
 #include <QDialog>
 #include <QString>
-#include <QDebug>
 #include <QInputDialog>
 #include <QUuid>
 #include <vector>

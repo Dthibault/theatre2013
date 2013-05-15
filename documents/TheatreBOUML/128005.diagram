@@ -1,127 +1,188 @@
-format 76
+format 75
 
-classcanvas 128517 class_ref 128005 // ColorWheel
+classcanvas 129925 class_ref 128773 // EnttecDMXUSB
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 3 12 2000
+  xyz 12.9 2 2000
 end
-classcanvas 128645 class_ref 128517 // _EnttecInterfaces
+classcanvas 130053 class_ref 128901 // CRS232
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 191 617 2000
+  xyz 19.2 767 3005
 end
-classcanvas 128773 class_ref 128773 // EnttecDMXUSB
+classcanvas 130309 class_ref 129029 // FenetreAjoutAutre
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 331 11 2005
+  xyz 392.9 -1 2000
 end
-classcanvas 128901 class_ref 128901 // CRS232
+classcanvas 130437 class_ref 129285 // WidgetCanalSuppl
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 159 51 3005
+  xyz 1021 7 3005
 end
-classcanvas 129157 class_ref 129029 // FenetreAjoutLyre
+classcanvas 130693 class_ref 129413 // FenetreAjoutLyre
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 551 25 3010
+  xyz 786.1 219 3011
 end
-classcanvas 129541 class_ref 129285 // GestionDMX
+classcanvas 130949 class_ref 129541 // FenetreAjoutPar
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 571 257 3016
+  xyz 995.4 252.9 3011
 end
-classcanvas 130181 class_ref 129413 // WidgetCanalSuppl
+classcanvas 131205 class_ref 129669 // FenetreControleDistance
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 771 34 3016
+  xyz 794.9 1091.1 3016
 end
-classcanvas 130437 class_ref 129541 // FenetreAjoutPar
+classcanvas 131333 class_ref 129797 // GestionConsole
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 764 304 3022
+  xyz 506.1 1102.9 3022
 end
-classcanvas 130821 class_ref 129669 // FenetreControleDistance
+classcanvas 131589 class_ref 129925 // FenetreGererAppareils
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 550 615 3022
+  xyz 794.9 953.4 3027
 end
-classcanvas 131077 class_ref 129797 // GestionConsole
+classcanvas 131717 class_ref 130053 // FenetreParametres
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 779 638 3028
+  xyz 792.4 770 2000
 end
-classcanvas 131333 class_ref 129925 // FenetreGererAppareils
+classcanvas 131845 class_ref 130181 // FenetrePrincipale
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 6 608 3010
+  xyz 997 459.9 2005
 end
-classcanvas 131461 class_ref 130053 // FenetreParametres
+classcanvas 131973 class_ref 130565 // WidgetGestionScenes
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 764 549 3022
+  xyz 544.1 488.9 3005
 end
-classcanvas 131717 class_ref 130181 // FenetrePrincipale
+classcanvas 132229 class_ref 130693 // WidgetGestionSequences
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 394 620 3022
+  xyz 994.8 749 3005
 end
-classcanvas 131973 class_ref 130437 // FenetreScannerLED
+classcanvas 132485 class_ref 130821 // FenetreScannerLED
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 632 23 3022
+  xyz 578.9 96.9 3011
 end
-classcanvas 132357 class_ref 130693 // GestionXML
+classcanvas 132741 class_ref 131077 // GestionDimmer
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 189 728 2010
+  xyz 217.1 1.1 3011
 end
-classcanvas 132485 class_ref 130821 // _Pending
+classcanvas 132869 class_ref 131333 // Singleton
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 10 759 3015
+  xyz 676.2 312.2 2005
 end
-relationcanvas 129029 relation_ref 128645 // <directional composition>
-  from ref 128773 z 3006 to ref 128901
-  role_a_pos 325 339 3000 no_role_b
+classcanvas 132997 class_ref 131461 // GestionDMX
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 392 216 3017
+end
+classcanvas 133637 class_ref 131589 // GestionXML
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 231.1 999.3 3010
+end
+classcanvas 133765 class_ref 132357 // SceneAutres
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 861.2 556 3011
+end
+classcanvas 134021 class_ref 132485 // SceneLyre
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 305 556 3017
+end
+classcanvas 134277 class_ref 132613 // SceneParLED
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 304 773 3022
+end
+classcanvas 134533 class_ref 132741 // SceneScanner
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 591.9 896.9 3011
+end
+relationcanvas 130181 relation_ref 128645 // <directional composition>
+  decenter_begin 365
+  from ref 129925 z 3006 to ref 130053
+  role_a_pos 97 744 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 end
-relationcanvas 129669 relation_ref 131589 // <unidirectional association>
-  from ref 129541 z 3017 to ref 128773
-  role_a_pos 561 392 3000 no_role_b
+relationcanvas 130565 relation_ref 129285 // <unidirectional association>
+  decenter_begin 421
+  decenter_end 414
+  from ref 130309 z 3006 stereotype "<<:vector>>" xyz 763.5 77.5 3000 to ref 130437
+  role_a_pos 904 60 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 end
-relationcanvas 129797 relation_ref 129285 // <unidirectional association>
-  from ref 129157 z 3017 to ref 129541
-  role_a_pos 665 234 3000 no_role_b
+relationcanvas 130821 relation_ref 129541 // <unidirectional association>
+  decenter_end 895
+  from ref 130693 z 3012 stereotype "<<:vector>>" xyz 884.5 177 3012 to point 876.6 165.2
+  line 136709 z 3012 to ref 130437
+  role_a_pos 913 147 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 end
-relationcanvas 130309 relation_ref 129413 // <unidirectional association>
-  from ref 129157 z 3017 stereotype "<<:vector>>" xyz 721.5 134 3017 to ref 130181
-  role_a_pos 650 112 3000 no_role_b
+relationcanvas 131077 relation_ref 129797 // <unidirectional association>
+  from ref 130949 z 3012 stereotype "<<:vector>>" xyz 1014 232 3012 to ref 130437
+  role_a_pos 1101 193 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 end
-relationcanvas 130565 relation_ref 129669 // <unidirectional association>
-  from ref 130437 z 3023 to ref 129541
-  role_a_pos 749 391 3000 no_role_b
+relationcanvas 131461 relation_ref 130053 // <unidirectional association>
+  decenter_begin 481
+  from ref 131205 z 3023 to ref 131333
+  role_a_pos 641 1214 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 end
-relationcanvas 130693 relation_ref 129797 // <unidirectional association>
-  from ref 130437 z 3023 stereotype "<<:vector>>" xyz 813 268.5 3023 to ref 130181
-  role_a_pos 865 242 3000 no_role_b
+relationcanvas 132101 relation_ref 130693 // <unidirectional association>
+  decenter_begin 389
+  decenter_end 183
+  from ref 131845 z 3006 to ref 131973
+  role_a_pos 766 529 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 end
-relationcanvas 130949 relation_ref 130181 // <unidirectional association>
-  from ref 130821 z 3023 to ref 129541
-  role_a_pos 662 579 3000 no_role_b
+relationcanvas 132357 relation_ref 130821 // <unidirectional association>
+  from ref 131845 z 3006 to ref 132229
+  role_a_pos 1092 726 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 end
-relationcanvas 131205 relation_ref 130053 // <unidirectional association>
-  from ref 130821 z 3029 to ref 131077
-  role_a_pos 658 761 3000 no_role_b
+relationcanvas 132613 relation_ref 131077 // <unidirectional association>
+  decenter_begin 152
+  decenter_end 651
+  from ref 132485 z 3012 stereotype "<<:vector>>" xyz 807 123 3012 to ref 130437
+  role_a_pos 904 103 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 end
-relationcanvas 131589 relation_ref 130565 // <unidirectional association>
-  from ref 131461 z 3023 to ref 129541
-  role_a_pos 756 512 3000 no_role_b
+relationcanvas 133125 relation_ref 131589 // <realization>
+  from ref 132997 z 3018 label "<T->GestionDMX>" xyz 551.5 329.5 3018 stereotype "<<bind>>" xyz 562.5 352.5 3018 to ref 132869
+  no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
-relationcanvas 131845 relation_ref 130821 // <unidirectional association>
-  from ref 131717 z 3023 to ref 129541
-  role_a_pos 575 550 3000 no_role_b
+relationcanvas 133253 relation_ref 131717 // <dependency>
+  from ref 132997 z 3018 stereotype "<<friend>>" xyz 561.5 379.5 3018 to ref 132869
+  no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
-relationcanvas 132101 relation_ref 131077 // <unidirectional association>
-  from ref 131973 z 3023 to ref 129541
-  role_a_pos 710 234 3000 no_role_b
+relationcanvas 133381 relation_ref 131845 // <unidirectional association>
+  decenter_begin 466
+  from ref 132997 z 3018 to ref 129925
+  role_a_pos 218 343 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 end
-relationcanvas 132229 relation_ref 131205 // <unidirectional association>
-  from ref 131973 z 3023 stereotype "<<:vector>>" xyz 730.5 65.5 3023 to ref 130181
-  role_a_pos 722 111 3000 no_role_b
+relationcanvas 133509 relation_ref 131973 // <unidirectional association>
+  decenter_begin 211
+  from ref 132997 z 3018 to point 269.7 280.4
+  line 136197 z 3018 to ref 132741
+  role_a_pos 281 120 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 133893 relation_ref 133509 // <unidirectional association>
+  from ref 131973 z 3012 stereotype "<<:vector>>" xyz 764.5 660 3012 to ref 133765
+  role_a_pos 759 633 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 134149 relation_ref 133253 // <unidirectional association>
+  from ref 131973 z 3018 stereotype "<<:vector>>" xyz 438.5 690 3018 to ref 134021
+  role_a_pos 437 633 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 134405 relation_ref 133125 // <unidirectional association>
+  decenter_begin 762
+  decenter_end 209
+  from ref 131973 z 3023 to point 491.1 739
+  line 136837 z 3023 stereotype "<<:vector>>" xyz 438 720.5 3023 to point 491.1 815.9
+  line 136965 z 3023 to ref 134277
+  role_a_pos 439 797 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 134661 relation_ref 133381 // <unidirectional association>
+  from ref 131973 z 3012 stereotype "<<:vector>>" xyz 664 840 3012 to ref 134533
+  role_a_pos 662 874 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 end

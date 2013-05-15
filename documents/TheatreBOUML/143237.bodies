@@ -1,0 +1,58 @@
+class GestionDMX
+!!!184069.cpp!!!	GestionDMX(inout parent : QObject = 0)
+    this->premiereConnexion = false;
+!!!184197.cpp!!!	~GestionDMX()
+    delete this->interfaceDMX;
+!!!184325.cpp!!!	seConnecter() : bool
+    this->interfaceDMX = new EnttecDMXUSB(DMX_USB_PRO, this->adresseDMX.toLocal8Bit().constData());
+    this->premiereConnexion = true;
+
+    if(this->interfaceDMX->IsAvailable())
+    {
+        return true;
+    }
+    else
+    {
+        emit adaptateurNonPresent();
+
+        delete this->interfaceDMX;
+        return false;
+    }
+!!!184453.cpp!!!	setAdresse(in nom : QString) : void
+    this->adresseDMX = nom;
+!!!184581.cpp!!!	seDeconnecter() : void
+    if(this->premiereConnexion == true)
+    {
+
+        delete this->interfaceDMX;
+        this->interfaceDMX = new EnttecDMXUSB(DMX_USB_PRO, this->adresseDMX.toLocal8Bit().constData());
+    }
+
+!!!184709.cpp!!!	estDisponible() : bool
+    this->interfaceDMX = new EnttecDMXUSB(DMX_USB_PRO, this->adresseDMX.toLocal8Bit().constData());
+    return this->interfaceDMX->IsAvailable();
+!!!184837.cpp!!!	getNomInterface() : QString
+    string recup = this->interfaceDMX->GetNomInterface();
+    return recup.c_str();
+!!!184965.cpp!!!	getSerialNumber() : QString
+    string recup = this->interfaceDMX->GetSerialNumber();
+    return recup.c_str();
+!!!185093.cpp!!!	getPort() : QString
+    string recup = this->interfaceDMX->GetPortInterface();
+    return recup.c_str();
+!!!185221.cpp!!!	resetDMX() : void
+    this->interfaceDMX->ResetCanauxDMX();
+    this->interfaceDMX->SendDMX();
+!!!185349.cpp!!!	modifierValeurCanal(in canal : int, in valeur : int) : void
+    this->interfaceDMX->SetCanalDMX(canal, (int)valeur);
+!!!185477.cpp!!!	envoyerDMX() : void
+    this->interfaceDMX->SendDMX();
+!!!185605.cpp!!!	faireDimmerCanal(in canal : int, in valeur : int = 255) : void
+    this->monThreadDimmer = new GestionDimmer(this, canal, valeur);
+
+    connect(this->monThreadDimmer, SIGNAL(nouvelleValeur(int,int)), this, SLOT(envoyerDimmerCanal(int,int)));
+
+    this->monThreadDimmer->start();
+!!!185861.cpp!!!	envoyerDimmerCanal(in canal : int, in valeur : int) : void
+    this->interfaceDMX->SetCanalDMX(canal, (int)valeur);
+    this->envoyerDMX();

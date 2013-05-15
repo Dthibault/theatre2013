@@ -1,0 +1,75 @@
+format 75
+
+classcanvas 128005 class_ref 145797 // Regiseur
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 50 240 2000
+end
+classcanvas 128133 class_ref 145925 // Etudiant1
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 162 289 2005
+end
+classcanvas 128261 class_ref 146053 // Etudiant2
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 58 88 2000
+end
+classcanvas 128389 class_ref 146181 // Etudiant3
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 43 383 2005
+end
+classcanvas 128517 class_ref 131589 // GestionXML
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 506 88 2000
+end
+classcanvas 128645 class_ref 131461 // GestionDMX
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 507 238 2005
+end
+classcanvas 128773 class_ref 129797 // GestionConsole
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 500 382 2000
+end
+usecasecanvas 128901 usecase_ref 134533 // Créer séquance
+  xyzwh 199 104 3005 64 32 label_xy 178 81
+end
+usecasecanvas 129029 usecase_ref 134661 // Enregistrer scéne
+  xyzwh 378 103 3005 64 32 label_xy 357 82
+end
+usecasecanvas 129157 usecase_ref 134789 // Commande dispositif DMX
+  xyzwh 305 255 3005 64 32 label_xy 261 236
+end
+usecasecanvas 129285 usecase_ref 134917 // Commande par Console
+  xyzwh 191 399 3005 64 32 label_xy 154 431
+end
+usecasecanvas 129413 usecase_ref 135045 // Dialoguer sur le réseau
+  xyzwh 395 398 3005 64 32 label_xy 361 430
+end
+line 129541 ----
+  from ref 128261 z 3006 to ref 128901
+line 129669 ----
+  from ref 129029 z 3006 to ref 128517
+simplerelationcanvas 129797 simplerelation_ref 135045
+  from ref 128901 z 3006 stereotype "<<include>>" xyz 283.5 117.5 3000 to ref 129029
+end
+line 129925 ----
+  from ref 128901 z 3006 to ref 128005
+line 130053 ----
+  from ref 129029 z 3006 to ref 128005
+line 130181 ----
+  from ref 128005 z 3006 to ref 129157
+line 130309 ----
+  from ref 128133 z 3006 to ref 129157
+line 130437 ----
+  from ref 128389 z 3006 to ref 129285
+line 130565 ----
+  from ref 128005 z 3006 to ref 129285
+line 130693 ----
+  from ref 129157 z 3006 to ref 128645
+line 130821 ----
+  from ref 129413 z 3006 to ref 128773
+simplerelationcanvas 130949 simplerelation_ref 135173
+  from ref 129285 z 3006 to ref 129413
+end
+simplerelationcanvas 131205 simplerelation_ref 135301
+  from ref 129413 z 3006 to ref 129157
+end
+end

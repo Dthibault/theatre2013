@@ -1,0 +1,176 @@
+class FenetrePrincipale
+!!!140037.cpp!!!	FenetrePrincipale(inout parent : QWidget = 0)
+    ui->setupUi(this);
+
+    connect(ui->actionQuitter, SIGNAL(triggered()), qApp, SLOT(quit()));
+
+    connect(ui->boutonGO, SIGNAL(clicked()), this, SLOT(envoyerTrame()));
+    connect(ui->boutonBACK, SIGNAL(clicked()), this, SLOT(envoyerTrame()));
+    connect(ui->PageDown, SIGNAL(clicked()), this, SLOT(envoyerTrame()));
+    connect(ui->PageUp, SIGNAL(clicked()), this, SLOT(envoyerTrame()));
+
+
+    this->maConsole = new GestionConsole;
+
+    connect(this->maConsole, SIGNAL(modifierNumero(int)), this, SLOT(modifierNumero(int)));
+
+    connect(ui->verticalSlider_1, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+    connect(ui->verticalSlider_2, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+    connect(ui->verticalSlider_3, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+    connect(ui->verticalSlider_4, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+    connect(ui->verticalSlider_5, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+    connect(ui->verticalSlider_6, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+    connect(ui->verticalSlider_7, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+    connect(ui->verticalSlider_8, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+    connect(ui->verticalSlider_9, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+    connect(ui->verticalSlider_10, SIGNAL(valueChanged(int)), this, SLOT(envoyerTrame()));
+
+!!!140165.cpp!!!	~FenetrePrincipale()
+    delete this->maConsole;
+
+    delete ui;
+!!!140293.cpp!!!	ouvrirParametres() : void
+    FenetreParametres fenetre;
+    fenetre.exec();
+!!!140421.cpp!!!	ouvrirGererAppareils() : void
+
+    QString addrApp, uuidApp;
+
+    GestionXML::lireAdaptateur(&addrApp, &uuidApp);
+
+    GestionDMX *interfaceDMX;
+    interfaceDMX = GestionDMX::getInstance();
+    interfaceDMX->setAdresse(addrApp);
+
+
+
+
+    if(!(GestionXML::lireAdaptateur(&addrApp, &uuidApp)) || !(interfaceDMX->estDisponible()))
+    {
+        QMessageBox::information(this, "Configuration de l'adaptateur", "Vous devez tout d'abord configurer correctement l'adaptateur ou le connecter.");
+    }
+    else
+    {
+        FenetreGererAppareils fenetre;
+        fenetre.exec();
+    }
+!!!140549.cpp!!!	ouvrirControleDistance() : void
+
+
+    QString addrApp, uuidApp;
+
+    GestionXML::lireAdaptateur(&addrApp, &uuidApp);
+    GestionDMX *interfaceDMX;
+    interfaceDMX = GestionDMX::getInstance();
+    interfaceDMX->setAdresse(addrApp);
+
+
+    if(!(GestionXML::lireAdaptateur(&addrApp, &uuidApp)) || !(interfaceDMX->estDisponible()))
+    {
+        QMessageBox::information(this, "Configuration de l'adaptateur", "Vous devez tout d'abord configurer correctement l'adaptateur ou le connecter.");
+    }
+    else
+    {
+        FenetreControleDistance fenetre;
+        fenetre.exec();
+    }
+
+!!!140677.cpp!!!	afficherModeScenes() : void
+
+    QString addrApp, uuidApp;
+
+    GestionXML::lireAdaptateur(&addrApp, &uuidApp);
+
+    GestionDMX *interfaceDMX;
+    interfaceDMX = GestionDMX::getInstance();
+    interfaceDMX->setAdresse(addrApp);
+
+
+    if(!(GestionXML::lireAdaptateur(&addrApp, &uuidApp)) || !(interfaceDMX->estDisponible()))
+    {
+        QMessageBox::information(this, "Configuration de l'adaptateur", "Vous devez tout d'abord configurer correctement l'adaptateur ou le connecter.");
+    }
+    else
+    {
+        ui->horizontalLayout->removeWidget(ui->conteneurGenerale);
+        ui->conteneurGenerale->hide();
+
+        this->gestionScenes = new WidgetGestionScenes;
+        ui->horizontalLayout->addWidget(this->gestionScenes);
+
+        this->boutonModeScenes->setDisabled(true);
+        this->boutonModeSequences->setDisabled(true);
+        this->boutonFermerMode->setEnabled(true);
+
+        this->typeMode = 1;
+
+        ui->menuConsole->setDisabled(true);
+        ui->actionG_rer_appareils->setDisabled(true);
+        ui->actionParam_tres->setDisabled(true);
+    }
+
+
+
+!!!140805.cpp!!!	afficherModeSequences() : void
+
+    QString addrApp, uuidApp;
+
+    GestionXML::lireAdaptateur(&addrApp, &uuidApp);
+
+    GestionDMX *interfaceDMX;
+    interfaceDMX = GestionDMX::getInstance();
+    interfaceDMX->setAdresse(addrApp);
+
+
+    if(!(GestionXML::lireAdaptateur(&addrApp, &uuidApp)) || !(interfaceDMX->estDisponible()))
+    {
+        QMessageBox::information(this, "Configuration de l'adaptateur", "Vous devez tout d'abord configurer correctement l'adaptateur ou le connecter.");
+    }
+    else
+    {
+        ui->horizontalLayout->removeWidget(ui->conteneurGenerale);
+        ui->conteneurGenerale->hide();
+
+        this->gestionSequences = new WidgetGestionSequences;
+        ui->horizontalLayout->addWidget(this->gestionSequences);
+
+        this->boutonModeScenes->setDisabled(true);
+        this->boutonModeSequences->setDisabled(true);
+        this->boutonFermerMode->setEnabled(true);
+
+        this->typeMode = 2;
+
+        ui->menuConsole->setDisabled(true);
+        ui->actionG_rer_appareils->setDisabled(true);
+        ui->actionParam_tres->setDisabled(true);
+    }
+
+!!!140933.cpp!!!	fermerMode() : void
+    if(this->typeMode == 1)
+    {
+        ui->horizontalLayout->removeWidget(this->gestionScenes);
+        delete this->gestionScenes;
+
+        ui->menuConsole->setEnabled(true);
+        ui->actionG_rer_appareils->setEnabled(true);
+        ui->actionParam_tres->setEnabled(true);
+    }
+    else if(this->typeMode == 2)
+    {
+        ui->horizontalLayout->removeWidget(this->gestionSequences);
+        delete this->gestionSequences;
+
+        ui->menuConsole->setEnabled(true);
+        ui->actionG_rer_appareils->setEnabled(true);
+        ui->actionParam_tres->setEnabled(true);
+    }
+
+    this->boutonModeScenes->setEnabled(true);
+    this->boutonModeSequences->setEnabled(true);
+    this->boutonFermerMode->setDisabled(true);
+
+    this->typeMode = 0;
+
+    ui->horizontalLayout->addWidget(ui->conteneurGenerale);
+    ui->conteneurGenerale->show();
+

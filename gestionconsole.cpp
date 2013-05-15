@@ -18,7 +18,7 @@ bool GestionConsole::start()
     {
         connect(this->socket, SIGNAL(readyRead()), this, SLOT(receptionTrame()));
 
-        qDebug() << "Socket connecté";
+
 //        this->interfaceDMX = new EnttecDMXUSB(DMX_USB_PRO, "/dev/ttyUSB0");
 //        this->interfaceDMX->ResetCanauxDMX();
 //        this->interfaceDMX->SendDMX();
@@ -29,7 +29,6 @@ bool GestionConsole::start()
     }
     else
     {
-        qDebug() << "Erreur de socket";
 
         return false;
     }
@@ -40,7 +39,7 @@ void GestionConsole::stop()
 {
     this->socket->close();
     disconnect(this->socket,0,0,0);
-    qDebug() << "Socket déconnecté";
+
 }
 
 

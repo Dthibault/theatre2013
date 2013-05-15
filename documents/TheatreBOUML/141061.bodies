@@ -1,0 +1,17 @@
+class WidgetCanalSuppl
+!!!195461.cpp!!!	WidgetCanalSuppl(inout parent : QWidget = 0)
+    ui->setupUi(this);
+    connect(ui->horizontalSlider, SIGNAL(valueChanged(int)), this, SLOT(envoyerChangement(int)));
+!!!195589.cpp!!!	~WidgetCanalSuppl()
+    disconnect(ui->horizontalSlider, 0, 0, 0);
+    delete ui;
+!!!195717.cpp!!!	setValeur(in valeur : int) : void
+    ui->spinBox->setValue(valeur);
+!!!195845.cpp!!!	getNumeroCanal() : int
+    return ui->spinBox->value();
+!!!195973.cpp!!!	getValeurCanal() : int
+    return ui->horizontalSlider->value();
+!!!196101.cpp!!!	getNomCanal() : QString
+    return ui->lineEdit->text();
+!!!196357.cpp!!!	envoyerChangement(in valeur : int) : void
+    emit changementSlider();

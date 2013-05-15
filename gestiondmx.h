@@ -4,7 +4,6 @@
 #include <QObject>
 #include <QThread>
 #include <QString>
-#include <QDebug>
 #include <string>
 #include "enttecdmxusb.h"
 

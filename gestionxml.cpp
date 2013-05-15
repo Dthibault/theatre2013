@@ -793,7 +793,6 @@ void GestionXML::supprimerScenesAssociees(QString uuidScenario)
         while(!(noeud.isNull()))
         {
             scenario = noeud.toElement();
-            qDebug() << scenario.attribute("nom");
 
             if(scenario.attribute("scenarioUUID") == uuidScenario)
             {

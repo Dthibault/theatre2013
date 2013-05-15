@@ -3,7 +3,6 @@
 
 #include <QDialog>
 #include <QString>
-#include <QDebug>
 #include "gestionxml.h"
 #include "gestionconsole.h"
 #include "gestiondmx.h"

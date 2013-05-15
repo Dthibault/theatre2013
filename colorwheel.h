@@ -5,7 +5,6 @@
 #include <QPainter>
 #include <QResizeEvent>
 #include <QStyleOption>
-#include <QDebug>
 #include <QtCore/qmath.h>
 
 class ColorWheel : public QWidget

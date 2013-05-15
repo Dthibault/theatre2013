@@ -1,0 +1,94 @@
+class GestionConsole
+!!!141957.cpp!!!	GestionConsole(inout parent : QObject = 0)
+    this->socket = new QUdpSocket(this);
+
+    if(this->socket->bind(QHostAddress::Any, 3330, QUdpSocket::ShareAddress))
+    {
+        connect(this->socket, SIGNAL(readyRead()), this, SLOT(receptionTrame()));
+        qDebug() << "Socket connecté";
+    }
+    else
+    {
+        qDebug() << "Erreur de socket";
+    }
+
+!!!142085.cpp!!!	~GestionConsole()
+    this->socket->close();
+    disconnect(this->socket,0,0,0);
+
+    delete this->socket;
+!!!142213.cpp!!!	start() : bool
+    if(this->socket->bind(QHostAddress::Any, 3330, QUdpSocket::ShareAddress))
+    {
+        connect(this->socket, SIGNAL(readyRead()), this, SLOT(receptionTrame()));
+
+
+//        this->interfaceDMX = new EnttecDMXUSB(DMX_USB_PRO, "/dev/ttyUSB0");
+//        this->interfaceDMX->ResetCanauxDMX();
+//        this->interfaceDMX->SendDMX();
+
+
+
+        return true;
+    }
+    else
+    {
+
+        return false;
+    }
+
+!!!142341.cpp!!!	stop() : void
+    this->socket->close();
+    disconnect(this->socket,0,0,0);
+
+!!!142469.cpp!!!	modifierNumero(in _t1 : int) : void
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
+!!!142597.cpp!!!	traitementTrame(in data : QByteArray) : void
+    QByteArray entete;
+
+    qDebug() << data;
+
+    for(int i=0;i<TAILLE_ENTETE;i++)
+    {
+        entete.append(data[i]);
+    }
+
+    if(entete.contains("WIDD"))
+    {
+
+        int numero = data[37];
+
+        qDebug() << data[37] << data[38];
+        emit modifierNumero(numero);
+
+
+
+//        QByteArray firmware;
+//        int lettreD = data[15];
+
+//        firmware.setNum(data[15], 16);
+
+//        qDebug() << "\nDecimal: " << lettreD << " / Hexa: " << firmware << "/ Resultat:" << QByteArray::fromHex(firmware);
+
+//        if(data[6] == 0x7f)
+//        {
+//            qDebug() << "\nUP";
+//        }
+    }
+
+!!!143365.cpp!!!	receptionTrame() : void
+
+    while(this->socket->hasPendingDatagrams())
+    {
+        QByteArray datagram;
+        datagram.resize(this->socket->pendingDatagramSize());
+
+        QHostAddress sender;
+        quint16 portSender;
+
+        this->socket->readDatagram(datagram.data(), datagram.size(), &sender, &portSender);
+
+        this->traitementTrame(datagram);
+
+    }

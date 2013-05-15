@@ -4,7 +4,6 @@
 #include <QDialog>
 #include <QString>
 #include <QUuid>
-#include <QDebug>
 #include <QFile>
 #include <QCryptographicHash>
 #include "gestiondmx.h"

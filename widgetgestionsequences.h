@@ -4,7 +4,6 @@
 #include <QWidget>
 #include <QtGui>
 #include <QString>
-#include <QDebug>
 #include <QUuid>
 #include <QTimer>
 #include <vector>

@@ -1,0 +1,92 @@
+class SceneAutres
+!!!192773.cpp!!!	SceneAutres(in sceneParente : QString, in uuidAutre : QString, inout parent : QWidget = 0)
+    ui->setupUi(this);
+
+    this->uuidAutre = uuidAutre;
+
+
+
+    QStringList listeCanaux, typeCanaux;
+    GestionXML::recupererCanaux(&listeCanaux, &typeCanaux, uuidAutre);
+
+    if(listeCanaux.size() > 0)
+    {
+        for(int i = 0; i<listeCanaux.size(); i++)
+        {
+            QHBoxLayout *layout = new QHBoxLayout();
+            this->labelSuppl.push_back(new QLabel(typeCanaux[i]));
+            this->sliderSuppl.push_back(new QSlider(Qt::Horizontal));
+            this->sliderSuppl[i]->setMinimum(0);
+            this->sliderSuppl[i]->setMaximum(255);
+
+            this->spinBoxSuppl.push_back(new QSpinBox());
+            this->spinBoxSuppl[i]->setDisabled(true);
+            this->spinBoxSuppl[i]->setMaximum(512);
+            this->spinBoxSuppl[i]->setValue(listeCanaux[i].toInt());
+
+            layout->addWidget(this->labelSuppl[i]);
+            layout->addWidget(this->sliderSuppl[i]);
+            layout->addWidget(this->spinBoxSuppl[i]);
+
+            ui->verticalLayout_10->addLayout(layout);
+
+            connect(this->sliderSuppl[i], SIGNAL(valueChanged(int)), this, SLOT(actionDMX()));
+        }
+    }
+
+    QStringList listeCanauxEnregistrer, valeurCanauxEnregistrer;
+    GestionXML::recupererValeursScenes(&listeCanauxEnregistrer, &valeurCanauxEnregistrer, sceneParente);
+
+
+    if(listeCanauxEnregistrer.size() != 0)
+    {
+
+        for(int i =0; i<listeCanauxEnregistrer.size(); i++)
+        {
+
+            if(this->sliderSuppl.size() > 0)
+            {
+                for(int j = 0; j<this->sliderSuppl.size(); j++)
+                {
+
+                    if(this->spinBoxSuppl[j]->value() == listeCanauxEnregistrer[i].toInt())
+                    {
+                        this->sliderSuppl[j]->setValue(valeurCanauxEnregistrer[i].toInt());;
+                    }
+                }
+            }
+
+
+        }
+    }
+    this->actionDMX();
+!!!192901.cpp!!!	~SceneAutres()
+    delete ui;
+!!!193029.cpp!!!	recupererValeurs(inout canal : QStringList, inout valeur : QStringList) : void
+
+    QStringList listeCanaux, typeCanaux;
+    GestionXML::recupererCanaux(&listeCanaux, &typeCanaux, this->uuidAutre);
+
+
+    if(listeCanaux.size() > 0)
+    {
+        for(int i = 0; i<listeCanaux.size(); i++)
+        {
+            canal->push_back(QString::number(this->spinBoxSuppl[i]->value()));
+            valeur->push_back(QString::number(this->sliderSuppl[i]->value()));
+        }
+    }
+!!!193285.cpp!!!	actionDMX() : void
+
+    QStringList listeCanaux, typeCanaux;
+    GestionXML::recupererCanaux(&listeCanaux, &typeCanaux, this->uuidAutre);
+
+    if(listeCanaux.size() > 0)
+    {
+        for(int i = 0; i<listeCanaux.size(); i++)
+        {
+            emit signalDMX(listeCanaux[i].toInt(), this->sliderSuppl[i]->value());
+        }
+    }
+
+

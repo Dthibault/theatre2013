@@ -2,7 +2,6 @@
 #define FENETREPRINCIPALE_H
 
 #include <QMainWindow>
-#include <QDebug>
 #include <QString>
 #include "fenetreparametres.h"
 #include "fenetregererappareils.h"

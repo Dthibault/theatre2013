@@ -6,4 +6,11 @@
     <scene uuidScene="{7cd54c50-3ac4-42bd-a972-cb68f09fbd56}" temporisation="3" uuid="{04384d59-31e3-430e-86f0-751f0d9be06b}"/>
     <scene uuidScene="{82cdce48-3f3a-42cb-a66b-7286babf1114}" temporisation="4" uuid="{f32913e2-9092-4d37-924e-fa7987df848c}"/>
   </sequence>
+  <sequence nom="Spectacle IRIS" uuid="{f9aecedb-eeb8-48a9-aded-3f4a43165e13}">
+    <scene uuidScene="{57af9226-0daf-457f-afc5-936d5cc8671f}" temporisation="4" uuid="{324d4210-f25f-4492-b85e-acd7756acc15}"/>
+    <scene uuidScene="{a1c836a8-0734-46dc-8da5-34a936f9d7f7}" temporisation="5" uuid="{800bc8e8-f5a1-417b-b9a6-b0af9c08bb89}"/>
+    <scene uuidScene="{d85b6bf1-9b56-4199-96e9-397d5de797ad}" temporisation="3" uuid="{85969d2a-4758-4787-9809-40ff41aecc46}"/>
+    <scene uuidScene="{fe039a44-4211-47dd-85d1-556627fe1602}" temporisation="5" uuid="{d159a7be-85a4-4362-825d-31205d26ba89}"/>
+    <scene uuidScene="{077b51b2-df36-4a94-b1fd-93290d11c028}" temporisation="10" uuid="{346bc1cd-aaab-4220-8616-8aec8eaafd5d}"/>
+  </sequence>
 </theatre2013>

@@ -78,11 +78,11 @@
     <canal valeur="0" id="193"/>
     <canal valeur="0" id="194"/>
     <canal valeur="0" id="196"/>
-    <canal valeur="138" id="13"/>
-    <canal valeur="143" id="14"/>
-    <canal valeur="0" id="11"/>
-    <canal valeur="0" id="12"/>
-    <canal valeur="31" id="10"/>
+    <canal valeur="202" id="13"/>
+    <canal valeur="49" id="14"/>
+    <canal valeur="8" id="11"/>
+    <canal valeur="24" id="12"/>
+    <canal valeur="0" id="10"/>
     <canal valeur="0" id="132"/>
     <canal valeur="0" id="133"/>
     <canal valeur="0" id="129"/>
@@ -91,5 +91,120 @@
     <canal valeur="0" id="32"/>
     <canal valeur="0" id="33"/>
     <canal valeur="0" id="34"/>
+  </scene>
+  <scene scenarioUUID="{c6ea8780-a6d2-4baa-9107-903f79a6906c}" nom="Sur Fraysse" uuid="{57af9226-0daf-457f-afc5-936d5cc8671f}">
+    <canal valeur="230" id="1"/>
+    <canal valeur="93" id="2"/>
+    <canal valeur="196" id="3"/>
+    <canal valeur="111" id="4"/>
+    <canal valeur="249" id="192"/>
+    <canal valeur="0" id="193"/>
+    <canal valeur="220" id="194"/>
+    <canal valeur="0" id="196"/>
+    <canal valeur="4" id="13"/>
+    <canal valeur="59" id="14"/>
+    <canal valeur="14" id="11"/>
+    <canal valeur="70" id="12"/>
+    <canal valeur="0" id="10"/>
+    <canal valeur="0" id="132"/>
+    <canal valeur="0" id="133"/>
+    <canal valeur="0" id="129"/>
+    <canal valeur="0" id="131"/>
+    <canal valeur="0" id="128"/>
+    <canal valeur="10" id="32"/>
+    <canal valeur="10" id="33"/>
+    <canal valeur="10" id="34"/>
+  </scene>
+  <scene scenarioUUID="{c6ea8780-a6d2-4baa-9107-903f79a6906c}" nom="Sur Kévin" uuid="{a1c836a8-0734-46dc-8da5-34a936f9d7f7}">
+    <canal valeur="12" id="1"/>
+    <canal valeur="242" id="2"/>
+    <canal valeur="31" id="3"/>
+    <canal valeur="112" id="4"/>
+    <canal valeur="15" id="192"/>
+    <canal valeur="246" id="193"/>
+    <canal valeur="61" id="194"/>
+    <canal valeur="0" id="196"/>
+    <canal valeur="41" id="13"/>
+    <canal valeur="64" id="14"/>
+    <canal valeur="9" id="11"/>
+    <canal valeur="14" id="12"/>
+    <canal valeur="0" id="10"/>
+    <canal valeur="0" id="132"/>
+    <canal valeur="0" id="133"/>
+    <canal valeur="0" id="129"/>
+    <canal valeur="0" id="131"/>
+    <canal valeur="0" id="128"/>
+    <canal valeur="98" id="32"/>
+    <canal valeur="0" id="33"/>
+    <canal valeur="10" id="34"/>
+  </scene>
+  <scene scenarioUUID="{c6ea8780-a6d2-4baa-9107-903f79a6906c}" nom="Sur l'alcoolique" uuid="{d85b6bf1-9b56-4199-96e9-397d5de797ad}">
+    <canal valeur="255" id="1"/>
+    <canal valeur="0" id="2"/>
+    <canal valeur="0" id="3"/>
+    <canal valeur="207" id="4"/>
+    <canal valeur="255" id="192"/>
+    <canal valeur="0" id="193"/>
+    <canal valeur="0" id="194"/>
+    <canal valeur="222" id="196"/>
+    <canal valeur="31" id="13"/>
+    <canal valeur="176" id="14"/>
+    <canal valeur="13" id="11"/>
+    <canal valeur="64" id="12"/>
+    <canal valeur="0" id="10"/>
+    <canal valeur="0" id="132"/>
+    <canal valeur="0" id="133"/>
+    <canal valeur="0" id="129"/>
+    <canal valeur="0" id="131"/>
+    <canal valeur="0" id="128"/>
+    <canal valeur="0" id="32"/>
+    <canal valeur="0" id="33"/>
+    <canal valeur="0" id="34"/>
+  </scene>
+  <scene scenarioUUID="{c6ea8780-a6d2-4baa-9107-903f79a6906c}" nom="Sur Ringes" uuid="{fe039a44-4211-47dd-85d1-556627fe1602}">
+    <canal valeur="249" id="1"/>
+    <canal valeur="237" id="2"/>
+    <canal valeur="0" id="3"/>
+    <canal valeur="119" id="4"/>
+    <canal valeur="249" id="192"/>
+    <canal valeur="241" id="193"/>
+    <canal valeur="8" id="194"/>
+    <canal valeur="0" id="196"/>
+    <canal valeur="36" id="13"/>
+    <canal valeur="45" id="14"/>
+    <canal valeur="77" id="11"/>
+    <canal valeur="45" id="12"/>
+    <canal valeur="196" id="10"/>
+    <canal valeur="0" id="132"/>
+    <canal valeur="0" id="133"/>
+    <canal valeur="0" id="129"/>
+    <canal valeur="0" id="131"/>
+    <canal valeur="0" id="128"/>
+    <canal valeur="0" id="32"/>
+    <canal valeur="0" id="33"/>
+    <canal valeur="0" id="34"/>
+  </scene>
+  <scene scenarioUUID="{c6ea8780-a6d2-4baa-9107-903f79a6906c}" nom="Sur Caussinus" uuid="{077b51b2-df36-4a94-b1fd-93290d11c028}">
+    <canal valeur="249" id="1"/>
+    <canal valeur="0" id="2"/>
+    <canal valeur="216" id="3"/>
+    <canal valeur="94" id="4"/>
+    <canal valeur="244" id="192"/>
+    <canal valeur="0" id="193"/>
+    <canal valeur="220" id="194"/>
+    <canal valeur="0" id="196"/>
+    <canal valeur="49" id="13"/>
+    <canal valeur="70" id="14"/>
+    <canal valeur="38" id="11"/>
+    <canal valeur="80" id="12"/>
+    <canal valeur="0" id="10"/>
+    <canal valeur="0" id="132"/>
+    <canal valeur="0" id="133"/>
+    <canal valeur="0" id="129"/>
+    <canal valeur="0" id="131"/>
+    <canal valeur="0" id="128"/>
+    <canal valeur="98" id="32"/>
+    <canal valeur="28" id="33"/>
+    <canal valeur="177" id="34"/>
   </scene>
 </theatre2013>
