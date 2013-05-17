@@ -8,12 +8,8 @@ GestionConsole::GestionConsole(QObject *parent) :
     if(this->socket->bind(QHostAddress::Any, 3330, QUdpSocket::ShareAddress))
     {
         connect(this->socket, SIGNAL(readyRead()), this, SLOT(receptionTrame()));
-        qDebug() << "Socket connecté";
     }
-    else
-    {
-        qDebug() << "Erreur de socket";
-    }
+
 
 }
 
@@ -54,7 +50,6 @@ void GestionConsole::traitementTrame(QByteArray data)
 {
     QByteArray entete;
 
-    qDebug() << data;
 
     for(int i=0;i<TAILLE_ENTETE;i++)
     {
@@ -66,22 +61,10 @@ void GestionConsole::traitementTrame(QByteArray data)
 
         int numero = data[37];
 
-        qDebug() << data[37] << data[38];
+
         emit modifierNumero(numero);
 
 
-
-//        QByteArray firmware;
-//        int lettreD = data[15];
-
-//        firmware.setNum(data[15], 16);
-
-//        qDebug() << "\nDecimal: " << lettreD << " / Hexa: " << firmware << "/ Resultat:" << QByteArray::fromHex(firmware);
-
-//        if(data[6] == 0x7f)
-//        {
-//            qDebug() << "\nUP";
-//        }
     }
 
 }

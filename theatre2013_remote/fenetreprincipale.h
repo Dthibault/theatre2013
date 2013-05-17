@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include <QString>
-#include <QDebug>
 #include <QByteArray>
 #include "gestionconsole.h"
 

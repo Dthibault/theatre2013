@@ -105,12 +105,11 @@ void FenetrePrincipale::envoyerTrame()
     this->maConsole->ecrireSocket(trame);
 
 
-    //qDebug() << "Taille: " << trame.size() << "\nTrame: " << trame;
 }
 
 
 void FenetrePrincipale::modifierNumero(int numero)
 {
-    qDebug() << "Numéro modifié: " << numero;
+
     ui->lcdNumber->display(numero);
 }
