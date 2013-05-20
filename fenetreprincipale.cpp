@@ -1,6 +1,6 @@
 #include "fenetreprincipale.h"
 #include "ui_fenetreprincipale.h"
-#include <QDebug>
+
 
 FenetrePrincipale::FenetrePrincipale(QWidget *parent) :
     QMainWindow(parent),
@@ -26,15 +26,12 @@ FenetrePrincipale::FenetrePrincipale(QWidget *parent) :
 
         QString cryptReponse = QCryptographicHash::hash(motDePasse.toLocal8Bit().constData(),QCryptographicHash::Sha1).toHex();
 
-        qDebug() << motDePasse;
-        qDebug() << cryptReponse;
         if(cryptReponse!=motDePasseActuel)
         {
             QMessageBox::warning(this, "Accès Refusé", "Mot de passe incorrect");
             exit(EXIT_SUCCESS);
         }
     }
-
 
 
 
@@ -85,9 +82,6 @@ void FenetrePrincipale::ouvrirGererAppareils()
     GestionDMX *interfaceDMX;
     interfaceDMX = GestionDMX::getInstance();
     interfaceDMX->setAdresse(addrApp);
-
-
-
 
     if(!(GestionXML::lireAdaptateur(&addrApp, &uuidApp)) || !(interfaceDMX->estDisponible()))
     {

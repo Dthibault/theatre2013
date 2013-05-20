@@ -38,6 +38,7 @@ public:
     static void recupererCanaux(QStringList *listeCanaux, QStringList *typeCanal, QString uuid);
 
     static void recupererDimmer(QStringList *listeCanaux);
+    static void recupererToutLesCanaux(QStringList *listeCanaux);
 
     static void recupererListeScenarios(QStringList *listeScenarios, QStringList *listeUUID);
     static void ajouterScenarios(QString nom, QString uuid);

@@ -7,6 +7,7 @@ WidgetCanalSuppl::WidgetCanalSuppl(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->horizontalSlider, SIGNAL(valueChanged(int)), this, SLOT(envoyerChangement(int)));
+    connect(ui->spinBox, SIGNAL(valueChanged(int)), this, SLOT(verifierCanal()));
 }
 
 WidgetCanalSuppl::~WidgetCanalSuppl()
@@ -40,4 +41,26 @@ void WidgetCanalSuppl::envoyerChangement(int valeur)
 int WidgetCanalSuppl::getValeurCanal()
 {
     return ui->horizontalSlider->value();
+}
+
+void WidgetCanalSuppl::verifierCanal()
+{
+    QStringList listeCanaux;
+    GestionXML::recupererToutLesCanaux(&listeCanaux);
+
+    bool canalPris = false;
+
+    for(int i = 0; i<listeCanaux.size(); i++)
+    {
+        if(ui->spinBox->value() == listeCanaux[i].toInt()) canalPris = true;
+    }
+
+    if(canalPris)
+    {
+        ui->spinBox->setStyleSheet("color:Orange;");
+    }
+    else
+    {
+        ui->spinBox->setStyleSheet("color:black;");
+    }
 }

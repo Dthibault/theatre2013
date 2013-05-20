@@ -44,6 +44,8 @@ private slots:
     void confirmationAppareil();
 
     void modifierNombreWidgetSuppl();
+
+    void verifierCanal();
 };
 
 #endif // FENETREAJOUTPAR_H

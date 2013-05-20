@@ -1,6 +1,7 @@
 #include "fenetreajoutpar.h"
 #include "ui_fenetreajoutpar.h"
 
+
 FenetreAjoutPar::FenetreAjoutPar(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::FenetreAjoutPar)
@@ -22,6 +23,9 @@ FenetreAjoutPar::FenetreAjoutPar(QWidget *parent) :
     connect(ui->verticalSliderRED, SIGNAL(valueChanged(int)), this, SLOT(miseAJourDMX()));
     connect(ui->verticalSliderGREEN, SIGNAL(valueChanged(int)), this, SLOT(miseAJourDMX()));
     connect(ui->verticalSliderBLUE, SIGNAL(valueChanged(int)), this, SLOT(miseAJourDMX()));
+    connect(ui->spinBoxRED, SIGNAL(valueChanged(int)), this, SLOT(verifierCanal()));
+    connect(ui->spinBoxBLUE, SIGNAL(valueChanged(int)), this, SLOT(verifierCanal()));
+    connect(ui->spinBoxGREEN, SIGNAL(valueChanged(int)), this, SLOT(verifierCanal()));
 
     connect(ui->spinBoxSuppl, SIGNAL(valueChanged(int)), this, SLOT(modifierNombreWidgetSuppl()));
 
@@ -170,5 +174,50 @@ void FenetreAjoutPar::modifierNombreWidgetSuppl()
 
             this->nbAjouts--;
         }
+    }
+}
+
+
+void FenetreAjoutPar::verifierCanal()
+{
+    QStringList listeCanaux;
+    GestionXML::recupererToutLesCanaux(&listeCanaux);
+
+    bool existantRED = false;
+    bool existantBLUE = false;
+    bool existantGREEN = false;
+
+    for(int i = 0; i<listeCanaux.size(); i++)
+    {
+        if(ui->spinBoxRED->value() == listeCanaux[i].toInt()) existantRED = true;
+        if(ui->spinBoxBLUE->value() == listeCanaux[i].toInt()) existantBLUE = true;
+        if(ui->spinBoxGREEN->value() == listeCanaux[i].toInt()) existantGREEN = true;
+    }
+
+    if(existantRED)
+    {
+        ui->spinBoxRED->setStyleSheet("color: Orange;");
+    }
+    else
+    {
+        ui->spinBoxRED->setStyleSheet("color: black");
+    }
+
+    if(existantGREEN)
+    {
+        ui->spinBoxGREEN->setStyleSheet("color: Orange;");
+    }
+    else
+    {
+        ui->spinBoxGREEN->setStyleSheet("color: black");
+    }
+
+    if(existantBLUE)
+    {
+        ui->spinBoxBLUE->setStyleSheet("color: Orange;");
+    }
+    else
+    {
+        ui->spinBoxBLUE->setStyleSheet("color: black");
     }
 }

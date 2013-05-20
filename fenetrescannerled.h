@@ -43,6 +43,8 @@ private slots:
     void confirmationAppareil();
 
     void modifierNombreWidgetSuppl();
+
+    void verifierCanal();
 };
 
 #endif // FENETRESCANNERLED_H

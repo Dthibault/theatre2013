@@ -413,7 +413,49 @@ void GestionXML::recupererDimmer(QStringList *listeCanaux)
                         listeCanaux->push_back(canauxElement.attribute("id"));
                     }
 
-                    //listeCanaux->push_back(canauxElement.text());
+                    noeudCanaux = noeudCanaux.nextSibling();
+                }
+
+
+
+            noeud = noeud.nextSibling();
+        }
+
+    }
+
+    fichierXML.close();
+}
+
+void GestionXML::recupererToutLesCanaux(QStringList *listeCanaux)
+{
+    QDomDocument documentXML;
+    QFile fichierXML(APPAREILSXML);
+
+    if(!(fichierXML.open(QIODevice::ReadOnly)))
+    {
+        QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Appareils.xml");
+    }
+    else
+    {
+        documentXML.setContent(&fichierXML, false);
+        QDomElement racine = documentXML.documentElement();
+        QDomNode noeud = racine.firstChild();
+
+        QDomElement peripherique;
+
+        QDomNode noeudCanaux;
+        QDomElement canauxElement;
+
+        while(!(noeud.isNull()))
+        {
+            peripherique = noeud.toElement();
+
+            noeudCanaux = peripherique.firstChild();
+
+                while(!(noeudCanaux.isNull()))
+                {
+                    canauxElement = noeudCanaux.toElement();
+                    listeCanaux->push_back(canauxElement.attribute("id"));
 
                     noeudCanaux = noeudCanaux.nextSibling();
                 }

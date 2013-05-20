@@ -2,6 +2,10 @@
 #define WIDGETCANALSUPPL_H
 
 #include <QWidget>
+#include <QString>
+#include <QStringList>
+#include "gestionxml.h"
+
 
 namespace Ui {
     class WidgetCanalSuppl;
@@ -31,6 +35,8 @@ signals:
 private slots:
 
     void envoyerChangement(int);
+
+    void verifierCanal();
 
 
 };

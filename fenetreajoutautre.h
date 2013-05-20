@@ -42,6 +42,7 @@ private slots:
     void confirmationAppareil();
 
     void modifierNombreWidgetSuppl();
+
 };
 
 #endif // FENETREAJOUTAUTRE_H

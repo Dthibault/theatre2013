@@ -22,6 +22,10 @@ FenetreScannerLED::FenetreScannerLED(QWidget *parent) :
     connect(ui->verticalSliderTILT, SIGNAL(valueChanged(int)), this, SLOT(miseAJourDMX()));
     connect(ui->verticalSliderCOULEUR, SIGNAL(valueChanged(int)), this, SLOT(miseAJourDMX()));
 
+    connect(ui->spinBoxPAN, SIGNAL(valueChanged(int)), this, SLOT(verifierCanal()));
+    connect(ui->spinBoxTILT, SIGNAL(valueChanged(int)), this, SLOT(verifierCanal()));
+    connect(ui->spinBoxCOULEUR, SIGNAL(valueChanged(int)), this, SLOT(verifierCanal()));
+
     connect(ui->spinBoxSuppl, SIGNAL(valueChanged(int)), this, SLOT(modifierNombreWidgetSuppl()));
 
     this->nbAjouts = 0;
@@ -169,3 +173,47 @@ void FenetreScannerLED::modifierNombreWidgetSuppl()
     }
 }
 
+void FenetreScannerLED::verifierCanal()
+{
+    QStringList listeCanaux;
+    GestionXML::recupererToutLesCanaux(&listeCanaux);
+
+    bool existantPAN = false;
+    bool existantTILT = false;
+    bool existantCOULEUR = false;
+
+    for(int i = 0; i<listeCanaux.size(); i++)
+    {
+        if(ui->spinBoxPAN->value() == listeCanaux[i].toInt()) existantPAN = true;
+        if(ui->spinBoxTILT->value() == listeCanaux[i].toInt()) existantTILT = true;
+        if(ui->spinBoxCOULEUR->value() == listeCanaux[i].toInt()) existantCOULEUR = true;
+    }
+
+    if(existantPAN)
+    {
+        ui->spinBoxPAN->setStyleSheet("color: Orange;");
+    }
+    else
+    {
+        ui->spinBoxPAN->setStyleSheet("color: black");
+    }
+
+    if(existantTILT)
+    {
+        ui->spinBoxTILT->setStyleSheet("color: Orange;");
+    }
+    else
+    {
+        ui->spinBoxTILT->setStyleSheet("color: black");
+    }
+
+    if(existantCOULEUR)
+    {
+        ui->spinBoxCOULEUR->setStyleSheet("color: Orange;");
+    }
+    else
+    {
+        ui->spinBoxCOULEUR->setStyleSheet("color: black");
+    }
+
+}
