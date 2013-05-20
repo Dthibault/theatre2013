@@ -1,11 +1,42 @@
 #include "fenetreprincipale.h"
 #include "ui_fenetreprincipale.h"
+#include <QDebug>
 
 FenetrePrincipale::FenetrePrincipale(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::FenetrePrincipale)
 {
     ui->setupUi(this);
+
+    // Modification de l'emplacement des données personnelles
+    QDir::setCurrent(QDir::homePath());
+
+    // Mise en place du service de mot de passe
+    bool ok = false;
+    QString motDePasse = QInputDialog::getText(this, "Accès Restreint", "<b>Seule les personnes autorisées peuvent utiliser ce programme.</b><br><br>Veuillez saisir le mot de passe.", QLineEdit::Password, QString(), &ok);
+
+    if(!ok)
+    {
+        exit(EXIT_SUCCESS);
+    }
+    else
+    {
+        QString motDePasseActuel;
+        GestionXML::lirePassword(&motDePasseActuel);
+
+        QString cryptReponse = QCryptographicHash::hash(motDePasse.toLocal8Bit().constData(),QCryptographicHash::Sha1).toHex();
+
+        qDebug() << motDePasse;
+        qDebug() << cryptReponse;
+        if(cryptReponse!=motDePasseActuel)
+        {
+            QMessageBox::warning(this, "Accès Refusé", "Mot de passe incorrect");
+            exit(EXIT_SUCCESS);
+        }
+    }
+
+
+
 
 
     connect(ui->actionParam_tres, SIGNAL(triggered()), this, SLOT(ouvrirParametres()));
@@ -28,11 +59,6 @@ FenetrePrincipale::FenetrePrincipale(QWidget *parent) :
     connect(this->boutonFermerMode, SIGNAL(clicked()), this, SLOT(fermerMode()));
 
     this->typeMode = 0;
-
-
-    // Modification de l'emplacement des données personnelles
-    QDir::setCurrent(QDir::homePath());
-
 
 }
 

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QString>
+#include <QCryptographicHash>
 #include "fenetreparametres.h"
 #include "fenetregererappareils.h"
 #include "fenetrecontroledistance.h"
