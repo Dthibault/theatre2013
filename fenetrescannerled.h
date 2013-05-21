@@ -6,6 +6,8 @@
 #include <QInputDialog>
 #include <QUuid>
 #include <vector>
+#include <QToolTip>
+#include <QTimer>
 #include <QVBoxLayout>
 #include "gestionxml.h"
 #include "gestionconsole.h"
@@ -45,6 +47,8 @@ private slots:
     void modifierNombreWidgetSuppl();
 
     void verifierCanal();
+
+    void afficherAvertissement();
 };
 
 #endif // FENETRESCANNERLED_H

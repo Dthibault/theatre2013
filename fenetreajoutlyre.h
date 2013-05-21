@@ -5,6 +5,8 @@
 #include <QString>
 #include <QInputDialog>
 #include <QUuid>
+#include <QTimer>
+#include <QToolTip>
 #include <vector>
 #include <QVBoxLayout>
 #include "gestionxml.h"
@@ -47,6 +49,8 @@ private slots:
     void modifierNombreWidgetSuppl();
 
     void verifierCanal();
+
+        void afficherAvertissement();
 };
 
 #endif // FENETREAJOUTLYRE_H

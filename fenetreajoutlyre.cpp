@@ -33,7 +33,9 @@ FenetreAjoutLyre::FenetreAjoutLyre(QWidget *parent) :
     this->nbAjouts = 0;
 
     this->layoutSuppl = new QVBoxLayout;
-    //ui->conteneurSuppl2->setLayout(this->layoutSuppl);
+
+    this->verifierCanal();
+
     ui->scrollAreaWidgetContents->setLayout(this->layoutSuppl);
 
 }
@@ -202,6 +204,7 @@ void FenetreAjoutLyre::verifierCanal()
     if(existantPAN)
     {
         ui->spinBoxPAN->setStyleSheet("color: Orange;");
+        QTimer::singleShot(100, this, SLOT(afficherAvertissement()));
     }
     else
     {
@@ -211,6 +214,7 @@ void FenetreAjoutLyre::verifierCanal()
     if(existantTILT)
     {
         ui->spinBoxTILT->setStyleSheet("color: Orange;");
+        QTimer::singleShot(100, this, SLOT(afficherAvertissement()));
     }
     else
     {
@@ -220,6 +224,7 @@ void FenetreAjoutLyre::verifierCanal()
     if(existantCOULEUR)
     {
         ui->spinBoxCOULEUR->setStyleSheet("color: Orange;");
+        QTimer::singleShot(100, this, SLOT(afficherAvertissement()));
     }
     else
     {
@@ -229,9 +234,15 @@ void FenetreAjoutLyre::verifierCanal()
     if(existantGLOBOS)
     {
         ui->spinBoxGLOBOS->setStyleSheet("color: Orange;");
+        QTimer::singleShot(100, this, SLOT(afficherAvertissement()));
     }
     else
     {
         ui->spinBoxGLOBOS->setStyleSheet("color: black");
     }
+}
+
+void FenetreAjoutLyre::afficherAvertissement()
+{
+    QToolTip::showText(QCursor::pos(), "Canal déjà utilisé!");
 }

@@ -23,7 +23,7 @@ FenetreAjoutAutre::FenetreAjoutAutre(QWidget *parent) :
     this->nbAjouts = 0;
 
     this->layoutSuppl = new QVBoxLayout;
-    //ui->conteneurSuppl2->setLayout(this->layoutSuppl);
+
     ui->scrollAreaWidgetContents->setLayout(this->layoutSuppl);
 }
 

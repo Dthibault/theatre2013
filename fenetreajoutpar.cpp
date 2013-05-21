@@ -32,8 +32,14 @@ FenetreAjoutPar::FenetreAjoutPar(QWidget *parent) :
     this->nbAjouts = 0;
 
     this->layoutSuppl = new QVBoxLayout;
-    //ui->conteneurSuppl2->setLayout(this->layoutSuppl);
+
     ui->scrollAreaWidgetContents->setLayout(this->layoutSuppl);
+
+    this->verifierCanal();
+
+
+
+
 }
 
 FenetreAjoutPar::~FenetreAjoutPar()
@@ -194,9 +200,11 @@ void FenetreAjoutPar::verifierCanal()
         if(ui->spinBoxGREEN->value() == listeCanaux[i].toInt()) existantGREEN = true;
     }
 
+
     if(existantRED)
     {
         ui->spinBoxRED->setStyleSheet("color: Orange;");
+        QTimer::singleShot(100, this, SLOT(afficherAvertissement()));
     }
     else
     {
@@ -206,6 +214,7 @@ void FenetreAjoutPar::verifierCanal()
     if(existantGREEN)
     {
         ui->spinBoxGREEN->setStyleSheet("color: Orange;");
+        QTimer::singleShot(100, this, SLOT(afficherAvertissement()));
     }
     else
     {
@@ -215,9 +224,16 @@ void FenetreAjoutPar::verifierCanal()
     if(existantBLUE)
     {
         ui->spinBoxBLUE->setStyleSheet("color: Orange;");
+        QTimer::singleShot(100, this, SLOT(afficherAvertissement()));
     }
     else
     {
         ui->spinBoxBLUE->setStyleSheet("color: black");
     }
+}
+
+
+void FenetreAjoutPar::afficherAvertissement()
+{
+    QToolTip::showText(QCursor::pos(), "Canal déjà utilisé!");
 }

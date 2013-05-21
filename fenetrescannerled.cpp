@@ -33,6 +33,8 @@ FenetreScannerLED::FenetreScannerLED(QWidget *parent) :
     this->layoutSuppl = new QVBoxLayout;
 
     ui->scrollAreaWidgetContents->setLayout(this->layoutSuppl);
+
+    this->verifierCanal();
 }
 
 FenetreScannerLED::~FenetreScannerLED()
@@ -192,6 +194,7 @@ void FenetreScannerLED::verifierCanal()
     if(existantPAN)
     {
         ui->spinBoxPAN->setStyleSheet("color: Orange;");
+        QTimer::singleShot(100, this, SLOT(afficherAvertissement()));
     }
     else
     {
@@ -201,6 +204,7 @@ void FenetreScannerLED::verifierCanal()
     if(existantTILT)
     {
         ui->spinBoxTILT->setStyleSheet("color: Orange;");
+        QTimer::singleShot(100, this, SLOT(afficherAvertissement()));
     }
     else
     {
@@ -210,10 +214,16 @@ void FenetreScannerLED::verifierCanal()
     if(existantCOULEUR)
     {
         ui->spinBoxCOULEUR->setStyleSheet("color: Orange;");
+        QTimer::singleShot(100, this, SLOT(afficherAvertissement()));
     }
     else
     {
         ui->spinBoxCOULEUR->setStyleSheet("color: black");
     }
 
+}
+
+void FenetreScannerLED::afficherAvertissement()
+{
+    QToolTip::showText(QCursor::pos(), "Canal déjà utilisé!");
 }

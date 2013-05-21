@@ -7,6 +7,8 @@
 #include <QUuid>
 #include <vector>
 #include <QVBoxLayout>
+#include <QToolTip>
+#include <QTimer>
 #include "gestionxml.h"
 #include "gestionconsole.h"
 #include "widgetcanalsuppl.h"
@@ -36,6 +38,7 @@ private:
     QVBoxLayout *layoutSuppl;
 
 
+
 private slots:
     void fermer();
 
@@ -46,6 +49,8 @@ private slots:
     void modifierNombreWidgetSuppl();
 
     void verifierCanal();
+
+    void afficherAvertissement();
 };
 
 #endif // FENETREAJOUTPAR_H

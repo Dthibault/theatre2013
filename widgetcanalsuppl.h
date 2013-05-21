@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QString>
 #include <QStringList>
+#include <QTimer>
+#include <QToolTip>
 #include "gestionxml.h"
 
 
@@ -37,7 +39,7 @@ private slots:
     void envoyerChangement(int);
 
     void verifierCanal();
-
+    void afficherAvertissement();
 
 };
 

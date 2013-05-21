@@ -58,9 +58,15 @@ void WidgetCanalSuppl::verifierCanal()
     if(canalPris)
     {
         ui->spinBox->setStyleSheet("color:Orange;");
+        QTimer::singleShot(100, this, SLOT(afficherAvertissement()));
     }
     else
     {
         ui->spinBox->setStyleSheet("color:black;");
     }
+}
+
+void WidgetCanalSuppl::afficherAvertissement()
+{
+    QToolTip::showText(QCursor::pos(), "Canal déjà utilisé!");
 }
