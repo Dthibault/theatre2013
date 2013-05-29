@@ -34,6 +34,7 @@ public:
 
     static void ajouterAppareil(QString nom, QString uuid, QString nbCanal, QString typeAppareil, QStringList numeroCanal, QStringList actionCanal);
     static void effacerAppareils(QString uuid);
+    static void modifierAppareil(QString nouveauNom, QString uuid);
 
     static void recupererCanaux(QStringList *listeCanaux, QStringList *typeCanal, QString uuid);
 

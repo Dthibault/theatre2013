@@ -16,6 +16,7 @@ FenetreGererAppareils::FenetreGererAppareils(QWidget *parent) :
 
     connect(ui->boutonAjouter, SIGNAL(clicked()), this, SLOT(ouvrirFenetreNouveau()));
     connect(ui->boutonEffacer, SIGNAL(clicked()), this, SLOT(effacerAppareil()));
+    connect(ui->boutonModifier, SIGNAL(clicked()), this, SLOT(modifierAppareil()));
 
 
     this->listerAppareils();
@@ -39,6 +40,8 @@ void FenetreGererAppareils::listerAppareils()
     {
         ui->listWidget->addItem(nom[i]);
     }
+
+    ui->listWidget->setCurrentRow(0);
 }
 
 void FenetreGererAppareils::ouvrirFenetreNouveau()
@@ -97,4 +100,24 @@ void FenetreGererAppareils::effacerAppareil()
         ui->listWidget->clear();
         this->listerAppareils();
     }
+}
+
+void FenetreGererAppareils::modifierAppareil()
+{
+    QStringList nom, uuid, type;
+    GestionXML::lireListeAppareils(&nom, &uuid, &type);
+
+    bool ok = false;
+    QString nouveauNom = QInputDialog::getText(this, "Modifier le nom", "Nouveau nom: ", QLineEdit::Normal, nom[ui->listWidget->currentRow()], &ok);
+
+    if(ok)
+    {
+        GestionXML::modifierAppareil(nouveauNom, uuid[ui->listWidget->currentRow()]);
+
+        ui->listWidget->clear();
+        this->listerAppareils();
+    }
+
+
+
 }

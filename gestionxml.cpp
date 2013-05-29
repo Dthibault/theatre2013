@@ -329,6 +329,58 @@ void GestionXML::effacerAppareils(QString uuid)
 
 }
 
+void GestionXML::modifierAppareil(QString nouveauNom, QString uuid)
+{
+    QDomDocument documentXML;
+    QFile fichierXML(APPAREILSXML);
+
+    if(!(fichierXML.open(QIODevice::ReadOnly)))
+    {
+        QMessageBox::warning(0,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Appareils.xml");
+    }
+    else
+    {
+
+        if(!(documentXML.setContent(&fichierXML)))
+        {
+            QDomNode xmlNode = documentXML.createProcessingInstruction("xml","version=\"1.0\" encoding=\"UTF-8\"");
+            documentXML.insertBefore(xmlNode, documentXML.firstChild());
+
+            QDomElement root = documentXML.createElement("theatre2013");
+            documentXML.appendChild(root);
+        }
+
+
+        fichierXML.close();
+        fichierXML.open(QIODevice::WriteOnly);
+
+        QTextStream out;
+        out.setDevice(&fichierXML);
+
+        QDomElement racine = documentXML.documentElement();
+        QDomNode noeud = racine.firstChild();
+
+        QDomElement peripherique;
+
+        while(!(noeud.isNull()))
+        {
+            peripherique = noeud.toElement();
+
+            if(peripherique.attribute("uuid") == uuid)
+            {
+
+                peripherique.setAttribute("nom", nouveauNom);
+            }
+
+            noeud = noeud.nextSibling();
+        }
+
+        documentXML.save(out, 2);
+        fichierXML.close();
+
+    }
+}
+
 void GestionXML::recupererCanaux(QStringList *listeCanaux, QStringList *typeCanal, QString uuid)
 {
     QDomDocument documentXML;
@@ -1356,3 +1408,5 @@ void GestionXML::supprimerSceneDeSequenceExterne(QString uuidScene)
         fichierXML.close();
     }
 }
+
+
