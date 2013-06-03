@@ -54,6 +54,13 @@ p, li { white-space: pre-wrap; }
              </spacer>
             </item>
             <item>
+             <widget class="QPushButton" name="boutonModifier">
+              <property name="text">
+               <string>Modifier</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QPushButton" name="boutonEffacer">
               <property name="text">
                <string>Effacer</string>

@@ -5,6 +5,7 @@
 #include <QString>
 #include <QUuid>
 #include <QFile>
+#include <QDebug>
 #include <QCryptographicHash>
 #include "gestiondmx.h"
 #include "gestionxml.h"
@@ -34,6 +35,7 @@ private slots:
     void ouvrirFenetreNouveau();
 
     void effacerAppareil();
+    void modifierAppareil();
 
 };
 
