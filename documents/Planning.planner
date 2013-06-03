@@ -7,62 +7,82 @@
       <day-type id="0" name="Travaill&#xE9;" description="Un jour de travail normal"/>
       <day-type id="1" name="Ch&#xF4;m&#xE9;" description="Un jour ch&#xF4;m&#xE9; normal"/>
       <day-type id="2" name="Utiliser la base" description="Utilise un jour du calendrier de base"/>
-      <day-type id="3" name="Jeudi" description=""/>
+      <day-type id="3" name="Mercredi" description=""/>
       <day-type id="4" name="Vendredi" description=""/>
-      <day-type id="5" name="Mercredi" description=""/>
+      <day-type id="5" name="Jeudi" description=""/>
     </day-types>
     <calendar id="1" name="D&#xE9;faut">
-      <default-week mon="1" tue="1" wed="5" thu="3" fri="4" sat="1" sun="1"/>
+      <default-week mon="1" tue="1" wed="3" thu="5" fri="4" sat="1" sun="1"/>
       <overridden-day-types>
+        <overridden-day-type id="3">
+          <interval start="1330" end="1800"/>
+        </overridden-day-type>
         <overridden-day-type id="4">
           <interval start="0800" end="1235"/>
           <interval start="1330" end="1800"/>
         </overridden-day-type>
+        <overridden-day-type id="5">
+          <interval start="1235" end="1800"/>
+        </overridden-day-type>
         <overridden-day-type id="0">
           <interval start="0800" end="1200"/>
           <interval start="1300" end="1700"/>
-        </overridden-day-type>
-        <overridden-day-type id="5">
-          <interval start="1330" end="1800"/>
-        </overridden-day-type>
-        <overridden-day-type id="3">
-          <interval start="1235" end="1800"/>
         </overridden-day-type>
       </overridden-day-types>
       <days/>
     </calendar>
   </calendars>
   <tasks>
-    <task id="1" name="Gestion_Du_Projet" note="" work="632400" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-      <task id="2" name="Prise_en_main" note="" work="56400" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-        <task id="3" name="Verification_Etat_Du_Materiel" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-        <task id="4" name="Verification_Des_Ressources_Existant" note="" work="27600" start="20130109T000000Z" end="20130110T154500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+    <task id="1" name="Gestion_Du_Projet" note="" work="3945600" start="20130109T000000Z" end="20130620T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="2" name="Prise_en_main" note="" work="28800" start="20130109T000000Z" end="20130109T173000Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="3" name="Verification_Etat_Du_Materiel" note="" work="14400" start="20130109T000000Z" end="20130109T173000Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+        <task id="4" name="Verification_Des_Ressources_Existant" note="" work="14400" start="20130109T000000Z" end="20130109T173000Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
       </task>
-      <task id="5" name="Programme" note="" work="259200" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-        <task id="6" name="Code" note="" work="230400" duration="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-duration">
-          <task id="7" name="communication" note="" work="57600" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-            <task id="8" name="DMX" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-            <task id="9" name="Reseau_Socket_UDP" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="5" name="Programme" note="" work="2563200" start="20130109T000000Z" end="20130405T100500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="6" name="Code" note="" work="1699200" duration="806400" start="20130109T000000Z" end="20130329T140000Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-duration">
+          <task id="7" name="communication" note="" work="604800" start="20130110T000000Z" end="20130221T160000Z" work-start="20130110T123500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+            <task id="8" name="DMX" note="" work="201600" start="20130110T000000Z" end="20130130T170000Z" work-start="20130110T123500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+              <constraint type="must-start-on" time="20130110T000000Z"/>
+            </task>
+            <task id="9" name="Reseau_Socket_UDP" note="" work="403200" start="20130111T000000Z" end="20130221T160000Z" work-start="20130111T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+              <constraint type="must-start-on" time="20130111T000000Z"/>
+            </task>
           </task>
-          <task id="10" name="Gestion_Commande_Appareil" note="" work="144000" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-            <task id="11" name="Lyre" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-            <task id="12" name="Led" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-            <task id="13" name="Scanner" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-            <task id="14" name="Laser" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-            <task id="15" name="Console" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+          <task id="10" name="Gestion_Commande_Appareil" note="" work="288000" start="20130131T000000Z" end="20130228T150000Z" work-start="20130131T123500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+            <task id="11" name="Lyre" note="" work="57600" start="20130131T000000Z" end="20130206T150000Z" work-start="20130131T123500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+              <constraint type="must-start-on" time="20130131T000000Z"/>
+            </task>
+            <task id="12" name="Led" note="" work="57600" start="20130206T000000Z" end="20130208T150000Z" work-start="20130206T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+              <constraint type="must-start-on" time="20130206T000000Z"/>
+            </task>
+            <task id="13" name="Scanner" note="" work="57600" start="20130213T000000Z" end="20130215T150000Z" work-start="20130213T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+              <constraint type="start-no-earlier-than" time="20130213T000000Z"/>
+            </task>
+            <task id="14" name="Laser" note="" work="57600" start="20130220T000000Z" end="20130222T150000Z" work-start="20130220T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+              <constraint type="start-no-earlier-than" time="20130220T000000Z"/>
+            </task>
+            <task id="15" name="Console" note="" work="57600" start="20130222T000000Z" end="20130228T150000Z" work-start="20130222T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+              <constraint type="must-start-on" time="20130222T000000Z"/>
+            </task>
           </task>
-          <task id="16" name="Gestion_Lecture_Ecriture_XML" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+          <task id="16" name="Gestion_Lecture_Ecriture_XML" note="" work="806400" start="20130109T000000Z" end="20130329T140000Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
         </task>
-        <task id="17" name="Interface_Graphique" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+        <task id="17" name="Interface_Graphique" note="" work="864000" start="20130109T000000Z" end="20130405T100500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
       </task>
-      <task id="18" name="BOUML" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-      <task id="19" name="Rendu_sur_CD" note="" work="288000" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-        <task id="20" name="Livraisons" note="" work="86400" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-          <task id="21" name="Revue_1" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-          <task id="22" name="Revue_2" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-          <task id="23" name="Revue_Final" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="18" name="BOUML" note="" work="1008000" start="20130109T000000Z" end="20130419T120500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="19" name="Rendu_sur_CD" note="" work="345600" start="20130109T000000Z" end="20130620T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="20" name="Livraisons" note="" work="86400" start="20130320T000000Z" end="20130620T160500Z" work-start="20130320T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <task id="21" name="Revue_1" note="" work="28800" start="20130320T000000Z" end="20130321T160500Z" work-start="20130320T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+            <constraint type="must-start-on" time="20130320T000000Z"/>
+          </task>
+          <task id="22" name="Revue_2" note="" work="28800" start="20130522T000000Z" end="20130523T160500Z" work-start="20130522T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+            <constraint type="must-start-on" time="20130522T000000Z"/>
+          </task>
+          <task id="23" name="Revue_Final" note="" work="28800" start="20130617T000000Z" end="20130620T160500Z" work-start="20130619T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+            <constraint type="must-start-on" time="20130617T000000Z"/>
+          </task>
         </task>
-        <task id="24" name="Documentation" note="" work="201600" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="24" name="Documentation" note="" work="259200" start="20130109T000000Z" end="20130111T150000Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <task id="25" name="Technique" note="" work="144000" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
             <task id="26" name="Boitier_Enttec" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
             <task id="27" name="Lyre" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
@@ -70,13 +90,46 @@
             <task id="29" name="Scanner" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
             <task id="30" name="Console" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
           </task>
-          <task id="31" name="D'instalation" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-          <task id="32" name="D'utilisation" note="" work="28800" start="20130109T000000Z" end="20130110T160500Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+          <task id="31" name="D'instalation" note="" work="57600" start="20130109T000000Z" end="20130111T150000Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+          <task id="32" name="D'utilisation" note="" work="57600" start="20130109T000000Z" end="20130111T150000Z" work-start="20130109T133000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
         </task>
       </task>
     </task>
   </tasks>
   <resource-groups/>
-  <resources/>
-  <allocations/>
+  <resources>
+    <resource id="1" name="DUPUIS" short-name="" type="1" units="0" email="" note="" std-rate="0"/>
+    <resource id="2" name="DANGELY" short-name="" type="1" units="0" email="" note="" std-rate="0"/>
+    <resource id="3" name="BERTRAND" short-name="" type="1" units="0" email="" note="" std-rate="0"/>
+    <resource id="4" name="TOUS" short-name="" type="1" units="0" email="" note="" std-rate="0"/>
+  </resources>
+  <allocations>
+    <allocation task-id="26" resource-id="1" units="100"/>
+    <allocation task-id="27" resource-id="1" units="100"/>
+    <allocation task-id="28" resource-id="1" units="100"/>
+    <allocation task-id="29" resource-id="1" units="100"/>
+    <allocation task-id="14" resource-id="1" units="100"/>
+    <allocation task-id="13" resource-id="1" units="100"/>
+    <allocation task-id="12" resource-id="1" units="100"/>
+    <allocation task-id="11" resource-id="1" units="100"/>
+    <allocation task-id="8" resource-id="1" units="100"/>
+    <allocation task-id="15" resource-id="2" units="100"/>
+    <allocation task-id="9" resource-id="2" units="100"/>
+    <allocation task-id="30" resource-id="3" units="100"/>
+    <allocation task-id="16" resource-id="3" units="100"/>
+    <allocation task-id="31" resource-id="4" units="100"/>
+    <allocation task-id="32" resource-id="4" units="100"/>
+    <allocation task-id="24" resource-id="4" units="100"/>
+    <allocation task-id="25" resource-id="4" units="100"/>
+    <allocation task-id="19" resource-id="4" units="100"/>
+    <allocation task-id="20" resource-id="4" units="100"/>
+    <allocation task-id="21" resource-id="4" units="100"/>
+    <allocation task-id="22" resource-id="4" units="100"/>
+    <allocation task-id="23" resource-id="4" units="100"/>
+    <allocation task-id="18" resource-id="4" units="100"/>
+    <allocation task-id="17" resource-id="4" units="100"/>
+    <allocation task-id="4" resource-id="4" units="100"/>
+    <allocation task-id="3" resource-id="4" units="100"/>
+    <allocation task-id="2" resource-id="4" units="100"/>
+  </allocations>
 </project>
